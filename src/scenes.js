@@ -26,45 +26,58 @@ Crafty.scene( 'Game', function () {
     // Place a tree at every edge square on our grid of 16x16 tiles
     for ( var x = 0; x < Game.map_grid.width; x++ ) {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            var at_edge = x == 0 || x == Game.map_grid.width - 1 ||
-                y == 0 || y == Game.map_grid.height - 1;
-
+            var at_edge = x == 0 || x == Game.map_grid.width - 1 ||  y == 0;
+            var tile;
             if ( at_edge ) {
                 // Place a tree entity at the current tile
-//                Crafty.e( 'Tree' ).at( x, y );
-                var wall;
-                var random;
-                if (( random = Math.random() ) < 0.4) {
-                    wall = 'Wall_borderless';
-                }
-                else if (random > 0.7) {
-                    wall = 'Wall_window';
-                }
-                else {
-                    wall = 'Wall_jallu';
-                }
-                Crafty.e( wall ).at( x, y );
-                this.occupied[x][y] = true;
-            } else if ( Math.random() < 0.06 && !this.occupied[x][y] ) {
-                // Place a bush entity at the current tile
-                var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
-                Crafty.e( bush_or_rock ).at( x, y );
-                this.occupied[x][y] = true;
-            }
+				// Crafty.e( 'Tree' ).at( x, y );
+				if (y == 0) {
+					if (x == 0 || x == Game.map_grid.width - 1) {tile = 'Wall_vr';} 
+					else if (x < 5) {tile = 'Wall_boozes';}
+					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Wall_window';}
+					else {tile = 'Wall_borderless';}
+				}
+				else if (x == 0 || x == Game.map_grid.width - 1) {
+					if (y == 3 || y == 4) {tile = 'Floor_dark';}
+					else {tile = 'Wall_borderless';}
+				}
+			}
+			else {
+				if (y == 1 || y == 2) {
+					if (y == 2 && x < 5) {tile = 'Wall_wooden';}
+					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Bar_chair';}
+					else if (x == 8 || x == 11) {tile = 'Bar_table';}					
+					else {continue;}
+				}
+				else if (y == 3 || y == 4) {tile = 'Floor_dark';}
+				else {
+					if (x == 2 || x == 5 || x == 8 || x == 11) {tile = 'Bar_table';}
+					else {tile = 'Bar_chair';}
+				}
+			}
+            Crafty.e( tile ).at( x, y );
+            this.occupied[x][y] = true;
+            
+//			 else if ( Math.random() < 0.06 && !this.occupied[x][y] ) {
+//                // Place a bush entity at the current tile
+//                var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
+//                Crafty.e( bush_or_rock ).at( x, y );
+//                this.occupied[x][y] = true;
+//            }
         }
     }
 
-    // Generate five villages on the map in random locations
-    var max_villages = 10;
-    for ( var x = 0; x < Game.map_grid.width; x++ ) {
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            if ( Math.random() < 0.03 ) {
-                if ( Crafty( 'Village' ).length < max_villages && !this.occupied[x][y] ) {
-                    Crafty.e( 'Village' ).at( x, y );
-                }
-            }
-        }
-    }
+//    // Generate five villages on the map in random locations
+//    var max_villages = 10;
+//    for ( var x = 0; x < Game.map_grid.width; x++ ) {
+//        for ( var y = 0; y < Game.map_grid.height; y++ ) {
+//            if ( Math.random() < 0.03 ) {
+//                if ( Crafty( 'Village' ).length < max_villages && !this.occupied[x][y] ) {
+//                    Crafty.e( 'Village' ).at( x, y );
+//                }
+//            }
+//        }
+//    }
 
     // -------------------- START THE GAME -------------------/
     // Play a ringing sound to indicate the start of the journey

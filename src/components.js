@@ -28,6 +28,20 @@ Crafty.c('Actor', {
 });
 
 // A solid wall
+Crafty.c('Bar_chair', {
+    init: function() {
+        this.requires('Actor, Solid, spr_chair');
+    }
+});
+
+// A solid wall
+Crafty.c('Bar_table', {
+    init: function() {
+        this.requires('Actor, Solid, spr_board');
+    }
+});
+
+// A solid wall
 Crafty.c('Wall_borderless', {
     init: function() {
         this.requires('Actor, Solid, spr_wall_noborders');
@@ -42,9 +56,79 @@ Crafty.c('Wall_window', {
 });
 
 // A solid wall
+Crafty.c('Wall_ritila', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_ritila');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_wooden', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_wooden');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_leftborders', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_leftborders');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_rightborders', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_rightborders');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_bothborders', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_bothborders');
+    }
+});
+
+// A solid wall
+Crafty.c('Floor_dark', {
+    init: function() {
+        this.requires('Actor, spr_floor_dark');
+    }
+});
+
+// A solid wall
+Crafty.c('Floor_light', {
+    init: function() {
+        this.requires('Actor, spr_floor_light');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_vr', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_vr');
+    }
+});
+
+// A solid wall
 Crafty.c('Wall_jallu', {
     init: function() {
         this.requires('Actor, Solid, spr_wall_jallu');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_boozes', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_boozes');
+    }
+});
+
+// A solid wall
+Crafty.c('Wall_martini', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_martini');
     }
 });
 
