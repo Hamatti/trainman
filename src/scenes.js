@@ -146,7 +146,8 @@ Crafty.scene( 'Loading', function () {
     // Load our sprite map image
     Crafty.load( [
         'assets/16x16_forest_2.gif',
-        'assets/level.png',
+        'assets/spritet.png',
+		'assets/level_old.png',
         'assets/hunter.png',
         'assets/door_knock_3x.mp3',
         'assets/door_knock_3x.ogg',
@@ -172,26 +173,26 @@ Crafty.scene( 'Loading', function () {
             spr_rock: [1, 1]
         } );
 
-        Crafty.sprite( 66, 'assets/level_old.png', {
+		Crafty.sprite(66, 'assets/level_old.png', {
+			spr_trainplayer: [1, 1]
+		});
+
+        Crafty.sprite( 64, 'assets/spritet.png', {
             spr_chair: [0, 0],
             spr_board: [1, 0],
-            spr_trainplayer: [1, 1]
-        } );
-
-        Crafty.sprite( 66, 'assets/level.png', {
-            spr_floor_dark: [0, 1],
-            spr_floor_light: [1, 1],
-            spr_wall_ritila: [2, 1],
+            spr_floor_dark: [3, 0],
+            spr_floor_light: [4, 0],
+            spr_wall_ritila: [1, 1],
             spr_wall_wooden: [2, 0],
-            spr_wall_noborders: [0, 2],
-            spr_wall_leftborder: [1, 4],
-            spr_wall_rightborder: [2, 3],
-            spr_wall_bothborders: [1, 3],
-            spr_wall_jallu: [0, 3],
-            spr_wall_martini: [2, 4],
-            spr_wall_boozes: [1, 2],
-            spr_wall_window: [2, 2],
-            spr_wall_vr: [0, 4]
+            spr_wall_noborders: [2, 1],
+            spr_wall_leftborder: [2, 2],
+            spr_wall_rightborder: [0, 2],
+            spr_wall_bothborders: [6, 1],
+            spr_wall_jallu: [5, 1],
+            spr_wall_martini: [3, 2],
+            spr_wall_boozes: [3, 1],
+            spr_wall_window: [4, 1],
+            spr_wall_vr: [1, 2]
         });
 
         // Define the PC's sprite to be the first sprite in the third row of the
