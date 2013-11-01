@@ -1,4 +1,4 @@
-#RAINMAN
+#TRAINMAN
 
 Trainman is a new adventure game for everyone who has always dreamed of being a train conductor.
 
