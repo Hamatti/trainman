@@ -19,10 +19,6 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    // Player character, placed at 5, 5 on our grid
-    this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
-    this.occupied[this.player.at().x][this.player.at().y] = true;
-
     // Place a tree at every edge square on our grid of 16x16 tiles
     for ( var x = 0; x < Game.map_grid.width; x++ ) {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
@@ -66,6 +62,9 @@ Crafty.scene( 'Game', function () {
 //            }
         }
     }
+    // Player character, placed at 5, 5 on our grid
+    this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
+    this.occupied[this.player.at().x][this.player.at().y] = true;
 
 //    // Generate five villages on the map in random locations
 //    var max_villages = 10;
