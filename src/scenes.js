@@ -166,15 +166,12 @@ Crafty.scene( 'Loading', function () {
         // These components' names are prefixed with "spr_"
         //  to remind us that they simply cause the entity
         //  to be drawn with a certain sprite
-        Crafty.sprite( 16, 'assets/16x16_forest_2.gif', {
-            spr_tree: [0, 0],
-            spr_bush: [1, 0],
-            spr_village: [0, 1],
-            spr_rock: [1, 1]
-        } );
 
-		Crafty.sprite(66, 'assets/level_old.png', {
-			spr_trainplayer: [1, 1]
+        /*
+        Default facing downwards
+         */
+		Crafty.sprite(54, 70, 'assets/konna.png', {
+			spr_trainplayer: [1, 0]
 		});
 
         Crafty.sprite( 64, 'assets/spritet.png', {
@@ -194,12 +191,6 @@ Crafty.scene( 'Loading', function () {
             spr_wall_window: [4, 1],
             spr_wall_vr: [1, 2]
         });
-
-        // Define the PC's sprite to be the first sprite in the third row of the
-        //  animation sprite map
-        Crafty.sprite( 16, 'assets/hunter.png', {
-            spr_player: [0, 2]
-        }, 0, 2 );
 
         // Define our sounds for later use
         Crafty.audio.add( {
