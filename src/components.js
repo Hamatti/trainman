@@ -172,7 +172,7 @@ Crafty.c('Dialog', {
 Crafty.c('PlayerCharacter', {
   init: function() {
     this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation, Keyboard')
-      .fourway(4)
+      .fourway(3)
       .stopOnSolids()
       .onHit('Village', this.visitVillage)
       .bind('KeyDown', function() {
