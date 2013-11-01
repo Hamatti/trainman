@@ -1,0 +1,9 @@
+{
+
+    "intro": "Welcome to TRAINMAN",
+
+    "check_tickets_prompt": "Tickets, please!",
+    "check_tickets_success": "Your ticket is valid, thank you and have a nice trip!",
+    "check_tickets_failure": "What? You don't have a ticket?! Here's a fine for you."
+}
+
