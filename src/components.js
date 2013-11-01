@@ -174,7 +174,6 @@ Crafty.c('PlayerCharacter', {
     this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation, Keyboard')
       .fourway(3)
       .stopOnSolids()
-      .onHit('Village', this.visitVillage)
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
@@ -225,30 +224,7 @@ Crafty.c('PlayerCharacter', {
     }
   },
 
-  // Respond to this player visiting a village
-  visitVillage: function(data) {
-    village = data[0].obj;
-    village.visit();
-  },
-
-
 });
-
-// A village is a tile on the grid that the PC must visit in order to win the game
-Crafty.c('Village', {
-  init: function() {
-    this.requires('Actor, spr_village');
-  },
-
-  // Process a visitation with this village
-  visit: function() {
-    calculatePoints();
-    this.destroy();
-    Crafty.audio.play('knock');
-    Crafty.trigger('VillageVisited', this);
-  }
-});
-
 
 function calculatePoints() {
     var points_div = document.getElementById('points');
