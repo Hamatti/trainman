@@ -72,10 +72,14 @@ Crafty.c('Rock', {
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
   init: function() {
-    this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation')
+    this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation, Keyboard')
       .fourway(2)
       .stopOnSolids()
-      .onHit('Village', this.visitVillage);
+      .onHit('Village', this.visitVillage)
+      .bind('KeyDown', function() {
+          if(this.isDown('E')) interact();
+          if(this.isDown('R')) clearDialog();
+      });
       // These next lines define our four animations
       //  each call to .animate specifies:
       //  - the name of the animation
@@ -136,8 +140,25 @@ Crafty.c('Village', {
 
   // Process a visitation with this village
   visit: function() {
+    calculatePoints();
     this.destroy();
     Crafty.audio.play('knock');
     Crafty.trigger('VillageVisited', this);
   }
 });
+
+
+function calculatePoints() {
+    var points_div = document.getElementById('points');
+    points = parseInt(points_div.innerHTML) + 1;
+    points_div.innerHTML = points;
+}
+
+function interact() {
+    document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
+}
+
+function clearDialog() {
+    document.getElementById('dialog').innerHTML = '';
+}
+
