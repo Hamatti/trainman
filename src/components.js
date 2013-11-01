@@ -71,8 +71,15 @@ Crafty.c('Rock', {
 
 Crafty.c('Dialog', {
   init: function() {
-      this.jsonfile = 'dialog.json';
+  },
+
+  dialog: {
+      "intro": "Welcome to TRAINMAN",
+      "check_prompt": "Tickets, please",
+      "check_success": "Your ticket is valid, have a nice trip!",
+      "check_failure": "WHAT?! You don't have a ticket? That's fine for you!"
   }
+
 });
 
 
@@ -163,7 +170,9 @@ function calculatePoints() {
 }
 
 function interact() {
+    var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
+    setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);
 }
 
 function clearDialog() {
@@ -172,4 +181,8 @@ function clearDialog() {
 
 function restartGame() {
     Crafty.scene('Game');
+}
+
+function printDialog(data) {
+    console.log(data);
 }
