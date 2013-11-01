@@ -1,3 +1,4 @@
 personal_prototyping/
 *.tar
 .idea/
+*.xml
