@@ -80,11 +80,10 @@ Crafty.scene('Victory', function() {
   // the game when a key is pressed
   var delay = true;
   setTimeout(function() { delay = false; }, 5000);
-  this.restart_game = Crafty.bind('KeyDown', function() {
-    if (!delay) {
+  this.restart_game = function() {
       Crafty.scene('Game');
-    }
-  });
+  };
+  this.bind('KeyDown', this.restart_game);
 }, function() {
   // Remove our event binding from above so that we don't
   //  end up having multiple redundant event watchers after
