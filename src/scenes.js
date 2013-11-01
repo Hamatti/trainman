@@ -22,6 +22,7 @@ Crafty.scene( 'Game', function () {
     // Place a tree at every edge square on our grid of 16x16 tiles
     for ( var x = 0; x < Game.map_grid.width; x++ ) {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
+            Crafty.e( 'Floor_light' ).at(x,y);
             var at_edge = x == 0 || x == Game.map_grid.width - 1 ||  y == 0;
             var tile;
             if ( at_edge ) {
