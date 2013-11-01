@@ -92,7 +92,7 @@ Crafty.c('PlayerCharacter', {
       .stopOnSolids()
       .onHit('Village', this.visitVillage)
       .bind('KeyDown', function() {
-          if(this.isDown('E')) interact();
+          if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
           if(this.isDown('O')) restartGame();
       });
@@ -143,9 +143,11 @@ Crafty.c('PlayerCharacter', {
 
   // Respond to this player visiting a village
   visitVillage: function(data) {
-    villlage = data[0].obj;
-    villlage.visit();
-  }
+    village = data[0].obj;
+    village.visit();
+  },
+
+
 });
 
 // A village is a tile on the grid that the PC must visit in order to win the game
@@ -170,7 +172,13 @@ function calculatePoints() {
     points_div.innerHTML = points;
 }
 
-function interact() {
+function _interact(player) {
+    console.log(player.at().y);
+    Crafty.trigger('Interactable',{ x: Math.floor(player.at().x), y: Math.floor(player.at().y), player: player });
+    Crafty.trigger('Interactable',{ x: Math.ceil(player.at().x), y: Math.ceil(player.at().y), player: player});
+}
+
+function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);

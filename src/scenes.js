@@ -3,11 +3,13 @@
 // Runs the core gameplay loop
 Crafty.scene( 'Game', function () {
 
-    // Clear points
+    // Clear points and show starting dialog
     document.getElementById('points').innerHTML = 0;
-
     this.dialog = Crafty.e('Dialog');
     document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
+
+
+    // ---------------- CREATE SCENE --------------------- //
     // A 2D array to keep track of all occupied tiles
     this.occupied = new Array( Game.map_grid.width );
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
@@ -64,6 +66,7 @@ Crafty.scene( 'Game', function () {
         }
     }
 
+    // -------------------- START THE GAME -------------------/
     // Play a ringing sound to indicate the start of the journey
     Crafty.audio.play( 'ring' );
 
@@ -73,6 +76,13 @@ Crafty.scene( 'Game', function () {
             Crafty.scene( 'Victory' );
         }
     } );
+
+    this.interactable = this.bind('Interactable', function(data) {
+        if (this.occupied[data.x+1][data.y] || this.occupied[data.x][data.y+1] || this.occupied[data.x-1][data.y] || this.occupied[data.x][data.y-1]) {
+            interact(data.player);
+        }
+    });
+
 }, function () {
     // Remove our event binding from above so that we don't
     //  end up having multiple redundant event watchers after
@@ -190,7 +200,8 @@ Crafty.scene( 'Loading', function () {
                 'assets/candy_dish_lid.aac']
         } );
 
-        // Now that our sprites are ready to draw, start the game
+        // Now that our sprites are ready to draw, start the game after showing
+        // title screen for a while
         setTimeout(function() { Crafty.scene( 'Game' ); }, 2000);
     } )
 } );
