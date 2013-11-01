@@ -2,6 +2,10 @@
 // -------------
 // Runs the core gameplay loop
 Crafty.scene( 'Game', function () {
+
+    // Clear points
+    document.getElementById('points').innerHTML = 0;
+
     // A 2D array to keep track of all occupied tiles
     this.occupied = new Array( Game.map_grid.width );
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
@@ -95,6 +99,7 @@ Crafty.scene( 'Victory', function () {
         delay = false;
     }, 5000 );
     this.restart_game = function () {
+        document.getElementById('points').innerHTML = 0;
         Crafty.scene( 'Game' );
     };
     this.bind( 'KeyDown', this.restart_game );
