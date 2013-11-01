@@ -69,6 +69,13 @@ Crafty.c('Rock', {
   }
 });
 
+Crafty.c('Dialog', {
+  init: function() {
+      this.jsonfile = 'dialog.json';
+  }
+});
+
+
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
   init: function() {
@@ -79,6 +86,7 @@ Crafty.c('PlayerCharacter', {
       .bind('KeyDown', function() {
           if(this.isDown('E')) interact();
           if(this.isDown('R')) clearDialog();
+          if(this.isDown('O')) restartGame();
       });
       // These next lines define our four animations
       //  each call to .animate specifies:
@@ -162,3 +170,6 @@ function clearDialog() {
     document.getElementById('dialog').innerHTML = '';
 }
 
+function restartGame() {
+    Crafty.scene('Game');
+}
