@@ -1,1 +1,3 @@
 personal_prototyping/
+*.tar
+.idea/
