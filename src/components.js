@@ -161,7 +161,7 @@ Crafty.c('Dialog', {
       "intro": "Welcome to TRAINMAN",
       "check_prompt": "Tickets, please",
       "check_success": "Your ticket is valid, have a nice trip!",
-      "check_failure": "WHAT?! You don't have a ticket? That's fine for you!",
+      "check_failure": "WHAT?! You don't have a ticket? That's a fine for you!",
       "tutorial": "You can move the Hero with arrows or WASD. <br />Interact with E"
   }
 
