@@ -7,7 +7,7 @@ Crafty.scene( 'Game', function () {
     document.getElementById('points').innerHTML = 0;
 
     this.dialog = Crafty.e('Dialog');
-
+    document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
     // A 2D array to keep track of all occupied tiles
     this.occupied = new Array( Game.map_grid.width );
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
