@@ -41,6 +41,48 @@ Crafty.c('Bar_table', {
     }
 });
 
+// A solid passenger table
+Crafty.c('Passenger_table', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_table');
+    }
+});
+
+// A solid passenger chair facing right
+Crafty.c('Passenger_chair_right', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_chair_right');
+    }
+});
+
+// A solid passenger chair facing left
+Crafty.c('Passenger_chair_left', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_chair_left');
+    }
+});
+
+// A solid middlewall with right border
+Crafty.c('Wall_middle_right', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_right');
+    }
+});
+
+// A solid middlewall with left border
+Crafty.c('Wall_middle_left', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_left');
+    }
+});
+
+// A solid middlewall with both borders
+Crafty.c('Wall_middle_both', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_both');
+    }
+});
+
 // A solid wall (without borders)
 Crafty.c('Wall_borderless', {
     init: function() {
