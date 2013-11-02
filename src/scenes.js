@@ -53,6 +53,16 @@ Crafty.scene( 'Game', function () {
 				}
 			}
             Crafty.e( tile ).at( x, y );
+            //---- MANUALLY INSERTED PASSENGERS ----//
+            if(x==1 && y==5) {
+                Crafty.e( 'Woman1_right' ).at(x,y);
+            }
+            if(x==7 && y==2) {
+                Crafty.e( 'Teen_right' ).at(x,y);
+            }
+            if(x==6 && y==5) {
+                Crafty.e( 'Child2_left' ).at(x,y);
+            }
             this.occupied[x][y] = true;
             
 //			 else if ( Math.random() < 0.06 && !this.occupied[x][y] ) {
@@ -146,6 +156,7 @@ Crafty.scene( 'Loading', function () {
     // Load our sprite map image
     Crafty.load( [
         'assets/16x16_forest_2.gif',
+        'assets/passengers.png',
         'assets/spritet.png',
 		'assets/level_old.png',
         'assets/hunter.png',
@@ -173,6 +184,19 @@ Crafty.scene( 'Loading', function () {
 		Crafty.sprite(54, 70, 'assets/konna.png', {
 			spr_trainplayer: [1, 0]
 		});
+
+        Crafty.sprite(54, 70, 'assets/passengers.png', {
+            spr_woman1_right: [0, 0],
+            spr_woman1_left: [3, 0],
+            spr_woman2_right: [1, 0],
+            spr_woman2_left: [3, 0],
+            spr_teen_right: [0, 1],
+            spr_teen_left: [1, 1],
+            spr_kid1_right: [2, 1],
+            spr_kid1_left: [1, 2],
+            spr_kid2_right: [3, 1],
+            spr_kid2_left: [0, 2]
+        });
 
         Crafty.sprite( 64, 'assets/spritet.png', {
             spr_chair: [0, 0],
