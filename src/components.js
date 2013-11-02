@@ -356,8 +356,7 @@ function calculatePoints() {
 
 function _interact(player) {
     console.log(player.at().y);
-    Crafty.trigger('Interactable',{ x: Math.floor(player.at().x), y: Math.floor(player.at().y), player: player });
-    Crafty.trigger('Interactable',{ x: Math.ceil(player.at().x), y: Math.ceil(player.at().y), player: player});
+    Crafty.trigger('Interactable',{ x: Math.round(player.at().x), y: Math.round(player.at().y), player: player });
 }
 
 function interact(player) {
