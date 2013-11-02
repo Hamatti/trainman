@@ -27,6 +27,13 @@ Crafty.c('Actor', {
   }
 });
 
+// Abstract passenger
+Crafty.c('Passenger', {
+  init: function() {
+    this.requires('Actor, Solid');
+  }
+});
+
 // A solid bar chair
 Crafty.c('Bar_chair', {
     init: function() {
@@ -178,70 +185,70 @@ Crafty.c('Wall_martini', {
 //Adult woman in red coat, facing right
 Crafty.c('Woman1_right', {
     init: function() {
-        this.requires('Actor, Solid, spr_woman1_right');
+        this.requires('Passenger, spr_woman1_right');
     }
 });
 
 //Adult woman in red coat, facing left
 Crafty.c('Woman1_left', {
     init: function() {
-        this.requires('Actor, Solid, spr_woman1_left');
+        this.requires('Passenger, spr_woman1_left');
     }
 });
 
 //Adult woman in green coat, facing right
 Crafty.c('Woman2_right', {
     init: function() {
-        this.requires('Actor, Solid, spr_woman2_right');
+        this.requires('Passenger, spr_woman2_right');
     }
 });
 
 //Adult woman in green coat, facing left
 Crafty.c('Woman2_left', {
     init: function() {
-        this.requires('Actor, Solid, spr_woman2_left');
+        this.requires('Passenger, spr_woman2_left');
     }
 });
 
 //Teen in green coat facing right
 Crafty.c('Teen_right', {
     init: function() {
-        this.requires('Actor, Solid, spr_teen_right');
+        this.requires('Passenger, spr_teen_right');
     }
 });
 
 //Teen in green coat, facing left
 Crafty.c('Teen_left', {
     init: function() {
-        this.requires('Actor, Solid, spr_teen_left');
+        this.requires('Passenger, spr_teen_left');
     }
 });
 
 //Child in red coat, facing right
 Crafty.c('Child1_right', {
     init: function() {
-        this.requires('Actor, Solid, spr_kid1_right');
+        this.requires('Passenger, spr_kid1_right');
     }
 });
 
 //Child in red coat, facing left
 Crafty.c('Child1_left', {
     init: function() {
-        this.requires('Actor, Solid, spr_kid1_left');
+        this.requires('Passenger, spr_kid1_left');
     }
 });
 
 //Child in blue coat, facing right
 Crafty.c('Child2_right', {
     init: function() {
-        this.requires('Actor, Solid, spr_kid2_right');
+        this.requires('Passenger, spr_kid2_right');
     }
 });
 
 //Child in blue coat, facing left
 Crafty.c('Child2_left', {
     init: function() {
-        this.requires('Actor, Solid, spr_kid2_left');
+        this.requires('Passenger, spr_kid2_left');
     }
 });
 //--------------END OF PASSENGERS----------------//
