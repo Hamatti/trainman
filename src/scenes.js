@@ -217,7 +217,6 @@ Crafty.scene( 'Loading', function () {
             spr_wall_middle_left: [6, 2],
             spr_wall_middle_right: [5, 2],
             spr_wall_middle_both: [4, 2],
-            spr_steel_grid: [1, 1],
             spr_passenger_chair_right: [6, 0],
             spr_passenger_chair_left: [0, 1],
             spr_passenger_table: [5, 0] 
