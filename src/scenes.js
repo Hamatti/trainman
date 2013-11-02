@@ -24,7 +24,7 @@ Crafty.scene( 'Game', function () {
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
         this.passengers[i] = new Array( Game.map_grid.height );
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.passengers[i][y] = false;
+            this.passengers[i][y] = "unchecked";
         }
     }    
 
@@ -63,15 +63,15 @@ Crafty.scene( 'Game', function () {
             //---- MANUALLY INSERTED PASSENGERS ----//
             if(x==1 && y==5) {
                 Crafty.e( 'Woman1_right' ).at(x,y);
-                this.passengers[x][y] = true;
+                this.passengers[x][y] = "unchecked";
             }
             if(x==7 && y==2) {
                 Crafty.e( 'Teen_right' ).at(x,y);
-                this.passengers[x][y] = true;
+                this.passengers[x][y] = "unchecked";
             }
             if(x==6 && y==5) {
                 Crafty.e( 'Child2_left' ).at(x,y);
-                this.passengers[x][y] = true;
+                this.passengers[x][y] = "unchecked";
             }
             this.occupied[x][y] = true;
 
@@ -86,7 +86,13 @@ Crafty.scene( 'Game', function () {
     Crafty.audio.play( 'ring' );
 
     this.interactable = this.bind('Interactable', function(data) {
-        if (this.passengers[data.x+1][data.y] || this.passengers[data.x][data.y+1] || this.passengers[data.x-1][data.y] || this.passengers[data.x][data.y-1]) {
+        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
+        
+            this.passengers[data.x+1][data.y] = "checked";
+            this.passengers[data.x-1][data.y] = "checked";
+            this.passengers[data.x][data.y+1] = "checked";
+            this.passengers[data.x][data.y-1] = "checked";
+
             interact(data.player);
         }
         setTimeout(function() {
