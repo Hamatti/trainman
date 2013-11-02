@@ -299,7 +299,7 @@ Crafty.c('PlayerCharacter', {
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
-          if(this.isDown('O')) restartGame();
+          
       })
       // These next lines define our four animations
       //  each call to .animate specifies:
@@ -362,14 +362,11 @@ function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);
+    calculatePoints();
 }
 
 function clearDialog() {
     document.getElementById('dialog').innerHTML = '';
-}
-
-function restartGame() {
-    Crafty.scene('Game');
 }
 
 function printDialog(data) {

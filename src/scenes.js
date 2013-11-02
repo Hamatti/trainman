@@ -4,7 +4,7 @@
 Crafty.scene( 'Game', function () {
 
     // Clear points and show starting dialog
-    document.getElementById('points').innerHTML = 0;
+    document.getElementById('points').innerHTML = "0";
     this.dialog = Crafty.e('Dialog');
     document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
@@ -89,8 +89,14 @@ Crafty.scene( 'Game', function () {
         if (this.passengers[data.x+1][data.y] || this.passengers[data.x][data.y+1] || this.passengers[data.x-1][data.y] || this.passengers[data.x][data.y-1]) {
             interact(data.player);
         }
+        setTimeout(function() {
+            if(document.getElementById('points').innerHTML == parseInt(3)) Crafty.scene('Victory');
+        }, 3000);
+        
     });
 
+}, function() {
+    this.unbind('Interactable', this.interactable);
 });
 
 
@@ -98,9 +104,10 @@ Crafty.scene( 'Game', function () {
 // -------------
 // Tells the player when they've won and lets them start a new game
 Crafty.scene( 'Victory', function () {
+
     // Display some text in celebration of the victory
     Crafty.e( '2D, DOM, Text' )
-        .text( 'All villages visited!' )
+        .text( 'All passengers checked<br /> This alpha version only contains one car. Press F5 to replay.' )
         .attr( { x: 0, y: Game.height() / 2 - 24, w: Game.width() } )
         .css( $text_css );
 
@@ -117,7 +124,7 @@ Crafty.scene( 'Victory', function () {
         document.getElementById('points').innerHTML = 0;
         Crafty.scene( 'Game' );
     };
-    this.bind( 'KeyDown', this.restart_game );
+//    this.bind( 'KeyDown', this.restart_game );
 }, function () {
     // Remove our event binding from above so that we don't
     //  end up having multiple redundant event watchers after
