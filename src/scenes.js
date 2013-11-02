@@ -24,7 +24,7 @@ Crafty.scene( 'Game', function () {
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
         this.passengers[i] = new Array( Game.map_grid.height );
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.passengers[i][y] = "unchecked";
+            this.passengers[i][y] = "none";
         }
     }    
 
@@ -94,6 +94,9 @@ Crafty.scene( 'Game', function () {
             this.passengers[data.x][data.y-1] = "checked";
 
             interact(data.player);
+        }
+        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
+            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
         }
         setTimeout(function() {
             if(document.getElementById('points').innerHTML == parseInt(3)) Crafty.scene('Victory');
