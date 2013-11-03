@@ -33,8 +33,8 @@ Game = {
 }
 
 $text_css = {
-  'font-size': '24px',
+  'font-size': '200%',
   'font-family': 'Arial',
-  'color': 'white',
+  'font-color': 'black',
   'text-align': 'center'
 }
