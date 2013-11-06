@@ -30,7 +30,7 @@ Crafty.c('Actor', {
 // Abstract transition area
 Crafty.c('TransitionArea', {
     init: function() {
-        this.requires('Actor', 'spr_wall_ritila');
+        this.requires('Actor', 'spr_wall_grate');
     }
 });
 
@@ -121,7 +121,7 @@ Crafty.c('Wall_grate', {
 // A solid bar counter
 Crafty.c('Bar_counter', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_wooden');
+        this.requires('Actor, Solid, spr_bar_counter');
     }
 });
 
