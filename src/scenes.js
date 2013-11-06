@@ -48,7 +48,7 @@ Crafty.scene( 'Game', function () {
 			}
 			else {
 				if (y == 1 || y == 2) {
-					if (y == 2 && x < 5) {tile = 'Wall_wooden';}
+					if (y == 2 && x < 5) {tile = 'Bar_counter';}
 					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Bar_chair';}
 					else if (x == 8 || x == 11) {tile = 'Bar_table';}					
 					else {continue;}
