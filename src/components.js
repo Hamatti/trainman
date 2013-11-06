@@ -27,6 +27,12 @@ Crafty.c('Actor', {
   }
 });
 
+Crafty.c('TransitionArea', {
+    init: function() {
+        this.requires('Actor', 'spr_wall_ritila');
+    }
+});
+
 // A solid bar chair
 Crafty.c('Bar_chair', {
     init: function() {
@@ -55,10 +61,10 @@ Crafty.c('Wall_window', {
     }
 });
 
-// A solid wall with a ritila
-Crafty.c('Wall_ritila', {
+// A solid wall with a grate
+Crafty.c('Wall_grate', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_ritila');
+        this.requires('TransitionArea');
     }
 });
 
