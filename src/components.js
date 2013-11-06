@@ -27,10 +27,18 @@ Crafty.c('Actor', {
   }
 });
 
+// Abstract transition area
 Crafty.c('TransitionArea', {
     init: function() {
         this.requires('Actor', 'spr_wall_ritila');
     }
+});
+
+// Abstract passenger
+Crafty.c('Passenger', {
+  init: function() {
+    this.requires('Actor, Solid');
+  }
 });
 
 // A solid bar chair
@@ -44,6 +52,48 @@ Crafty.c('Bar_chair', {
 Crafty.c('Bar_table', {
     init: function() {
         this.requires('Actor, Solid, spr_board');
+    }
+});
+
+// A solid passenger table
+Crafty.c('Passenger_table', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_table');
+    }
+});
+
+// A solid passenger chair facing right
+Crafty.c('Passenger_chair_right', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_chair_right');
+    }
+});
+
+// A solid passenger chair facing left
+Crafty.c('Passenger_chair_left', {
+    init: function() {
+        this.requires('Actor, Solid, spr_passenger_chair_left');
+    }
+});
+
+// A solid middlewall with right border
+Crafty.c('Wall_middle_right', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_right');
+    }
+});
+
+// A solid middlewall with left border
+Crafty.c('Wall_middle_left', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_left');
+    }
+});
+
+// A solid middlewall with both borders
+Crafty.c('Wall_middle_both', {
+    init: function() {
+        this.requires('Actor, Solid, spr_wall_middle_both');
     }
 });
 
@@ -138,6 +188,79 @@ Crafty.c('Wall_martini', {
     }
 });
 
+// -----------------PASSENGERS--------------------//
+//Adult woman in red coat, facing right
+Crafty.c('Woman1_right', {
+    init: function() {
+        this.requires('Passenger, spr_woman1_right');
+    }
+});
+
+//Adult woman in red coat, facing left
+Crafty.c('Woman1_left', {
+    init: function() {
+        this.requires('Passenger, spr_woman1_left');
+    }
+});
+
+//Adult woman in green coat, facing right
+Crafty.c('Woman2_right', {
+    init: function() {
+        this.requires('Passenger, spr_woman2_right');
+    }
+});
+
+//Adult woman in green coat, facing left
+Crafty.c('Woman2_left', {
+    init: function() {
+        this.requires('Passenger, spr_woman2_left');
+    }
+});
+
+//Teen in green coat facing right
+Crafty.c('Teen_right', {
+    init: function() {
+        this.requires('Passenger, spr_teen_right');
+    }
+});
+
+//Teen in green coat, facing left
+Crafty.c('Teen_left', {
+    init: function() {
+        this.requires('Passenger, spr_teen_left');
+    }
+});
+
+//Child in red coat, facing right
+Crafty.c('Child1_right', {
+    init: function() {
+        this.requires('Passenger, spr_kid1_right');
+    }
+});
+
+//Child in red coat, facing left
+Crafty.c('Child1_left', {
+    init: function() {
+        this.requires('Passenger, spr_kid1_left');
+    }
+});
+
+//Child in blue coat, facing right
+Crafty.c('Child2_right', {
+    init: function() {
+        this.requires('Passenger, spr_kid2_right');
+    }
+});
+
+//Child in blue coat, facing left
+Crafty.c('Child2_left', {
+    init: function() {
+        this.requires('Passenger, spr_kid2_left');
+    }
+});
+//--------------END OF PASSENGERS----------------//
+
+
 // A Tree is just an Actor with a certain sprite
 Crafty.c('Tree', {
   init: function() {
@@ -180,11 +303,10 @@ Crafty.c('PlayerCharacter', {
     this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation, Keyboard')
       .fourway(3)
       .stopOnSolids()
-      .onHit('Village', this.visitVillage)
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
-          if(this.isDown('O')) restartGame();
+          
       })
       // These next lines define our four animations
       //  each call to .animate specifies:
@@ -231,30 +353,7 @@ Crafty.c('PlayerCharacter', {
     }
   },
 
-  // Respond to this player visiting a village
-  visitVillage: function(data) {
-    village = data[0].obj;
-    village.visit();
-  },
-
-
 });
-
-// A village is a tile on the grid that the PC must visit in order to win the game
-Crafty.c('Village', {
-  init: function() {
-    this.requires('Actor, spr_village');
-  },
-
-  // Process a visitation with this village
-  visit: function() {
-    calculatePoints();
-    this.destroy();
-    Crafty.audio.play('knock');
-    Crafty.trigger('VillageVisited', this);
-  }
-});
-
 
 function calculatePoints() {
     var points_div = document.getElementById('points');
@@ -263,23 +362,18 @@ function calculatePoints() {
 }
 
 function _interact(player) {
-    console.log(player.at().y);
-    Crafty.trigger('Interactable',{ x: Math.floor(player.at().x), y: Math.floor(player.at().y), player: player });
-    Crafty.trigger('Interactable',{ x: Math.ceil(player.at().x), y: Math.ceil(player.at().y), player: player});
+    Crafty.trigger('Interactable',{ x: Math.round(player.at().x), y: Math.round(player.at().y), player: player });
 }
 
 function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);
+    calculatePoints();
 }
 
 function clearDialog() {
     document.getElementById('dialog').innerHTML = '';
-}
-
-function restartGame() {
-    Crafty.scene('Game');
 }
 
 function printDialog(data) {

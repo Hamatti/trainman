@@ -4,7 +4,7 @@
 Crafty.scene( 'Game', function () {
 
     // Clear points and show starting dialog
-    document.getElementById('points').innerHTML = 0;
+    document.getElementById('points').innerHTML = "0";
     this.dialog = Crafty.e('Dialog');
     document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
@@ -19,16 +19,23 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    // Place a tree at every edge square on our grid of 16x16 tiles
+    // A 2D array to keep track of all passeneger positions
+    this.passengers = new Array(Game.map_grid.width);
+    for ( var i = 0; i < Game.map_grid.width; i++ ) {
+        this.passengers[i] = new Array( Game.map_grid.height );
+        for ( var y = 0; y < Game.map_grid.height; y++ ) {
+            this.passengers[i][y] = "none";
+        }
+    }    
+
+    // Insert car elements
     for ( var x = 0; x < Game.map_grid.width; x++ ) {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
             Crafty.e( 'Floor_light' ).at(x,y);
             var at_edge = x == 0 || x == Game.map_grid.width - 1 ||  y == 0;
             var tile;
             if ( at_edge ) {
-                // Place a tree entity at the current tile
-				// Crafty.e( 'Tree' ).at( x, y );
-				if (y == 0) {
+                if (y == 0) {
 					if (x == 0 || x == Game.map_grid.width - 1) {tile = 'Wall_vr';} 
 					else if (x < 5) {tile = 'Wall_boozes';}
 					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Wall_window';}
@@ -53,64 +60,63 @@ Crafty.scene( 'Game', function () {
 				}
 			}
             Crafty.e( tile ).at( x, y );
+            //---- MANUALLY INSERTED PASSENGERS ----//
+            if(x==1 && y==5) {
+                Crafty.e( 'Woman1_right' ).at(x,y);
+                this.passengers[x][y] = "unchecked";
+            }
+            if(x==7 && y==2) {
+                Crafty.e( 'Teen_right' ).at(x,y);
+                this.passengers[x][y] = "unchecked";
+            }
+            if(x==6 && y==5) {
+                Crafty.e( 'Child2_left' ).at(x,y);
+                this.passengers[x][y] = "unchecked";
+            }
             this.occupied[x][y] = true;
-            
-//			 else if ( Math.random() < 0.06 && !this.occupied[x][y] ) {
-//                // Place a bush entity at the current tile
-//                var bush_or_rock = (Math.random() > 0.3) ? 'Bush' : 'Rock';
-//                Crafty.e( bush_or_rock ).at( x, y );
-//                this.occupied[x][y] = true;
-//            }
+
         }
     }
     // Player character, placed at 5, 5 on our grid
     this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
     this.occupied[this.player.at().x][this.player.at().y] = true;
 
-//    // Generate five villages on the map in random locations
-//    var max_villages = 10;
-//    for ( var x = 0; x < Game.map_grid.width; x++ ) {
-//        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-//            if ( Math.random() < 0.03 ) {
-//                if ( Crafty( 'Village' ).length < max_villages && !this.occupied[x][y] ) {
-//                    Crafty.e( 'Village' ).at( x, y );
-//                }
-//            }
-//        }
-//    }
-
     // -------------------- START THE GAME -------------------/
     // Play a ringing sound to indicate the start of the journey
     Crafty.audio.play( 'ring' );
 
-    // Show the victory screen once all villages are visisted
-    this.show_victory = this.bind( 'VillageVisited', function () {
-        if ( !Crafty( 'Village' ).length ) {
-            Crafty.scene( 'Victory' );
-        }
-    } );
-
     this.interactable = this.bind('Interactable', function(data) {
-        if (this.occupied[data.x+1][data.y] || this.occupied[data.x][data.y+1] || this.occupied[data.x-1][data.y] || this.occupied[data.x][data.y-1]) {
+        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
+        
+            this.passengers[data.x+1][data.y] = "checked";
+            this.passengers[data.x-1][data.y] = "checked";
+            this.passengers[data.x][data.y+1] = "checked";
+            this.passengers[data.x][data.y-1] = "checked";
+
             interact(data.player);
         }
+        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
+            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
+        }
+        setTimeout(function() {
+            if(document.getElementById('points').innerHTML == parseInt(3)) Crafty.scene('Victory');
+        }, 3000);
+        
     });
 
-}, function () {
-    // Remove our event binding from above so that we don't
-    //  end up having multiple redundant event watchers after
-    //  multiple restarts of the game
-    this.unbind( 'VillageVisited', this.show_victory );
-} );
+}, function() {
+    this.unbind('Interactable', this.interactable);
+});
 
 
 // Victory scene
 // -------------
 // Tells the player when they've won and lets them start a new game
 Crafty.scene( 'Victory', function () {
+
     // Display some text in celebration of the victory
     Crafty.e( '2D, DOM, Text' )
-        .text( 'All villages visited!' )
+        .text( 'All passengers checked<br /> This alpha version only contains one car. Press F5 to replay.' )
         .attr( { x: 0, y: Game.height() / 2 - 24, w: Game.width() } )
         .css( $text_css );
 
@@ -127,7 +133,7 @@ Crafty.scene( 'Victory', function () {
         document.getElementById('points').innerHTML = 0;
         Crafty.scene( 'Game' );
     };
-    this.bind( 'KeyDown', this.restart_game );
+//    this.bind( 'KeyDown', this.restart_game );
 }, function () {
     // Remove our event binding from above so that we don't
     //  end up having multiple redundant event watchers after
@@ -146,6 +152,7 @@ Crafty.scene( 'Loading', function () {
     // Load our sprite map image
     Crafty.load( [
         'assets/16x16_forest_2.gif',
+        'assets/passengers.png',
         'assets/spritet.png',
 		'assets/level_old.png',
         'assets/hunter.png',
@@ -174,6 +181,19 @@ Crafty.scene( 'Loading', function () {
 			spr_trainplayer: [1, 0]
 		});
 
+        Crafty.sprite(54, 70, 'assets/passengers.png', {
+            spr_woman1_right: [0, 0],
+            spr_woman1_left: [3, 0],
+            spr_woman2_right: [1, 0],
+            spr_woman2_left: [3, 0],
+            spr_teen_right: [0, 1],
+            spr_teen_left: [1, 1],
+            spr_kid1_right: [2, 1],
+            spr_kid1_left: [1, 2],
+            spr_kid2_right: [3, 1],
+            spr_kid2_left: [0, 2]
+        });
+
         Crafty.sprite( 64, 'assets/spritet.png', {
             spr_chair: [0, 0],
             spr_board: [1, 0],
@@ -189,7 +209,13 @@ Crafty.scene( 'Loading', function () {
             spr_wall_martini: [3, 2],
             spr_wall_boozes: [3, 1],
             spr_wall_window: [4, 1],
-            spr_wall_vr: [1, 2]
+            spr_wall_vr: [1, 2],
+            spr_wall_middle_left: [6, 2],
+            spr_wall_middle_right: [5, 2],
+            spr_wall_middle_both: [4, 2],
+            spr_passenger_chair_right: [6, 0],
+            spr_passenger_chair_left: [0, 1],
+            spr_passenger_table: [5, 0] 
         });
 
         // Define our sounds for later use
