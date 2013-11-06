@@ -119,7 +119,7 @@ Crafty.c('Wall_grate', {
 });
 
 // A solid bar counter
-Crafty.c('Wall_wooden', {
+Crafty.c('Bar_counter', {
     init: function() {
         this.requires('Actor, Solid, spr_wall_wooden');
     }
