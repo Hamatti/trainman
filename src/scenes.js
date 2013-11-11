@@ -48,7 +48,7 @@ Crafty.scene( 'Game', function () {
 			}
 			else {
 				if (y == 1 || y == 2) {
-					if (y == 2 && x < 5) {tile = 'Wall_wooden';}
+					if (y == 2 && x < 5) {tile = 'Bar_counter';}
 					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Bar_chair';}
 					else if (x == 8 || x == 11) {tile = 'Bar_table';}					
 					else {continue;}
@@ -199,8 +199,8 @@ Crafty.scene( 'Loading', function () {
             spr_board: [1, 0],
             spr_floor_dark: [3, 0],
             spr_floor_light: [4, 0],
-            spr_wall_ritila: [1, 1],
-            spr_wall_wooden: [2, 0],
+            spr_wall_grate: [1, 1],
+            spr_bar_counter: [2, 0],
             spr_wall_noborders: [2, 1],
             spr_wall_leftborder: [2, 2],
             spr_wall_rightborder: [0, 2],
