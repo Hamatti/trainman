@@ -17,4 +17,8 @@ function Passenger(name, home, occupation, in_train) {
 }
 
 
-
+function create_passenger(sex) {
+    passenger_info = $.parseJSON(passenger_creator.new_passenger(sex));
+    var passenger = new Passenger(passenger_info.name, passenger_info.home, passenger_info.occupation, true);
+    return passenger;
+}
