@@ -134,11 +134,13 @@ function fill_car(template) {
 	for ( var x = 0; x < template.length; x++) {
 		for (var y = 0; y < template[x].length; y++) {
 			if (y == 3 || y == 4) {
+                console.log(template[x][y]);
 				Crafty.e('Floor_dark').at(x,y);
                 if(template[x][y] !== '')
     				Crafty.e(template[x][y]).at(x,y);
 			}
 			else {
+                console.log(template[x][y]);
 				Crafty.e('Floor_light').at(x,y);
                 if(template[x][y] !== '')
     				Crafty.e(template[x][y]).at(x,y);
