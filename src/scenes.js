@@ -53,7 +53,7 @@ Crafty.scene( 'engine', function () {
             document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
         }
         setTimeout(function() {
-            if(document.getElementById('points').innerHTML == parseInt(3)) Crafty.scene('Victory');
+            if(Game.points == parseInt(3)) Crafty.scene('Victory');
         }, 3000);
 
     });
