@@ -31,8 +31,8 @@ Game = {
     Crafty.scene('Loading');
   },
 
-  LEFT_X: 0,
-  RIGHT_X: 13,
+  LEFT_X: 1,
+  RIGHT_X: 14,
   points: 0,
   last_scene: 'Start',
   current_car: 'engine',

@@ -145,7 +145,6 @@ function fill_car(template) {
 					Crafty.e('Floor_dark').at(x,y);
 				}
                 if(template[x][y] !== '') {
-                	console.log(template[x][y]);
     				Crafty.e(template[x][y]).at(x,y);
     			}
 			}
@@ -154,7 +153,6 @@ function fill_car(template) {
 					Crafty.e('Floor_light').at(x,y);
 				}
                 if(template[x][y] !== '') {
-                	console.log(template[x][y]);
     				Crafty.e(template[x][y]).at(x,y);
     			}
 			}
