@@ -52,8 +52,8 @@ Crafty.scene( 'Game', function () {
 				}
 				else if (x == 0 || x == Game.map_grid.width - 1) {
 					if (y == 3 || y == 4) {
-                        console.log('wall grate happening');
                         tile = 'Wall_grate';
+                        this.transitions[x][y] = true;
                     }
 					else {tile = 'Wall_borderless';}
 				}
@@ -89,16 +89,7 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    // Crafty.e( 'TransitionArea' ).at(0, 3);
-    this.transitions[0][3] = true;
-    // Crafty.e( 'TransitionArea' ).at(0, 4);
-    this.transitions[0][4] = true;
-    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 3);
-    this.transitions[Game.map_grid.width - 1][3] = true;
-    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 4);
-    this.transitions[Game.map_grid.width - 1][4] = true;
-
-    // Player character, placed at 5, 5 on our grid
+    // Player character, placed at 5, 1 on our grid
     this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
     this.occupied[this.player.at().x][this.player.at().y] = true;
 
@@ -127,7 +118,7 @@ Crafty.scene( 'Game', function () {
 
     this.transitionable = this.bind('Transitionable', function(data) {
         if (this.transitions[data.x][data.y] === true) {
-            transition(data.player);
+            Crafty.scene('Transitiondemo');
         }
     });
 
