@@ -8,6 +8,8 @@ Crafty.scene( 'Game', function () {
     this.dialog = Crafty.e('Dialog');
     document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
+    var LEFT_X = 0;
+    var RIGHT_X = 13;
 
     // ---------------- CREATE SCENE --------------------- //
     // A 2D array to keep track of all occupied tiles
@@ -38,8 +40,8 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    var template = get_car('passenger');
-    fill_car(template);
+    this.template = get_car('passenger');
+    fill_car(this.template);
            //---- MANUALLY INSERTED PASSENGERS ----//
                 Crafty.e( 'Woman1_right' ).at(1,5);
                 this.passengers[1][5] = "unchecked";
@@ -78,8 +80,25 @@ Crafty.scene( 'Game', function () {
     });
 
     this.transitionable = this.bind('Transitionable', function(data) {
-        if (this.transitions[data.x][data.y] === true) {
-            Crafty.scene('Transitiondemo');
+        if (this.template[data.x][data.y] === "Wall_grate") {
+            var new_template;
+            if(data.x == LEFT_X) {
+                new_template = get_car('bar');
+                fill_car(new_template);
+                console.log(new_template);
+                this.player = Crafty.e('PlayerCharacter').at(RIGHT_X-1, data.y);
+
+            }
+            else if(data.x == RIGHT_X) {
+                new_template = get_car('engine');
+                fill_car(new_template);
+                this.player = Crafty.e( 'PlayerCharacter' ).at(LEFT_X+1, data.y);
+
+            }
+            this.template = new_template;
+
+
+//            Crafty.scene('Transitiondemo');
         }
     });
 
