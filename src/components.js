@@ -281,7 +281,6 @@ Crafty.c('PlayerCharacter', {
     this.requires('Actor, Fourway, Collision, spr_trainplayer, SpriteAnimation, Keyboard')
       .fourway(3)
       .stopOnSolids()
-      .actOnTransitionArea()
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
@@ -323,14 +322,6 @@ Crafty.c('PlayerCharacter', {
     return this;
   },
 
-  // Registers actOnTransition function to be called when this entity (player) 
-  // hits an entity with the "TransitionArea" component
-  actOnTransitionArea: function() {
-    this.onHit('TransitionArea', this.actOnTransition);
-
-    return this;
-  },
-
   // Stops the movement
   stopMovement: function() {
     this._speed = 0;
@@ -338,12 +329,7 @@ Crafty.c('PlayerCharacter', {
       this.x -= this._movement.x;
       this.y -= this._movement.y;
     }
-  },
-
-  // Acts on transition area
-  actOnTransition: function() { 
-  },
-
+  }
 });
 
 function calculatePoints() {
