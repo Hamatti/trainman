@@ -26,7 +26,8 @@ Crafty.scene( 'Game', function () {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
             this.passengers[i][y] = "none";
         }
-    } 
+    }    
+	
 
     // A 2D array to keep track of all transition areas
     this.transitions = new Array(Game.map_grid.width);
