@@ -118,8 +118,8 @@ function get_car(car_type) {
 						'Passenger_chair_right'];
 		var e_part2 = e_part1.slice(0);
 		e_part2[0] = 'Wall_borderless';
-		var e_empty1 = ['Wall_window','','','','','',''];
-		var e_empty2 = ['Wall_borderless','','','','','',''];
+		var e_empty1 = ['Wall_window','','','','','','Passenger_chair_right'];
+		var e_empty2 = ['Wall_borderless','','','','','','Passenger_table'];
 
 		var engine = [wall_left, e_part1, e_part2, e_part1,
 					e_part2, e_part1, e_part2, e_part1,
