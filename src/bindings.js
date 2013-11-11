@@ -1,7 +1,6 @@
 var Bindings = {
 
     transition: function(data) {
-        console.log('Moi');
         if (this.template[data.x][data.y] === "Wall_grate") {
             if(data.x == Game.LEFT_X) {
               Game.last_scene = Game.current_scene;
