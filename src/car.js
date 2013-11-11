@@ -118,8 +118,8 @@ function get_car(car_type) {
 						'Passenger_chair_right'];
 		var e_part2 = e_part1.slice(0);
 		e_part2[0] = 'Wall_borderless';
-		var e_empty1 = ['Wall_window','','','','','',''];
-		var e_empty2 = ['Wall_borderless','','','','','',''];
+		var e_empty1 = ['Wall_window','','','','','','Passenger_chair_right'];
+		var e_empty2 = ['Wall_borderless','','','','','','Passenger_table'];
 
 		var engine = [wall_left, e_part1, e_part2, e_part1,
 					e_part2, e_part1, e_part2, e_part1,
@@ -134,13 +134,11 @@ function fill_car(template) {
 	for ( var x = 0; x < template.length; x++) {
 		for (var y = 0; y < template[x].length; y++) {
 			if (y == 3 || y == 4) {
-                console.log(template[x][y]);
 				Crafty.e('Floor_dark').at(x,y);
                 if(template[x][y] !== '')
     				Crafty.e(template[x][y]).at(x,y);
 			}
 			else {
-                console.log(template[x][y]);
 				Crafty.e('Floor_light').at(x,y);
                 if(template[x][y] !== '')
     				Crafty.e(template[x][y]).at(x,y);

@@ -14,6 +14,7 @@ function Passenger(name, home, occupation, age, sex, in_train) {
     this.home = home;
     this.sex = sex;
     this.occupation = occupation;
+    this.checkedTicket = false;
     this.hasTicket = this.does_have_ticket();
     this.is_in_train = in_train;
     this.direction;

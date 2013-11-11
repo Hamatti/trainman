@@ -334,9 +334,8 @@ Crafty.c('PlayerCharacter', {
 });
 
 function calculatePoints() {
-    var points_div = document.getElementById('points');
-    points = parseInt(points_div.innerHTML) + 1;
-    points_div.innerHTML = points;
+    Game.points += 1;
+    document.getElementById('points').innerHTML = Game.points;
 }
 
 function _interact(player) {
@@ -346,7 +345,15 @@ function _interact(player) {
 function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
-    setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);
+	var has_ticket;
+	if (Math.random() < 0.5) {
+		has_ticket = dialog.check_success;
+	}
+	else {
+		has_ticket = dialog.check_failure;
+		Crafty.audio.play('wtf');
+	}
+    setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + has_ticket  + '</p>'; }, 1000);
     calculatePoints();
 }
 
