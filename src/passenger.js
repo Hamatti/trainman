@@ -9,17 +9,20 @@ function Passenger(name, home, occupation, age, sex, in_train) {
         this.x = x;
         this.y = y;
     }
+
     this.age = age;
     this.name = name;
     this.home = home;
     this.sex = sex;
     this.occupation = occupation;
+
     this.checkedTicket = false;
     this.hasTicket = this.does_have_ticket();
     this.is_in_train = in_train;
     this.direction;
     this.set_direction = function(dir) { this.direction = dir; };
     this.age_group;
+
     if(this.age >= 10 && this.age <= 15) this.age_group = "child";
     else if(this.age >15 && this.age <= 25) this.age_group = "teenager";
     else if (this.age > 25 && this.age <= 50) this.age_group = "adult";
