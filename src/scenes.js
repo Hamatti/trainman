@@ -40,8 +40,8 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    this.template = get_car('passenger');
-    fill_car(this.template);
+    var template = get_car('engine');
+    fill_car(template);
            //---- MANUALLY INSERTED PASSENGERS ----//
                 Crafty.e( 'Woman1_right' ).at(1,5);
                 this.passengers[1][5] = "unchecked";
@@ -53,7 +53,7 @@ Crafty.scene( 'Game', function () {
 
 
     // Player character, placed at 5, 1 on our grid
-    this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
+    this.player = Crafty.e( 'PlayerCharacter' ).at( 11, 1 );
     this.occupied[this.player.at().x][this.player.at().y] = true;
 
     // -------------------- START THE GAME -------------------/
