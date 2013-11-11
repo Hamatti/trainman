@@ -183,15 +183,15 @@ Crafty.scene( 'Loading', function () {
 
         Crafty.sprite(54, 70, 'assets/passengers.png', {
             spr_woman1_right: [0, 0],
-            spr_woman1_left: [3, 0],
-            spr_woman2_right: [1, 0],
-            spr_woman2_left: [3, 0],
-            spr_teen_right: [0, 1],
-            spr_teen_left: [1, 1],
-            spr_kid1_right: [2, 1],
-            spr_kid1_left: [1, 2],
-            spr_kid2_right: [3, 1],
-            spr_kid2_left: [0, 2]
+            spr_woman1_left: [1, 0],
+            spr_woman2_right: [0, 1],
+            spr_woman2_left: [1, 1],
+            spr_teen_right: [2, 1],
+            spr_teen_left: [3, 1],
+            spr_kid1_right: [2, 0],
+            spr_kid1_left: [3, 0],
+            spr_kid2_right: [0, 2],
+            spr_kid2_left: [1, 2]
         });
 
         Crafty.sprite( 64, 'assets/spritet.png', {
