@@ -204,7 +204,7 @@ Crafty.scene( 'Loading', function () {
                 'assets/board_room_applause.aac'],
 			background: ['assets/onboard_background2.mp3',
 				'assets/onboard_background2.ogg',
-				'assets/onboard_background2.aac']
+				'assets/onboard_background2.aac'],
 			wtf: ['assets/wtf.mp3']
 //				'assets/wtf.ogg',
 //				'assets/wtf.aac']
