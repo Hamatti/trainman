@@ -31,6 +31,7 @@ Crafty.c('Actor', {
 Crafty.c('TransitionArea', {
     init: function() {
         this.requires('Actor, spr_wall_grate');
+        
     }
 });
 
@@ -128,14 +129,14 @@ Crafty.c('Bar_counter', {
 // A solid wall (with borders in the left side)
 Crafty.c('Wall_leftborders', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_leftborder');
+        this.requires('Actor, Solid, spr_wall_leftborders');
     }
 });
 
 // A solid wall (with borders in the right side)
 Crafty.c('Wall_rightborders', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_rightborder');
+        this.requires('Actor, Solid, spr_wall_rightborders');
     }
 });
 
