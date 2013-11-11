@@ -103,8 +103,8 @@ Crafty.scene( 'Game', function () {
     this.occupied[this.player.at().x][this.player.at().y] = true;
 
     // -------------------- START THE GAME -------------------/
-    // Play a ringing sound to indicate the start of the journey
-    Crafty.audio.play( 'ring' );
+    // Play onboard audio in the background, loop forever
+    Crafty.audio.play( 'background', -1 );
 
     this.interactable = this.bind('Interactable', function(data) {
         if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
@@ -186,16 +186,13 @@ Crafty.scene( 'Loading', function () {
         'assets/spritet.png',
 		'assets/level_old.png',
         'assets/hunter.png',
-        'assets/door_knock_3x.mp3',
-        'assets/door_knock_3x.ogg',
-        'assets/door_knock_3x.aac',
         'assets/board_room_applause.mp3',
         'assets/board_room_applause.ogg',
         'assets/board_room_applause.aac',
-        'assets/candy_dish_lid.mp3',
-        'assets/candy_dish_lid.ogg',
-        'assets/candy_dish_lid.aac'
-    ], function () {
+		'assets/onboard_background2.mp3',
+		'assets/onboard_background2.ogg',
+		'assets/onboard_background2.aac'
+   ], function () {
         // Once the images are loaded...
 
         // Define the individual sprites in the image
@@ -213,15 +210,15 @@ Crafty.scene( 'Loading', function () {
 
         Crafty.sprite(54, 70, 'assets/passengers.png', {
             spr_woman1_right: [0, 0],
-            spr_woman1_left: [3, 0],
-            spr_woman2_right: [1, 0],
-            spr_woman2_left: [3, 0],
-            spr_teen_right: [0, 1],
-            spr_teen_left: [1, 1],
-            spr_kid1_right: [2, 1],
-            spr_kid1_left: [1, 2],
-            spr_kid2_right: [3, 1],
-            spr_kid2_left: [0, 2]
+            spr_woman1_left: [1, 0],
+            spr_woman2_right: [0, 1],
+            spr_woman2_left: [1, 1],
+            spr_teen_right: [2, 1],
+            spr_teen_left: [3, 1],
+            spr_kid1_right: [2, 0],
+            spr_kid1_left: [3, 0],
+            spr_kid2_right: [0, 2],
+            spr_kid2_left: [1, 2]
         });
 
         Crafty.sprite( 64, 'assets/spritet.png', {
@@ -250,16 +247,13 @@ Crafty.scene( 'Loading', function () {
 
         // Define our sounds for later use
         Crafty.audio.add( {
-            knock: ['assets/door_knock_3x.mp3',
-                'assets/door_knock_3x.ogg',
-                'assets/door_knock_3x.aac'],
-            applause: ['assets/board_room_applause.mp3',
+			applause: ['assets/board_room_applause.mp3',
                 'assets/board_room_applause.ogg',
                 'assets/board_room_applause.aac'],
-            ring: ['assets/candy_dish_lid.mp3',
-                'assets/candy_dish_lid.ogg',
-                'assets/candy_dish_lid.aac']
-        } );
+			background: ['assets/onboard_background2.mp3',
+				'assets/onboard_background2.ogg',
+				'assets/onboard_background2.aac']
+       } );
 
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
