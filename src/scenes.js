@@ -2,7 +2,7 @@
 // -------------
 // Runs the core gameplay loop
 //
-Crafty.scene( 'Game', function () {
+Crafty.scene( 'engine', function () {
 
     // Clear points and show starting dialog
     document.getElementById('points').innerHTML = Game.points;
@@ -87,7 +87,7 @@ Crafty.scene( 'Victory', function () {
     }, 5000 );
     this.restart_game = function () {
         document.getElementById('points').innerHTML = 0;
-        Crafty.scene( 'Game' );
+        Crafty.scene( 'engine' );
     };
 //    this.bind( 'KeyDown', this.restart_game );
 }
@@ -191,6 +191,6 @@ Crafty.scene( 'Loading', function () {
 
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
-        setTimeout(function() { Crafty.scene( 'Game' ); }, 2000);
+        setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
     } );
 } );

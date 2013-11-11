@@ -21,7 +21,12 @@ Crafty.scene('bar', function() {
    this.passengers[6][5] = "unchecked";
 
     // Player character, placed at 5, 1 on our grid
-    this.player = Crafty.e( 'PlayerCharacter' ).at(Game.RIGHT_X, 3);
+    if(Game.direction_from === 'right') {
+        this.player = Crafty.e( 'PlayerCharacter' ).at(Game.RIGHT_X, 3);
+    }
+    else {
+        this.player = Crafty.e( 'PlayerCharacter' ).at(Game.LEFT_X, 3);
+    }
 
  // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
@@ -45,8 +50,6 @@ Crafty.scene('bar', function() {
         }, 3000);
 
     });
-
-    this.transitionable = this.bind('Transitionable', Bindings.transition);
 
 }, function() {
     this.unbind('Interactable', this.interactable);

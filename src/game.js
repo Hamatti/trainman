@@ -34,7 +34,9 @@ Game = {
   LEFT_X: 0,
   RIGHT_X: 13,
   points: 0,
-  last_scene: 'Start'
+  last_scene: 'Start',
+  current_car: 'engine',
+  direction_from: undefined
 
 }
 

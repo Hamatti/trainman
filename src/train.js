@@ -1,6 +1,12 @@
 var Train = {
 
-    cars: [[1,2,3],[4,5,6],[7,8,9]]
+   passenger_in_cars: [],
+   order_of_cars: {'engine': { "left": "passenger", "right": undefined }, "passenger": { "left": "bar", "right": "engine" }, "bar": { "left": undefined, "right": "passenger" }},
+   which_car: function(dir) {
+        return this.order_of_cars[Game.current_car][dir];
+   }
 
 
 }
+
+
