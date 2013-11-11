@@ -306,7 +306,7 @@ Crafty.c('PlayerCharacter', {
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
-          
+
       })
       // These next lines define our four animations
       //  each call to .animate specifies:
