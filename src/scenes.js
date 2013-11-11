@@ -11,17 +11,7 @@ Crafty.scene( 'Game', function () {
     var LEFT_X = 0;
     var RIGHT_X = 13;
 
-    // ---------------- CREATE SCENE --------------------- //
-    // A 2D array to keep track of all occupied tiles
-    this.occupied = new Array( Game.map_grid.width );
-    for ( var i = 0; i < Game.map_grid.width; i++ ) {
-        this.occupied[i] = new Array( Game.map_grid.height );
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.occupied[i][y] = false;
-        }
-    }
-
-    // A 2D array to keep track of all passeneger positions
+   // A 2D array to keep track of all passeneger positions
     this.passengers = new Array(Game.map_grid.width);
     for ( var i = 0; i < Game.map_grid.width; i++ ) {
         this.passengers[i] = new Array( Game.map_grid.height );
@@ -30,31 +20,21 @@ Crafty.scene( 'Game', function () {
         }
     }
 
+   var template = get_car('engine');
+   fill_car(template);
 
-    // A 2D array to keep track of all transition areas
-    this.transitions = new Array(Game.map_grid.width);
-    for ( var i = 0; i < Game.map_grid.width; i++ ) {
-        this.transitions[i] = new Array( Game.map_grid.height );
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.transitions[i][y] = false;
-        }
-    }
-
-    var template = get_car('engine');
-    fill_car(template);
-           //---- MANUALLY INSERTED PASSENGERS ----//
-                Crafty.e( 'Woman1_right' ).at(1,5);
-                this.passengers[1][5] = "unchecked";
-                Crafty.e( 'Teen_right' ).at(7,2);
-                this.passengers[7][2] = "unchecked";
-                Crafty.e( 'Child2_left' ).at(6,5);
-                this.passengers[6][5] = "unchecked";
+   //---- MANUALLY INSERTED PASSENGERS ----//
+   Crafty.e( 'Woman1_right' ).at(1,5);
+   this.passengers[1][5] = "unchecked";
+   Crafty.e( 'Teen_right' ).at(7,2);
+   this.passengers[7][2] = "unchecked";
+   Crafty.e( 'Child2_left' ).at(6,5);
+   this.passengers[6][5] = "unchecked";
 
 
 
     // Player character, placed at 5, 1 on our grid
     this.player = Crafty.e( 'PlayerCharacter' ).at( 11, 1 );
-    this.occupied[this.player.at().x][this.player.at().y] = true;
 
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
