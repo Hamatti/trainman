@@ -22,12 +22,12 @@ Crafty.scene( 'engine', function () {
    fill_car(this.template);
 
    //---- MANUALLY INSERTED PASSENGERS ----//
-   Crafty.e( 'Woman1_right' ).at(1,5);
-   this.passengers[1][5] = "unchecked";
-   Crafty.e( 'Teen_right' ).at(7,2);
-   this.passengers[7][2] = "unchecked";
-   Crafty.e( 'Child2_left' ).at(6,5);
-   this.passengers[6][5] = "unchecked";
+   Crafty.e( 'Woman1_right' ).at(2,5);
+   this.passengers[2][5] = "unchecked";
+   Crafty.e( 'Teen_right' ).at(8,2);
+   this.passengers[8][2] = "unchecked";
+   Crafty.e( 'Child2_left' ).at(7,5);
+   this.passengers[7][5] = "unchecked";
 
     // Player character, placed at 5, 1 on our grid
     if(Game.last_scene === 'Start')
