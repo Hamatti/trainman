@@ -284,7 +284,7 @@ Crafty.c('PlayerCharacter', {
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
-          if(this.isDown('G')) transition();
+          if(this.isDown('G')) transition(this);
       })
       // These next lines define our four animations
       //  each call to .animate specifies:
@@ -351,7 +351,7 @@ function interact(player) {
 
 // Transition to next car via key-binding
 function transition(player) {
-    Crafty.scene('Transitiondemo');
+    Crafty.trigger('Transitionable',{ x: Math.round(player.at().x), y: Math.round(player.at().y), player: player });
 }
 
 function clearDialog() {
