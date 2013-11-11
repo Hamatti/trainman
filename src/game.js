@@ -29,7 +29,13 @@ Game = {
 
     // Simply start the "Loading" scene to get things going
     Crafty.scene('Loading');
-  }
+  },
+
+  LEFT_X: 0,
+  RIGHT_X: 13,
+  points: 0,
+  last_scene: 'Start'
+
 }
 
 $text_css = {

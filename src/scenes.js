@@ -1,15 +1,13 @@
 // Game scene
 // -------------
 // Runs the core gameplay loop
+//
 Crafty.scene( 'Game', function () {
 
     // Clear points and show starting dialog
-    document.getElementById('points').innerHTML = "0";
+    document.getElementById('points').innerHTML = Game.points;
     this.dialog = Crafty.e('Dialog');
     document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
-
-    var LEFT_X = 0;
-    var RIGHT_X = 13;
 
    // A 2D array to keep track of all passeneger positions
     this.passengers = new Array(Game.map_grid.width);
@@ -20,8 +18,8 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-   var template = get_car('engine');
-   fill_car(template);
+   this.template = get_car('engine');
+   fill_car(this.template);
 
    //---- MANUALLY INSERTED PASSENGERS ----//
    Crafty.e( 'Woman1_right' ).at(1,5);
@@ -31,10 +29,10 @@ Crafty.scene( 'Game', function () {
    Crafty.e( 'Child2_left' ).at(6,5);
    this.passengers[6][5] = "unchecked";
 
-
-
     // Player character, placed at 5, 1 on our grid
-    this.player = Crafty.e( 'PlayerCharacter' ).at( 11, 1 );
+    if(Game.last_scene === 'Start')
+        this.player = Crafty.e( 'PlayerCharacter' ).at( 11, 1 );
+    else this.player = Crafty.e('PlayerCharacter').at(Game.LEFT_X, 3);
 
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
@@ -59,28 +57,7 @@ Crafty.scene( 'Game', function () {
 
     });
 
-    this.transitionable = this.bind('Transitionable', function(data) {
-        if (this.template[data.x][data.y] === "Wall_grate") {
-            var new_template;
-            if(data.x == LEFT_X) {
-                new_template = get_car('bar');
-                fill_car(new_template);
-                console.log(new_template);
-                this.player = Crafty.e('PlayerCharacter').at(RIGHT_X-1, data.y);
-
-            }
-            else if(data.x == RIGHT_X) {
-                new_template = get_car('engine');
-                fill_car(new_template);
-                this.player = Crafty.e( 'PlayerCharacter' ).at(LEFT_X+1, data.y);
-
-            }
-            this.template = new_template;
-
-
-//            Crafty.scene('Transitiondemo');
-        }
-    });
+    this.transitionable = this.bind('Transitionable', Bindings.transition);
 
 }, function() {
     this.unbind('Interactable', this.interactable);

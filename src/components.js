@@ -333,9 +333,8 @@ Crafty.c('PlayerCharacter', {
 });
 
 function calculatePoints() {
-    var points_div = document.getElementById('points');
-    points = parseInt(points_div.innerHTML) + 1;
-    points_div.innerHTML = points;
+    Game.points += 1;
+    document.getElementById('points').innerHTML = Game.points;
 }
 
 function _interact(player) {
