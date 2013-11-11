@@ -42,6 +42,13 @@ Crafty.c('Passenger', {
   }
 });
 
+// solid transparent block
+Crafty.c('Block', {
+  init: function() {
+    this.requires('Actor, Solid');
+  }
+});
+
 // A solid bar chair
 Crafty.c('Bar_chair', {
     init: function() {
@@ -129,14 +136,14 @@ Crafty.c('Bar_counter', {
 // A solid wall (with borders in the left side)
 Crafty.c('Wall_leftborders', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_leftborders');
+        this.requires('Actor, Solid, spr_wall_leftborder');
     }
 });
 
 // A solid wall (with borders in the right side)
 Crafty.c('Wall_rightborders', {
     init: function() {
-        this.requires('Actor, Solid, spr_wall_rightborders');
+        this.requires('Actor, Solid, spr_wall_rightborder');
     }
 });
 
