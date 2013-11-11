@@ -143,7 +143,9 @@ Crafty.scene( 'Loading', function () {
 		'assets/onboard_background2.mp3',
 		'assets/onboard_background2.ogg',
 		'assets/onboard_background2.aac',
-		'assets/wtf.mp3'
+		'assets/wtf.mp3',
+		'assets/wtf.ogg',
+		'assets/wtf.aac'
    ], function () {
         // Once the images are loaded...
 
@@ -205,10 +207,9 @@ Crafty.scene( 'Loading', function () {
 			background: ['assets/onboard_background2.mp3',
 				'assets/onboard_background2.ogg',
 				'assets/onboard_background2.aac'],
-			wtf: ['assets/wtf.mp3']
-//				'assets/wtf.ogg',
-//				'assets/wtf.aac']
-
+			wtf: ['assets/wtf.mp3',
+				'assets/wtf.ogg',
+				'assets/wtf.aac']
        } );
 
         // Now that our sprites are ready to draw, start the game after showing
