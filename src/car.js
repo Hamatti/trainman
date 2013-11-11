@@ -99,7 +99,7 @@ function get_car(car_type) {
 	if (car_type == 'engine') {
 		var wall_middle = ['Wall_middle_both',
 							'Wall_middle_both',
-							'Wall_middle_both',
+							'Wall_bothborders',
 							'','',
 							'Wall_middle_both',
 							'Wall_middle_both'];
@@ -111,11 +111,11 @@ function get_car(car_type) {
 							'Wall_middle_left',
 							'Wall_middle_left'];
 		var e_part1 = ['Wall_window',
-						'Passenger_chair',
-						'Passenger_chair',
+						'Passenger_chair_right',
+						'Passenger_chair_right',
 						'','',
-						'Passenger_chair',
-						'Passenger_chair'];
+						'Passenger_chair_right',
+						'Passenger_chair_right'];
 		var e_part2 = e_part1.slice(0);
 		e_part2[0] = 'Wall_borderless';
 		var e_empty1 = ['Wall_window','','','','','',''];

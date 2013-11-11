@@ -38,7 +38,7 @@ Crafty.scene( 'Game', function () {
         }
     }
 
-    var template = get_car('engine');
+    var template = get_car('passenger');
     fill_car(template);
 
 /*    // Insert car elements
