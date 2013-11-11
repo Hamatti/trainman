@@ -3,10 +3,13 @@
     <head>
         <title> Trainman, game prototype by Nottingham Games</title>
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-  <script src="lib/crafty.js"></script>
+        <script src="lib/crafty.js"></script>
+        <script src="src/passenger.js"></script>
+        <script src="src/passenger_creator.js"></script>
   <script src="src/game.js"></script>
   <script src="src/components.js"></script>
   <script src="src/scenes.js"></script>
+  <script src="src/traintransition.js"></script>
   <script>
     window.addEventListener('load', Game.start);
   </script>
@@ -20,7 +23,9 @@
 <body>
 
     <div id="game" class="game">
-    <h1> TRAINMAN </h1>
+        <h1> TRAINMAN </h1>
+
+        <p class="controls"> Controls: WASD to move, E to interact with customer, G to change car </p>
 
     <div id="cr-stage" class="cr-stage"> </div>
 

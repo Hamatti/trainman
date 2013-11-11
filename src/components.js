@@ -30,7 +30,7 @@ Crafty.c('Actor', {
 // Abstract transition area
 Crafty.c('TransitionArea', {
     init: function() {
-        this.requires('Actor', 'spr_wall_grate');
+        this.requires('Actor, spr_wall_grate');
     }
 });
 
@@ -260,28 +260,6 @@ Crafty.c('Child2_left', {
 });
 //--------------END OF PASSENGERS----------------//
 
-
-// A Tree is just an Actor with a certain sprite
-Crafty.c('Tree', {
-  init: function() {
-    this.requires('Actor, Solid, spr_tree');
-  }
-});
-
-// A Bush is just an Actor with a certain sprite
-Crafty.c('Bush', {
-  init: function() {
-    this.requires('Actor, Solid, spr_bush');
-  }
-});
-
-// A Rock is just an Actor with a certain sprite
-Crafty.c('Rock', {
-  init: function() {
-    this.requires('Actor, Solid, spr_rock');
-  }
-});
-
 Crafty.c('Dialog', {
   init: function() {
   },
@@ -306,7 +284,7 @@ Crafty.c('PlayerCharacter', {
       .bind('KeyDown', function() {
           if(this.isDown('E')) _interact(this);
           if(this.isDown('R')) clearDialog();
-          
+          if(this.isDown('G')) transition();
       })
       // These next lines define our four animations
       //  each call to .animate specifies:
@@ -351,8 +329,7 @@ Crafty.c('PlayerCharacter', {
       this.x -= this._movement.x;
       this.y -= this._movement.y;
     }
-  },
-
+  }
 });
 
 function calculatePoints() {
@@ -370,6 +347,11 @@ function interact(player) {
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + ((Math.random() < 0.5) ? dialog.check_success : dialog.check_failure) + '</p>'; }, 1000);
     calculatePoints();
+}
+
+// Transition to next car via key-binding
+function transition(player) {
+    Crafty.scene('Transitiondemo');
 }
 
 function clearDialog() {

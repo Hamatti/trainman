@@ -126,37 +126,47 @@ Crafty.scene( 'Game', function () {
 			return passenger_car;
 		}
 		if (car_type == 'engine') {
-		var wall_middle = ['Wall_middle_both',
-							'Wall_middle_both',
-							'Wall_middle_both',
+			var wall_middle = ['Wall_middle_both',
+								'Wall_middle_both',
+								'Wall_middle_both',
+								'','',
+								'Wall_middle_both',
+								'Wall_middle_both'];
+			var e_wall_right = ['Wall_middle_left',
+								'Wall_middle_left',
+								'Wall_middle_left',
+								'Wall_middle_left',
+								'Wall_middle_left',
+								'Wall_middle_left',
+								'Wall_middle_left'];
+			var e_part1 = ['Wall_window',
+							'Passenger_chair',
+							'Passenger_chair',
 							'','',
-							'Wall_middle_both',
-							'Wall_middle_both'];
-		var e_wall_right = ['Wall_middle_left',
-							'Wall_middle_left',
-							'Wall_middle_left',
-							'Wall_middle_left',
-							'Wall_middle_left',
-							'Wall_middle_left',
-							'Wall_middle_left'];
-		var e_part1 = ['Wall_window',
-						'Passenger_chair',
-						'Passenger_chair',
-						'','',
-						'Passenger_chair',
-						'Passenger_chair'];
-		var e_part2 = e_part1.slice(0);
-		e_part2[0] = 'Wall_borderless';
-		var e_empty1 = ['Wall_window','','','','','',''];
-		var e_empty2 = ['Wall_borderless','','','','','',''];
+							'Passenger_chair',
+							'Passenger_chair'];
+			var e_part2 = e_part1.slice(0);
+			e_part2[0] = 'Wall_borderless';
+			var e_empty1 = ['Wall_window','','','','','',''];
+			var e_empty2 = ['Wall_borderless','','','','','',''];
 		
-		var engine = [wall_left, e_part1, e_part2, e_part1,
+			var engine = [wall_left, e_part1, e_part2, e_part1,
 						e_part2, e_part1, e_part2, e_part1,
 						wall_middle, e_empty1, e_empty2,
 						e_empty1, e_empty2, e_wall_right];
-		return engine;
+			return engine;
+			}
 		}
-	}
+    } 
+
+    // A 2D array to keep track of all transition areas
+    this.transitions = new Array(Game.map_grid.width);
+    for ( var i = 0; i < Game.map_grid.width; i++ ) {
+        this.transitions[i] = new Array( Game.map_grid.height );
+        for ( var y = 0; y < Game.map_grid.height; y++ ) {
+            this.transitions[i][y] = false;
+        }
+    } 
 
 	//-------End of car creation------//
     // Insert car elements
@@ -173,7 +183,10 @@ Crafty.scene( 'Game', function () {
 					else {tile = 'Wall_borderless';}
 				}
 				else if (x == 0 || x == Game.map_grid.width - 1) {
-					if (y == 3 || y == 4) {tile = 'Floor_dark';}
+					if (y == 3 || y == 4) {
+                        console.log('wall grate happening');
+                        tile = 'Wall_grate';
+                    }
 					else {tile = 'Wall_borderless';}
 				}
 			}
@@ -205,16 +218,25 @@ Crafty.scene( 'Game', function () {
                 this.passengers[x][y] = "unchecked";
             }
             this.occupied[x][y] = true;
-
         }
     }
+
+    // Crafty.e( 'TransitionArea' ).at(0, 3);
+    this.transitions[0][3] = true;
+    // Crafty.e( 'TransitionArea' ).at(0, 4);
+    this.transitions[0][4] = true;
+    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 3);
+    this.transitions[Game.map_grid.width - 1][3] = true;
+    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 4);
+    this.transitions[Game.map_grid.width - 1][4] = true;
+
     // Player character, placed at 5, 5 on our grid
     this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
     this.occupied[this.player.at().x][this.player.at().y] = true;
 
     // -------------------- START THE GAME -------------------/
-    // Play a ringing sound to indicate the start of the journey
-    Crafty.audio.play( 'ring' );
+    // Play onboard audio in the background, loop forever
+    Crafty.audio.play( 'background', -1 );
 
     this.interactable = this.bind('Interactable', function(data) {
         if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
@@ -235,8 +257,15 @@ Crafty.scene( 'Game', function () {
         
     });
 
+    this.transitionable = this.bind('Transitionable', function(data) {
+        if (this.transitions[data.x][data.y] === true) {
+            transition(data.player);
+        }
+    });
+
 }, function() {
     this.unbind('Interactable', this.interactable);
+    this.unbind('Transitionable', this.transitionable);
 });
 
 
@@ -265,12 +294,14 @@ Crafty.scene( 'Victory', function () {
         Crafty.scene( 'Game' );
     };
 //    this.bind( 'KeyDown', this.restart_game );
-}, function () {
+}
+/*function () {
     // Remove our event binding from above so that we don't
     //  end up having multiple redundant event watchers after
     //  multiple restarts of the game
     this.unbind( 'KeyDown', this.restart_game );
-} );
+}*/
+);
 
 // Loading scene
 // -------------
@@ -287,16 +318,13 @@ Crafty.scene( 'Loading', function () {
         'assets/spritet.png',
 		'assets/level_old.png',
         'assets/hunter.png',
-        'assets/door_knock_3x.mp3',
-        'assets/door_knock_3x.ogg',
-        'assets/door_knock_3x.aac',
         'assets/board_room_applause.mp3',
         'assets/board_room_applause.ogg',
         'assets/board_room_applause.aac',
-        'assets/candy_dish_lid.mp3',
-        'assets/candy_dish_lid.ogg',
-        'assets/candy_dish_lid.aac'
-    ], function () {
+		'assets/onboard_background2.mp3',
+		'assets/onboard_background2.ogg',
+		'assets/onboard_background2.aac'
+   ], function () {
         // Once the images are loaded...
 
         // Define the individual sprites in the image
@@ -351,19 +379,16 @@ Crafty.scene( 'Loading', function () {
 
         // Define our sounds for later use
         Crafty.audio.add( {
-            knock: ['assets/door_knock_3x.mp3',
-                'assets/door_knock_3x.ogg',
-                'assets/door_knock_3x.aac'],
-            applause: ['assets/board_room_applause.mp3',
+			applause: ['assets/board_room_applause.mp3',
                 'assets/board_room_applause.ogg',
                 'assets/board_room_applause.aac'],
-            ring: ['assets/candy_dish_lid.mp3',
-                'assets/candy_dish_lid.ogg',
-                'assets/candy_dish_lid.aac']
-        } );
+			background: ['assets/onboard_background2.mp3',
+				'assets/onboard_background2.ogg',
+				'assets/onboard_background2.aac']
+       } );
 
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         setTimeout(function() { Crafty.scene( 'Game' ); }, 2000);
-    } )
+    } );
 } );
