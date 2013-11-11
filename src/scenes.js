@@ -160,8 +160,8 @@ Crafty.scene( 'Loading', function () {
         'assets/board_room_applause.ogg',
         'assets/board_room_applause.aac',
 		'assets/onboard_background2.mp3',
-		'assets/onboard_background2.ogg'
-		//'assets/onboard_background2.aac'
+		'assets/onboard_background2.ogg',
+		'assets/onboard_background2.aac'
    ], function () {
         // Once the images are loaded...
 
@@ -221,8 +221,8 @@ Crafty.scene( 'Loading', function () {
                 'assets/board_room_applause.ogg',
                 'assets/board_room_applause.aac'],
 			background: ['assets/onboard_background2.mp3',
-				'assets/onboard_background2.ogg']
-//				'assets/onboard_background2.aac']
+				'assets/onboard_background2.ogg',
+				'assets/onboard_background2.aac']
        } );
 
         // Now that our sprites are ready to draw, start the game after showing
