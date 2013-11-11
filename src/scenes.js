@@ -40,44 +40,7 @@ Crafty.scene( 'Game', function () {
 
     var template = get_car('passenger');
     fill_car(template);
-
-/*    // Insert car elements
-    for ( var x = 0; x < Game.map_grid.width; x++ ) {
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            Crafty.e( 'Floor_light' ).at(x,y);
-            var at_edge = x == 0 || x == Game.map_grid.width - 1 ||  y == 0;
-            var tile;
-            if ( at_edge ) {
-                if (y == 0) {
-					if (x == 0 || x == Game.map_grid.width - 1) {tile = 'Wall_vr';}
-					else if (x < 5) {tile = 'Wall_boozes';}
-					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Wall_window';}
-					else {tile = 'Wall_borderless';}
-				}
-				else if (x == 0 || x == Game.map_grid.width - 1) {
-					if (y == 3 || y == 4) {
-                        tile = 'Wall_grate';
-                        this.transitions[x][y] = true;
-                    }
-					else {tile = 'Wall_borderless';}
-				}
-			}
-			else {
-				if (y == 1 || y == 2) {
-					if (y == 2 && x < 5) {tile = 'Bar_counter';}
-					else if (x == 7 || x == 9 || x == 10 || x == 12) {tile = 'Bar_chair';}
-					else if (x == 8 || x == 11) {tile = 'Bar_table';}
-					else {continue;}
-				}
-				else if (y == 3 || y == 4) {tile = 'Floor_dark';}
-				else {
-					if (x == 2 || x == 5 || x == 8 || x == 11) {tile = 'Bar_table';}
-					else {tile = 'Bar_chair';}
-				}
-			}
-            Crafty.e( tile ).at( x, y );
-            */
-            //---- MANUALLY INSERTED PASSENGERS ----//
+           //---- MANUALLY INSERTED PASSENGERS ----//
                 Crafty.e( 'Woman1_right' ).at(1,5);
                 this.passengers[1][5] = "unchecked";
                 Crafty.e( 'Teen_right' ).at(7,2);
