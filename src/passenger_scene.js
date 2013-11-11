@@ -1,4 +1,4 @@
-Crafty.scene('Scene2', function() {
+Crafty.scene('passenger', function() {
 
     // A 2D array to keep track of all passeneger positions
     this.passengers = new Array(Game.map_grid.width);
@@ -9,7 +9,7 @@ Crafty.scene('Scene2', function() {
         }
     }
 
-   this.template = get_car('bar');
+   this.template = get_car('passenger');
    fill_car(this.template);
 
    //---- MANUALLY INSERTED PASSENGERS ----//
