@@ -26,7 +26,16 @@ Crafty.scene( 'Game', function () {
         for ( var y = 0; y < Game.map_grid.height; y++ ) {
             this.passengers[i][y] = "none";
         }
-    }    
+    } 
+
+    // A 2D array to keep track of all transition areas
+    this.transitions = new Array(Game.map_grid.width);
+    for ( var i = 0; i < Game.map_grid.width; i++ ) {
+        this.transitions[i] = new Array( Game.map_grid.height );
+        for ( var y = 0; y < Game.map_grid.height; y++ ) {
+            this.transitions[i][y] = false;
+        }
+    } 
 
     // Insert car elements
     for ( var x = 0; x < Game.map_grid.width; x++ ) {
@@ -42,7 +51,10 @@ Crafty.scene( 'Game', function () {
 					else {tile = 'Wall_borderless';}
 				}
 				else if (x == 0 || x == Game.map_grid.width - 1) {
-					if (y == 3 || y == 4) {tile = 'Floor_dark';}
+					if (y == 3 || y == 4) {
+                        console.log('wall grate happening');
+                        tile = 'Wall_grate';
+                    }
 					else {tile = 'Wall_borderless';}
 				}
 			}
@@ -74,9 +86,18 @@ Crafty.scene( 'Game', function () {
                 this.passengers[x][y] = "unchecked";
             }
             this.occupied[x][y] = true;
-
         }
     }
+
+    // Crafty.e( 'TransitionArea' ).at(0, 3);
+    this.transitions[0][3] = true;
+    // Crafty.e( 'TransitionArea' ).at(0, 4);
+    this.transitions[0][4] = true;
+    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 3);
+    this.transitions[Game.map_grid.width - 1][3] = true;
+    // Crafty.e( 'TransitionArea' ).at(Game.map_grid.width - 1, 4);
+    this.transitions[Game.map_grid.width - 1][4] = true;
+
     // Player character, placed at 5, 5 on our grid
     this.player = Crafty.e( 'PlayerCharacter' ).at( 5, 1 );
     this.occupied[this.player.at().x][this.player.at().y] = true;
@@ -104,8 +125,15 @@ Crafty.scene( 'Game', function () {
         
     });
 
+    this.transitionable = this.bind('Transitionable', function(data) {
+        if (this.transitions[data.x][data.y] === true) {
+            transition(data.player);
+        }
+    });
+
 }, function() {
     this.unbind('Interactable', this.interactable);
+    this.unbind('Transitionable', this.transitionable);
 });
 
 
@@ -134,12 +162,14 @@ Crafty.scene( 'Victory', function () {
         Crafty.scene( 'Game' );
     };
 //    this.bind( 'KeyDown', this.restart_game );
-}, function () {
+}
+/*function () {
     // Remove our event binding from above so that we don't
     //  end up having multiple redundant event watchers after
     //  multiple restarts of the game
     this.unbind( 'KeyDown', this.restart_game );
-} );
+}*/
+);
 
 // Loading scene
 // -------------
@@ -234,5 +264,5 @@ Crafty.scene( 'Loading', function () {
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         setTimeout(function() { Crafty.scene( 'Game' ); }, 2000);
-    } )
+    } );
 } );
