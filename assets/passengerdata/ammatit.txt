@@ -1,0 +1,519 @@
+﻿Agronomi
+Ahtaaja
+Ajojärjestelijä
+Ajoneuvoasentaja
+Ajoneuvonosturinkuljettaja
+Aliupseeri
+Aluksen päällikkö, merikapteeni
+Alusliikenneohjaaja
+Ammatillisen oppilaitoksen opettaja
+Ammattiurheilija
+Analyytikko
+Apteekkari
+Apuvälineteknikko
+Arkeologi
+Arkistonhoitaja
+Arkkitehti
+Art Director
+Asentaja, rautatieliikenne
+Aseseppä
+Asfalttityöntekijä
+Asiakaspalvelija, sähkön myynti
+Asianajaja
+Assistentti, yliopistot ja korkeakoulut
+Autokorinkorjaaja
+Automaalari
+Automaatioasentaja
+Automaatioinsinööri
+Automyyjä
+Baarimestari
+Bioanalyytikko
+Biokemisti
+Biotekniikan insinööri
+Copywriter
+Diakoniatyöntekijä
+Dramaturgi
+Ekologi
+Elektroniikka-asentaja
+Elektroniikkainsinööri
+Elementtiasentaja
+Elementtityöntekijä
+Elokuvaaja
+Elokuvaleikkaaja
+Elokuvaohjaaja
+Elokuvatuottaja
+Eläinkaupan myyjä
+Eläinlääkäri
+Eläintenhoitaja
+Eläintieteilijä
+Energianeuvoja
+Ensihoitaja
+Erikoisupseeri
+Erityisopettaja
+Eräopas
+Evankelisluterilainen pappi
+Farmaseutti
+Floristi
+Fysiologi
+Fysioterapeutti
+Fyysikko
+Geneetikko
+Geologi
+Graafinen suunnittelija
+Hakkurinkuljettaja
+Hallintolakimies
+Hammaslääkäri
+Hammasteknikko
+Hankintapäällikkö, meijeriteollisuus
+Helikopterilentäjä
+Henkilökohtainen avustaja
+Henkilöstöpäällikkö
+Hevostenhoitaja
+Hieroja
+Hiihtokeskustyöntekijä
+Hitsaaja
+Hotelliemäntä
+Hotellin myyntisihteeri
+Hotellivahtimestari
+Hovimestari
+Huolitsija
+Huoltopäällikkö (Kylmäala)
+Huonekalujen entisöijä
+Huonekalumyyjä
+Huonekaluverhoilija
+Hyttisiivooja
+Hätäkeskuspäivystäjä
+Ikkuna- ja oviasentaja
+Ikkunanpesijä
+Informaatikko
+Insinööri (paperiteollisuus)
+Insinööri, graafinen teollisuus
+Insinööri, metallien jalostus
+Isännöitsijä
+Jalkaterapeutti
+Junatarjoilija
+Jälkikäsittelijä
+Järjestyksenvalvoja
+Järjestölakimies
+Jäteasemanhoitaja
+Jäteautonkuljettaja
+Jäteneuvoja
+Kaatopaikanhoitaja
+Kahvilatarjoilija
+Kaivosinsinööri
+Kaivostyöntekijä
+Kalanviljelijä
+Kalastaja
+Kalastusbiologi
+Kalatalousneuvoja
+Kalusteasentaja
+Kankaantarkastaja
+Kartoittaja
+Kassanhoitaja, toimisto
+Kasvitieteilijä
+Katto- ja ulkopintaeristäjä
+Kaukolämpöasentaja
+Kaukolämpöinsinööri
+Kehitysvammaisten ohjaaja
+Kehitysvammaistenhoitaja, lähihoitaja
+Keittiöpäällikkö
+Kello- ja kultasepänliikkeen myyjä
+Kelloseppä
+Kemisti
+Kengitysseppä
+Keramiikka- ja lasitaiteilija
+Kielenkääntäjä
+Kieltenopettaja
+Kiinteistönhoitaja
+Kiinteistönvälittäjä
+Kiinteistösihteeri
+Kiinteistötyönjohtaja
+Kioskimyyjä
+Kirjailija
+Kirjakaupanmyyjä
+Kirjallisuuden kääntäjä
+Kirjanpitäjä
+Kirjansitoja
+Kirjastonhoitaja
+Kirjastovirkailija
+Kirkkomuusikko
+Kirvesmies
+Kodinhoitaja, lähihoitaja
+Kodinkonemyyjä
+Kokki
+Kokoonpanija, elektroniikka- ja sähköteollisuus
+Kokoonpanija, kone- ja metallituoteteollisuus
+Komisario
+Kondiittori
+Konduktööri
+Koneenasentaja
+Koneinsinööri
+Koneistaja
+Konejyrsijä
+Konemestari
+Konemies-korjausmies
+Koneneuloja
+Konepäällikkö
+Konetyöntekijä
+Konservaattori
+Konstaapeli
+Konttorinjohtaja
+Koristemaalari
+Koristepuuseppä
+Kosmetiikkamyyjä
+Kosmetologi
+Kotitalouskoneasentaja
+Kotitalousopettaja
+Kotityöpalvelutyöntekijä
+Kotityöpalveluyrittäjä
+Koulukuraattori
+Koulunkäyntiavustaja
+Koulutussuunnittelija
+Kriitikko
+Kuiskaaja
+Kuljetussuunnittelija
+Kultaseppä
+Kulttuuriohjaaja
+Kulttuurisihteeri
+Kunnossapitoinsinööri
+Kuntoutusohjaaja
+Kuorma-autonkuljettaja
+Kuormaaja
+Kustannustoimittaja
+Kutoja
+Kuvanauhoittaja
+Kuvanveistäjä
+Kuvatarkkailija
+Kuvaussihteeri
+Kylmäasentaja
+Kylmälaitemyyjä (tuotepäällikkö)
+Kylmäsuunnittelija
+Kätilö
+Käyttöinsinööri
+LVI-asentaja
+LVI-insinööri
+Laborantti
+Laborantti, meijeriteollisuus
+Laivakokki
+Laivan purseri
+Laivatarjoilija
+Laivuri-kuljettaja
+Lasinpuhaltaja
+Lasittaja
+Lasten ja nuorten erityisohjaaja
+Lastenohjaaja
+Lastentarhanopettaja
+Lastulevytyöntekijä
+Lattianpäällystäjä
+Laulaja, kevyt musiikki
+Laulaja, taidemusiikki
+Lavastaja
+Lehdenjakaja
+Lehtori, yliopistot ja korkeakoulut
+Leikkaaja, vaatetusteollisuus
+Leipomotyöntekijä
+Leipuri
+Lennonjohtaja
+Lennonjohtoapulainen
+Lentoemäntä, stuertti
+Lentokoneasentaja
+Lentokonelevyseppä
+Levyseppä-hitsaaja
+Lihanleikkaaja
+Lihavalmistetyöntekijä
+Liikennelentäjä
+Liikenneohjaaja
+Liikenneopettaja
+Liikunnanohjaaja
+Liikunnanopettaja
+Liikuntapaikkojen hoitaja
+Limnologi ja Hydrobiologi
+Linja-autonkuljettaja
+Luokanopettaja
+Luotsi
+Lähihoitaja, asiakaspalvelu ja tietohallinta
+Lähihoitaja, hammashoitaja
+Lähihoitaja, kuntoutus
+Lähihoitaja, lastenhoitaja
+Lähihoitaja, mielenterveyshoitaja
+Lähihoitaja, sairaanhoito ja huolenpito
+Lähihoitaja, vammaistyö
+Lähihoitaja, vanhustyö
+Lämpöyrittäjä
+Lääketeknikko
+Lääkintävahtimestari-sairaankuljettaja
+Lääkäri
+Maanmittausinsinööri
+Maanrakennuskoneen asentaja
+Maaseutuyrittäjä
+Maatalouslomittaja
+Maatalousneuvoja
+Maataloustyönjohtaja
+Maataloustyöntekijä
+Maidonvastaanottaja
+Mainospäällikkö
+Maisema-arkkitehti
+Malli
+Mallimestari
+Markkinointipäällikkö
+Maskeeraaja
+Matemaatikko
+Matkailutoimen johtaja
+Matkailuvirkailija
+Matkailuyrittäjä
+Matkaopas (kotimaa)
+Matkaopas (ulkomaat)
+Matkustajaselvitysvirkailija
+Matruusi-pursimies
+Mediasuunnittelija
+Mekatroniikka-asentaja
+Meklari
+Merivartija
+Meteorologi
+Metsuri
+Metsäkoneenkuljettaja
+Metsänhoitaja
+Metsätalouden harjoittaja
+Metsätalousinsinööri
+Mikrobiologi
+Mikromekaanikko
+Mikrotukihenkilö
+Modisti
+Museoamanuenssi
+Musiikkiterapeutti
+Muurari
+Muusikko (kevyt musiikki)
+Mylläri
+Myymälän kassanhoitaja
+Myymälänhoitaja
+Myynti-insinööri (Kylmäala)
+Myyntiedustaja
+Myyntipäällikkö
+Nahkapukineompelija
+Naprapaatti
+Nuohooja
+Nuoriso-ohjaaja
+Nuorisosihteeri
+Näyttelijä
+Näyttämömestari
+Ohjaaja
+Ohjelmistosuunnittelija ja ohjelmoija
+Ompelija
+Ompelija-artesaani
+Opettaja, ammattikorkeakoulu
+Opettaja, matemaattis-luonnontieteelliset aineet
+Opettaja, musiikki
+Opettaja, reaaliaineet
+Opettaja, taide- ja taitoaineet
+Opinto-ohjaaja, oppilaanohjaaja
+Opintosihteeri
+Optikko
+Orkesterimuusikko
+Orkesterin- ja kuoronjohtaja
+Ortodoksinen pappi
+Ostaja
+Osteopaatti
+Painaja
+Painopinnanvalmistaja
+Pakkauskoneenkäyttäjä, meijeriteollisuus
+Pakolaistyöntekijä
+Palkanlaskija
+Paloesimies
+Palomies
+Palopäällikkö
+Palveluneuvoja
+Pankkitoimihenkilö
+Paperikoneenhoitaja
+Parturi-kampaaja
+Patologi/Oikeuslääkäri
+Perhepäivähoidon ohjaaja
+Perhepäivähoitaja
+Perämies
+Pesulanhoitaja
+Pianonvirittäjä
+Piirtäjä
+Pintakäsittelijä
+Poliisipäällikkö
+Poronhoitaja
+Postinjakaja
+Postinlajittelija
+Professori
+Projektipäällikkö (Kylmäala)
+Prosessinhoitaja (paperiteollisuus)
+Prosessioperaattori
+Proviisori
+Psykologi
+Puhdistamonhoitaja
+Puhelinvaihteenhoitaja
+Puheterapeutti
+Pukija
+Pukusuunnittelija
+Puuinsinööri
+Puuseppä
+Puutarha/ -vihertyöntekijä
+Puutarhuri
+Puutavaranlajittelija
+Puvustonhoitaja
+Pysäköinnintarkastaja
+Päälliköt, tietotekniikka
+Radio- ja televisiotoimittaja
+Rahoitusasiantuntija
+Rahtivirkailija
+Rajavartija
+Rakennesuunnittelija
+Rakennusinsinööri
+Rakennuskonemies
+Rakennusmaalari
+Rakennusmestari
+Rakennusmies
+Ratapihatyöntekijä
+Ratsastuksenopettaja
+Raudoittaja
+Rautarakennetyöntekijä
+Ravintolan tarjoilija
+Ravintolapäällikkö
+Ravintolatyöntekijä
+Ravitsemispäällikkö
+Ravitsemusterapeutti
+Rehtori
+Ruokapalvelutyöntekijä
+Röntgenhoitaja
+Sahatyöntekijä
+Sairaala-apulainen
+Sairaanhoitaja
+Satulaseppä
+Sellunvalmistaja
+Seppä
+Sihteeri/Assistentti
+Siipikarjanhoitaja
+Siivooja
+Siivoustyönjohtaja
+Sikalanhoitaja
+Sinkittäjä
+Sisustusarkkitehti
+Soittimentekijä
+Sorvaaja
+Sosiaalialan laitoksen johtaja
+Sosiaalijohtaja
+Sosiaaliohjaaja
+Sosiaaliterapeutti
+Sosiaalityöntekijä
+Stylisti
+Sulattaja
+Suntio
+Suuhygienisti
+Suunnittelija, puolustusvoimat
+Suunnittelija, puutuoteteollisuus
+Suunnittelijat, tietotekniikka
+Suunnitteluassistentti
+Suurtalouskokki
+Suutari
+Syyttäjä
+Sähköasentaja
+Sähköinsinööri
+Sähkömestari
+Säilyketyöntekijä
+Säveltäjä
+TV-, elokuva- ja videokääntäjä
+TV-tuottaja
+Taidegraafikko
+Taidemaalari
+Taideterapeutti
+Taiteilija, taiteen uudet alueet
+Taksinkuljettaja
+Talonmies
+Tanssitaiteilija
+Tarkastusinsinööri (kone- ja metallituoteteollisuus)
+Tekstiili-insinööri
+Tekstiilihuoltaja
+Tekstiililaitosmies
+Tekstiilimyyjä
+Tekstiilisuunnittelija ja -taiteilija
+Televisiokuvaaja
+Teollinen muotoilija
+Terminaalityöntekijä
+Terveydenhoitaja
+Teurastaja
+Tiedottaja
+Tierakennuskoneenkuljettaja
+Tietokoneasentaja
+Tietoliikenneasentaja
+Tietoliikenneinsinööri
+Tilastotutkija
+Tilintarkastaja
+Toimintaterapeutti
+Toimistosihteeri
+Toimittaja
+Toimituspäällikkö
+Torninosturinkuljettaja
+Tukkukauppias
+Tullitarkastaja
+Tuomioistuinlakimies
+Tuotannon esimies / työnjohtaja (elintarviketeollisuus)
+Tuotannonsuunnittelija (elintarviketeollisuus)
+Tuotantoeläintenhoitaja
+Tuotantoprosessinhoitaja
+Tuotantopäällikkö, meijeriteollisuus
+Tuotantosuunnittelija, meijeriteollisuus
+Tuote-esittelijä
+Tuotevalmistaja, meijeriteollisuus
+Turkiseläintenhoitaja
+Turkistarhaaja
+Turkistenvalmistaja
+Turkkuri
+Tuulivoimainsinööri
+Työnjohtaja (maanrakennusala)
+Työnjohtaja, graafinen teollisuus
+Työvälinevalmistaja
+Uimavalvoja
+Upseeri
+Urheilukaupan myyjä
+Urheiluvalmentaja
+Vaatesuunnittelija
+Vaatturi
+Vakuutusten kenttämyyjä
+Vakuutusvirkailija
+Valaistusmestari
+Valaistustarkkailija
+Valokuvaaja
+Valokuvaustarvikemyyjä
+Valuutta- ja rahamarkkinadealer
+Vanerityöntekijä
+Vankeinhoitoesimies
+Varaosamyyjä
+Varastonhoitaja
+Varastotyöntekijä
+Vartija
+Vartija, vankeinhoitolaitos
+Vastaanottopäällikkö
+Vastaanottovirkailija
+Venepuuseppä
+Veturinkuljettaja
+Viherrakentaja
+Viimeistely- ja värjäämötyöntekijä
+Viittomakielen ohjaaja
+Viittomakielen tulkki
+Visualisti
+Voimalaitoksen käyttäjä
+Voimalaitospäällikkö
+Vähittäiskauppias
+Välinehuoltaja
+Webmaster
+Yhdistelmäajoneuvonkuljettaja
+Yhdyskuntarakentaja
+Yhteiskäsittelijä, meijeriteollisuus
+Yhteyssihteeri
+Yleismyyjä
+Ylihoitaja
+Ylikonstaapeli
+Yliperämies
+Ympäristöinsinööri
+Ympäristökasvattaja
+Ympäristönsuojelusuunnittelija
+Ympäristönsuojelutarkastaja
+Ympäristösuojelusihteeri
+Ympäristötyöntekijä
+Yrityslakimies
+Äidinkielen opettaja
+Äänitarkkailija
+Äänittäjä
