@@ -353,12 +353,13 @@ function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
 	var has_ticket;
-	if (Math.random() < 0.5) {
+	var random = Math.random();
+	if (random < 0.5) {
 		has_ticket = dialog.check_success;
 	}
 	else {
 		has_ticket = dialog.check_failure;
-		Crafty.audio.play('wtf');
+		if (random > 0.8) {Crafty.audio.play('wtf');}
 	}
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + has_ticket  + '</p>'; }, 1000);
     calculatePoints();
