@@ -21,5 +21,62 @@ var Bindings = {
                 }
             }
         }
+    },
+
+    interaction: function(data) {
+
+        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
+
+              Game.interaction_mode = true;
+              console.log("Game mode when interaction starts: " + Game.interaction_mode);
+              
+              var interactions = '<p> [1] Check ticket <br /> [2] Ticket okay <br /> [3] Ticket not okay <br /><br /> [4] Quit interaction';
+              var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3></div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
+
+              $('body').bind('keypress', function(e) {
+                
+                if(Game.interaction_mode && e.which !== 101) {
+                  var code = e.keyCode || e.which;
+                  
+                  console.log("Code is " + code);
+                  if(code === 49) {
+                    // Show ticket to user
+                    alert('Pressed 1');
+                  }  
+                  else if(code === 50) {
+                    // Mark that ticket is okay and count points accordingly
+                    alert('Pressed 2');
+                  }
+                  else if(code === 51) {
+                    // Ticket not valid, count points and mark that customer has been sold one
+                    alert('Pressed 3');
+                  }
+                  else if(code === 52) {
+                    // Closes the interaction
+                    $('body').unbind('keypress');
+                    $.colorbox.close();
+                  }
+
+                }
+      });
+
+              $.colorbox({html:genHTML});
+              this.passengers[data.x+1][data.y] = "checked";
+              this.passengers[data.x-1][data.y] = "checked";
+              this.passengers[data.x][data.y+1] = "checked";
+              this.passengers[data.x][data.y-1] = "checked";
+
+              interact(data.player);
+        }
+        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
+            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
+        }
+        
+        setTimeout(function() {
+            if(Game.points == parseInt(3)) Crafty.scene('Victory');
+        }, 3000);
+
+       // $('body').unbind('keypress');
+
     }
 }

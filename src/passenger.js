@@ -4,6 +4,7 @@ function Passenger(name, home, occupation, age, sex, in_train) {
     this.x;
     this.y;
     this.does_have_ticket = function() { return (Math.random() < 0.95) ? true : false;};
+
     this.board = function(x, y) {
         this.is_in_train = true;
         this.x = x;
@@ -26,7 +27,7 @@ function Passenger(name, home, occupation, age, sex, in_train) {
     if(this.age >= 10 && this.age <= 15) this.age_group = "child";
     else if(this.age >15 && this.age <= 25) this.age_group = "teenager";
     else if (this.age > 25 && this.age <= 50) this.age_group = "adult";
-    else this.age_group = "old";
+    else this.age_group = "senior";
 
     this.sprite = function() { return this.age_group + "_" + this.sex.toLowerCase() + "_" + this.direction; };
 }

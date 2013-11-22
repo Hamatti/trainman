@@ -39,24 +39,7 @@ Crafty.scene( 'engine', function () {
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
-    this.interactable = this.bind('Interactable', function(data) {
-        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
-
-            this.passengers[data.x+1][data.y] = "checked";
-            this.passengers[data.x-1][data.y] = "checked";
-            this.passengers[data.x][data.y+1] = "checked";
-            this.passengers[data.x][data.y-1] = "checked";
-
-            interact(data.player);
-        }
-        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
-            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
-        }
-        setTimeout(function() {
-            if(Game.points == parseInt(3)) Crafty.scene('Victory');
-        }, 3000);
-
-    });
+    this.interactable = this.bind('Interactable', Bindings.interaction);
 
     this.transitionable = this.bind('Transitionable', Bindings.transition);
 

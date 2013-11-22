@@ -3,7 +3,7 @@
     <head>
         <title> Trainman, game prototype by Nottingham Games</title>
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="lib/lightbox-2.6.min.js"></script>
+        <script src="lib/jquery.colorbox.js"></script>
         <script src="lib/crafty.js"></script>
         <script src="src/bindings.js"></script>
         <script src="src/bar_scene.js"></script>
@@ -21,7 +21,8 @@
   </script>
   <meta charset="utf8" />
   <link rel="stylesheet" href="assets/css/gui.css" />
-  <link rel="stylesheet" href="assets/css/lightbox.css" />
+  <link rel="stylesheet" href="assets/css/colorbox.css" />
+  
   <link href='http://fonts.googleapis.com/css?family=Joti+One' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
@@ -34,8 +35,10 @@
 
         <p class="controls"> Controls: WASD to move, E to interact with customer, G to change car </p>
 
+    <!-- Game happens here -->
     <div id="cr-stage" class="cr-stage"> </div>
 
+    <!-- GUI elements below the game -->
     <div id="gui" class="gui">
       <div class="point-text">
         Customers checked
@@ -47,6 +50,12 @@
     </div>
 
 </div>
+
+<script>
+
+
+
+</script>
 </body>
 
 </html>

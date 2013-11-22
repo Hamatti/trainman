@@ -36,7 +36,8 @@ Game = {
   points: 0,
   last_scene: 'Start',
   current_car: 'engine',
-  direction_from: undefined
+  direction_from: undefined,
+  interaction_mode: false
 
 }
 
