@@ -138,8 +138,21 @@ function get_car(car_type) {
 
 
 function fill_car(template) {
+	var chair;
+	var is_empty;
+	if (Train.chairs[Game.current_car].length == 0) {
+		is_empty = true
+	}
 	for ( var x = 0; x < template.length; x++) {
 		for (var y = 0; y < template[x].length; y++) {
+			if (is_empty) {
+				if (template[x][y].indexOf('chair') !== -1) {
+					chair = {'sprite':template[x][y],
+								'coordX':x, 'coordY':y,
+								'occupied':false};
+					Train.chairs[Game.current_car].push(chair);
+				}
+			}
 			if (y == 3 || y == 4) {
 				if(x>0 && x<template.length-1) {
 					Crafty.e('Floor_dark').at(x,y);
@@ -158,4 +171,5 @@ function fill_car(template) {
 			}
 		}
 	}
+	console.log(Train.chairs[Game.current_car]);
 }
