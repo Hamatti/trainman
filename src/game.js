@@ -33,10 +33,10 @@ Game = {
 
   calculate_interaction_coordinate: function(x, y, z) {
     
-    if(z === 'up') return {x: x, y: y-1};
-    else if(z === 'left') return {x: x-1, y: y};
-    else if(z === 'right') return {x: x+1, y: y};
-    else if(z === 'down') return {x: x, y: y+1};
+    if(z === 'up') return {x: x, y: y-1, x2: x, y2: y-2};
+    else if(z === 'left') return {x: x-1, y: y, x2: x-2, y2: y};
+    else if(z === 'right') return {x: x+1, y: y, x2: x+2, y2: y};
+    else if(z === 'down') return {x: x, y: y+1, x2: x, y2: y+2};
     
   },
 

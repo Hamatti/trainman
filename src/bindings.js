@@ -30,7 +30,7 @@ var Bindings = {
         if (this.passengers[interaction_coord.x][interaction_coord.y] === "unchecked") {
 
               Game.interaction_mode = true;
-              console.log("Game mode when interaction starts: " + Game.interaction_mode);
+              
               
               var interactions = '<p> <strong>[1]</strong> Check ticket <br /> <strong>[2]</strong> Ticket okay <br /> <strong>[3]</strong> Ticket not okay <br /><br /> <strong>[4]</strong> Quit interaction';
               var passenger_info = '<p> <strong> Name: </strong> Pertti Menttinen <br /> <strong> Hometown: </strong> Turku<br /> <strong> Occupation </strong> Autonkorjaaja';
@@ -41,7 +41,7 @@ var Bindings = {
                 if(Game.interaction_mode && e.which !== 101) {
                   var code = e.keyCode || e.which;
                   
-                  console.log("Code is " + code);
+                  
                   if(code === 49) {
                     // Show ticket to user
                     alert('Pressed 1');
