@@ -31,7 +31,7 @@ Crafty.c('Actor', {
 Crafty.c('TransitionArea', {
     init: function() {
         this.requires('Actor, spr_wall_grate');
-        
+
     }
 });
 
@@ -277,7 +277,7 @@ Crafty.c('Dialog', {
       "check_prompt": "Tickets, please",
       "check_success": "Your ticket is valid, have a nice trip!",
       "check_failure": "WHAT?! You don't have a ticket? That's a fine for you!",
-      "tutorial": "placeholder for some UI element"
+      "tutorial": "The train is leaving. Your job is to check ticket from every passenger."
   }
 
 });

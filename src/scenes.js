@@ -8,7 +8,7 @@ Crafty.scene( 'engine', function () {
     document.getElementById('points').innerHTML = Game.points;
     this.dialog = Crafty.e('Dialog');
     if(Game.last_scene === 'Start')
-        document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
+        document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
    // A 2D array to keep track of all passeneger positions
     this.passengers = new Array(Game.map_grid.width);
