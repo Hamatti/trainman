@@ -28,13 +28,13 @@
 #leftbar {
     min-width: 300px;
     min-height: 300px;
-    background: #cc3300;
+    background: #ffffff;
     float: left;
 }
 
 #rightbar {
     min-width: 300px;
-    background: blue;
+    background: #ffffff;
     min-height: 300px;
     float: left;
 
@@ -49,6 +49,10 @@
 
 h3.lightbox {
     text-align: center;
+}
+
+#leftbar p {
+    margin-left: 10px;
 }
 
 #rightbar p {

@@ -31,7 +31,8 @@ var Bindings = {
               console.log("Game mode when interaction starts: " + Game.interaction_mode);
               
               var interactions = '<p> [1] Check ticket <br /> [2] Ticket okay <br /> [3] Ticket not okay <br /><br /> [4] Quit interaction';
-              var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3></div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
+              var passenger_info = '<p> <b> Name: </b> Pertti Menttinen <br /> <b> Hometown: </b> Turku<br /> <b> Occupation </b> Autonkorjaaja';
+              var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3>' + passenger_info + '</div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
 
               $('body').bind('keypress', function(e) {
                 
