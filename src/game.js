@@ -31,6 +31,15 @@ Game = {
     Crafty.scene('Loading');
   },
 
+  calculate_interaction_coordinate: function(x, y, z) {
+    
+    if(z === 'up') return {x: x, y: y-1};
+    else if(z === 'left') return {x: x-1, y: y};
+    else if(z === 'right') return {x: x+1, y: y};
+    else if(z === 'down') return {x: x, y: y+1};
+    
+  },
+
   LEFT_X: 1,
   RIGHT_X: 14,
   points: 0,

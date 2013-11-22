@@ -310,12 +310,16 @@ Crafty.c('PlayerCharacter', {
     this.bind('NewDirection', function(data) {
       if (data.x > 0) {
         this.animate('PlayerMovingRight', animation_speed, -1);
+        this.direction = 'right';
       } else if (data.x < 0) {
         this.animate('PlayerMovingLeft', animation_speed, -1);
+        this.direction = 'left';
       } else if (data.y > 0) {
         this.animate('PlayerMovingDown', animation_speed, -1);
+        this.direction = 'down';
       } else if (data.y < 0) {
         this.animate('PlayerMovingUp', animation_speed, -1);
+        this.direction = 'up';
       } else {
         this.stop();
       }
@@ -329,6 +333,8 @@ Crafty.c('PlayerCharacter', {
 
     return this;
   },
+
+  direction: 'left',
 
   // Stops the movement
   stopMovement: function() {

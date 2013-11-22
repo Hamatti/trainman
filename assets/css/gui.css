@@ -60,3 +60,9 @@ h1 {
     margin-left: 10px;
     margin-top: 5px;
 }
+
+#minimap {
+    width: 896px;
+    height: 150px;
+}
+

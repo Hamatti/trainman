@@ -25,7 +25,9 @@ var Bindings = {
 
     interaction: function(data) {
 
-        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
+        var interaction_coord = Game.calculate_interaction_coordinate(data.x, data.y, Crafty.player.direction);
+
+        if (this.passengers[interaction_coord.x][interaction_coord.y] === "unchecked") {
 
               Game.interaction_mode = true;
               console.log("Game mode when interaction starts: " + Game.interaction_mode);
@@ -62,14 +64,12 @@ var Bindings = {
       });
 
               $.colorbox({html:genHTML});
-              this.passengers[data.x+1][data.y] = "checked";
-              this.passengers[data.x-1][data.y] = "checked";
-              this.passengers[data.x][data.y+1] = "checked";
-              this.passengers[data.x][data.y-1] = "checked";
+              this.passengers[interaction_coord.x][interaction_coord.y] = "checked";
+              
 
               interact(data.player);
         }
-        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
+        else if(this.passengers[interaction_coord.x][interaction_coord.y] === "checked") {
             document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
         }
         
