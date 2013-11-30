@@ -59,13 +59,15 @@ var Bindings = {
               
               if(code === 49) {
                 // Show ticket to user
-                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Valid?</strong> ' + passenger.ticket.valid;
+                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has + '<br /> TESTING: Valid? ' + passenger.ticket.valid;
               }  
               else if(code === 50) {
                 // Mark that ticket is okay and count points accordingly
-                $.colorbox.close();
+                
                 document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> Your ticket seems valid. Have a nice trip<br /> <strong>" + passenger.name +": </strong>Thanks! </p>";
+                Game.add_points(1);
                 if(!passenger.ticket.valid) {
+                  Game.add_points(-2);
                   setTimeout(function() {
                     document.getElementById('dialog').innerHTML = "<p><strong>GAME: </strong> You lose points for your mistake.</p>";    
                   }, 1000);
@@ -76,12 +78,14 @@ var Bindings = {
               }
               else if(code === 51) {
                 // Ticket not valid, count points and mark that customer has been sold one
-                $.colorbox.close();
-                if(!passenger.ticket.valid) {
+                
+                if(passenger.ticket.valid === false) {
                   document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name +": </strong>Oh shit </p>";  
+                  Game.add_points(1);
                 }
                 else {
-                 document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name +": </strong>What are you doing? I have a completely valid ticket. </p>";   
+                 document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name +": </strong>What are you doing? I have a completely valid ticket. </p>";
+                 console.log("Ticket was valid");
                  setTimeout(function() { 
                   document.getElementById('dialog').innerHTML = "<p><strong>" + passenger.name + ": </strong> I will report this to your supervisor. <br /> <strong>GAME: </strong> You lose points for your mistake.</p>";    
                  }, 2000);
@@ -106,18 +110,7 @@ var Bindings = {
           //interact(data.player);
         }
 
-
-
-        
-        else if(this.passengers[interaction_coord.x][interaction_coord.y] === "checked") {
-            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
-        }
-        
-        setTimeout(function() {
-            if(Game.points == parseInt(3)) Crafty.scene('Victory');
-        }, 3000);
-
-       // $('body').unbind('keypress');
+       
 
     }
 

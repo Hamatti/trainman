@@ -38,6 +38,7 @@ function Passenger(name, home, occupation, age, sex) {
     this._valid = (this._group == 'children' && age <= 15 && this._hasticket) || (this._hasticket);
     this.ticket = {
         group: this._group,
+        has: this._hasticket,
         valid: this._valid
     }
 
