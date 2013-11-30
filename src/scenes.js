@@ -2,7 +2,7 @@
 // -------------
 // Runs the core gameplay loop
 //
-Crafty.scene( 'engine', function () {
+Crafty.scene( 'engine', function() {
 
     // Clear points and show starting dialog
     document.getElementById('points').innerHTML = Game.points;
