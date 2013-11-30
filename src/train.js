@@ -28,8 +28,12 @@ var Train = {
 					
 					var index = Math.floor(Math.random() * random_car.length);
 					var chair = random_car[index];
+					var sprite_name = chair.sprite;
+					if(sprite_name.contains('bar')) passenger.direction = (Math.random() < 0.5) ? 'left' : 'right';
+					else passenger.direction = sprite_name.split('_')[2]
 					/* If the chair is free, put passenger into that chair */
 					if(!chair.occupied) {
+
 						chair.occupied = true;
 						this.passenger_in_cars[random_car_index].push(passenger);
 						passenger.set_position(chair.coordX, chair.coordY, random_car_index);
