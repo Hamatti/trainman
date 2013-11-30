@@ -4,7 +4,9 @@ var passenger_creator = {
         $.ajax({
             type: 'POST',
             url: 'src/php-backend/new_passenger.php',
-            data: { sex: sex },
+            data: {
+                sex: sex
+            },
             async: false,
             success: function(data) {
                 passenger = data;
