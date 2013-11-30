@@ -1,7 +1,7 @@
 var Bindings = {
 
     transition: function(data) {
-        if (this.template[data.x][data.y] === "Wall_grate") {
+        if (Train.templates[Game.current_car][data.x][data.y] === "Wall_grate") {
             if(data.x == Game.LEFT_X) {
               Game.last_scene = Game.current_scene;
               var next_scene = Train.which_car("left");
