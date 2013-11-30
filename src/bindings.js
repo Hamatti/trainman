@@ -38,9 +38,9 @@ var Bindings = {
         var passenger2 = Train.get_passenger(interaction_coord.x2, interaction_coord.y2);
         var passenger = null;
 
-        if (passenger1 && passenger2) { /* TODO: Implement selection mode here */
+        if (passenger1 && passenger2) { 
+            /* TODO: Implement selection mode here */
             passenger = passenger1;
-
         }
         if (passenger || (passenger1 !== null && passenger2 === null || passenger1 === null && passenger2 !== null)) {
 
@@ -100,4 +100,5 @@ var Bindings = {
             passenger.checked = true;
             //interact(data.player);
         }
-    }}
+    }
+}
