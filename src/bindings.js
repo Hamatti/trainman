@@ -21,7 +21,7 @@ var Bindings = {
                     Game.current_car = next_scene;
                     Game.direction_from = 'left';
                     this.unbind('Interactable', this.interactable);
-                  this.unbind('Transitionable', this.transitionable);
+                    this.unbind('Transitionable', this.transitionable);
                     Crafty.scene(next_scene);
                 }
             }
@@ -64,7 +64,7 @@ var Bindings = {
               
               if(code === 49) {
                 // Show ticket to user
-                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has + '<br /> TESTING: Valid? ' + passenger.ticket.valid;
+                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has;
               }  
               else if(code === 50) {
                 // Mark that ticket is okay and count points accordingly
