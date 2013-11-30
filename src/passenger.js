@@ -1,6 +1,6 @@
 /* Data structure for passenger */
 
-function Passenger(name, home, occupation, age, sex, in_train) {
+function Passenger(name, home, occupation, age, sex) {
 
     /* Store information of passengers position */
     this.car;
@@ -11,9 +11,15 @@ function Passenger(name, home, occupation, age, sex, in_train) {
 
     /* Add passenger to a position and set visible on train */
     this.board = function(x, y) {
-        this.is_in_train = true;
         this.x = x;
         this.y = y;
+    }
+
+    this.set_position = function(x,y,car) {
+        this.x = x;
+        this.y = y;
+        this.car = car;
+
     }
 
     /* Basic properties */
@@ -22,7 +28,6 @@ function Passenger(name, home, occupation, age, sex, in_train) {
     this.home = home;
     this.sex = sex;
     this.occupation = occupation;
-    this.is_in_train = in_train;
 
     /* Ticket info */
     this.checkedTicket = false;
