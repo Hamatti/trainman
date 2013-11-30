@@ -3,8 +3,8 @@ Crafty.scene('bar', function() {
 
 
   fill_car(Train.templates[Game.current_car]);
-
-  insert_passengers();
+  insert_passengers(Game.current_station);
+  
    //---- ULTIMATE BARTENDER ----//
    Crafty.e( 'bartender' ).at(3,1);
 

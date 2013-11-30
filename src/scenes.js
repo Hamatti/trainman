@@ -12,8 +12,7 @@ Crafty.scene( 'engine', function() {
 
 
    fill_car(Train.templates[Game.current_car]);
-
-   insert_passengers();
+   insert_passengers(Game.current_station);
 
     // Player character, placed at 5, 1 on our grid
     if(Game.last_scene === 'Start')
@@ -170,7 +169,7 @@ Crafty.scene( 'Loading', function () {
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         Train.create_templates();
-        Train.set_passengers(25);
+        Train.set_passengers(50);
         setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
     } );
 } );

@@ -30,6 +30,10 @@ function Passenger(name, home, occupation, age, sex) {
     this.sex = sex;
     this.occupation = occupation;
 
+    /* Route info */
+    this.from;
+    this.to;
+
     /* Ticket info */
     this.checked = false;
     
