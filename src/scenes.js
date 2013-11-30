@@ -78,11 +78,9 @@ Crafty.scene( 'Loading', function () {
 
     // Load our sprite map image
     Crafty.load( [
-        'assets/16x16_forest_2.gif',
         'assets/passengers.png',
         'assets/spritet.png',
 		'assets/level_old.png',
-        'assets/hunter.png',
         'assets/board_room_applause.mp3',
         'assets/board_room_applause.ogg',
         'assets/board_room_applause.aac',
