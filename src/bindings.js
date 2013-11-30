@@ -8,7 +8,10 @@ var Bindings = {
               if(next_scene !== undefined) {
                   Game.current_car = next_scene;
                   Game.direction_from = 'right';
+                  this.unbind('Interactable', this.interactable);
+                  this.unbind('Transitionable', this.transitionable);
                   Crafty.scene(next_scene);
+                  
               }
             }
             else if(data.x == Game.RIGHT_X) {
@@ -17,6 +20,8 @@ var Bindings = {
                 if(next_scene !== undefined) {
                     Game.current_car = next_scene;
                     Game.direction_from = 'left';
+                    this.unbind('Interactable', this.interactable);
+                    this.unbind('Transitionable', this.transitionable);
                     Crafty.scene(next_scene);
                 }
             }
@@ -25,12 +30,14 @@ var Bindings = {
 
     interaction: function(data) {
 
+      if(data.x == 3 && data.y == 3 && Game.current_car == 'bar' && Crafty.player.direction == 'up') { 
+        document.getElementById('dialog').innerHTML = '<p><strong>Bartender: </strong> Hello sir, how are you? <br /> <strong>You: </strong>Very well sir, how\'s the business? <br /> <strong>Bartender: </strong> As usual, as usual </p>';
+      }
+
         var interaction_coord = Game.calculate_interaction_coordinate(data.x, data.y, Crafty.player.direction);
         var passenger1 = Train.get_passenger(interaction_coord.x, interaction_coord.y);
         var passenger2 = Train.get_passenger(interaction_coord.x2, interaction_coord.y2);
-        console.log(passenger1);
-        console.log(passenger2);
-
+      
         var passenger = null;
 
         if(passenger1 && passenger2) {
@@ -59,7 +66,7 @@ var Bindings = {
               
               if(code === 49) {
                 // Show ticket to user
-                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has + '<br /> TESTING: Valid? ' + passenger.ticket.valid;
+                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has;
               }  
               else if(code === 50) {
                 // Mark that ticket is okay and count points accordingly

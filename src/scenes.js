@@ -10,18 +10,9 @@ Crafty.scene( 'engine', function() {
     if(Game.last_scene === 'Start')
         document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
-   // A 2D array to keep track of all passeneger positions
-    this.passengers = new Array(Game.map_grid.width);
-    for ( var i = 0; i < Game.map_grid.width; i++ ) {
-        this.passengers[i] = new Array( Game.map_grid.height );
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.passengers[i][y] = "none";
-        }
-    }
 
    fill_car(Train.templates[Game.current_car]);
-
-   insert_passengers();
+   insert_passengers(Game.current_station);
 
     // Player character, placed at 5, 1 on our grid
     if(Game.last_scene === 'Start')
@@ -86,11 +77,9 @@ Crafty.scene( 'Loading', function () {
 
     // Load our sprite map image
     Crafty.load( [
-        'assets/16x16_forest_2.gif',
         'assets/passengers.png',
         'assets/spritet.png',
 		'assets/level_old.png',
-        'assets/hunter.png',
         'assets/board_room_applause.mp3',
         'assets/board_room_applause.ogg',
         'assets/board_room_applause.aac',
@@ -180,7 +169,7 @@ Crafty.scene( 'Loading', function () {
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         Train.create_templates();
-        Train.set_passengers(25);
+        Train.set_passengers(50);
         setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
     } );
 } );

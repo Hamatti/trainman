@@ -42,7 +42,7 @@ Game = {
 
   add_points: function(n) {
     this.points += n;
-    document.getElementById('points').innerHTML = this.points;
+    document.getElementById('ipoints').innerHTML = this.points;
   },
 
   LEFT_X: 1,
@@ -51,7 +51,8 @@ Game = {
   last_scene: 'Start',
   current_car: 'engine',
   direction_from: undefined,
-  interaction_mode: false
+  interaction_mode: false,
+  current_station: 'Turku'
 
 }
 
