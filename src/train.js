@@ -5,6 +5,7 @@ var Train = {
 	templates: {},
 	order_of_cars: {'engine': { "left": "passenger", "right": undefined }, "passenger": { "left": "bar", "right": "engine" }, "bar": { "left": undefined, "right": "passenger" }},
 	which_car: function(dir) {
+		console.log('###DEBUG### which_car; current car: ' + Game.current_car + ', direction: ' + dir);
 		return this.order_of_cars[Game.current_car][dir];
 	},
 
@@ -38,11 +39,9 @@ var Train = {
 						this.passenger_in_cars[random_car_index].push(passenger);
 						passenger.set_position(chair.coordX, chair.coordY, random_car_index);
 						break;	
-					}
-					
+					}					
 				}
-			}
-			
+			}			
 		}
 	},
 
@@ -59,8 +58,4 @@ var Train = {
 		this.templates['engine'] = get_car('engine');
 		this.templates['passenger'] = get_car('passenger');
 	}
-	
-
 }
-
-

@@ -1,6 +1,5 @@
 Crafty.scene('bar', function() {
-
-
+  console.log('entering bar-scene');
 
   fill_car(Train.templates[Game.current_car]);
 
@@ -19,8 +18,6 @@ Crafty.scene('bar', function() {
  // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
-
-    
 
 }, function() {
     this.unbind('Interactable', this.interactable);

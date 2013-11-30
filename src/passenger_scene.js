@@ -1,15 +1,17 @@
 Crafty.scene('passenger', function() {
+    console.log('entering passenger-scene');
 
-   fill_car(Train.templates[Game.current_car]);
-   insert_passengers();
+    fill_car(Train.templates[Game.current_car]);
+    insert_passengers();
 
     // Player character, placed at 5, 1 on our grid
-    if(Game.direction_from === 'right')
+    if(Game.direction_from === 'right') {
         this.player = Crafty.e( 'PlayerCharacter' ).at(Game.RIGHT_X, 3);
-    else
+    }
+    else {
         this.player = Crafty.e( 'PlayerCharacter' ).at(Game.LEFT_X, 3);
-
- // -------------------- START THE GAME -------------------/
+    }
+    // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 

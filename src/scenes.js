@@ -3,29 +3,31 @@
 // Runs the core gameplay loop
 //
 Crafty.scene( 'engine', function() {
+    console.log('creating engine-scene');
 
     // Clear points and show starting dialog
     document.getElementById('points').innerHTML = Game.points;
     this.dialog = Crafty.e('Dialog');
-    if(Game.last_scene === 'Start')
+    if(Game.last_scene === 'Start') {
         document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
-
+    }
 
    fill_car(Train.templates[Game.current_car]);
-
    insert_passengers();
 
     // Player character, placed at 5, 1 on our grid
-    if(Game.last_scene === 'Start')
+    if(Game.last_scene === 'Start') {
         this.player = Crafty.e( 'PlayerCharacter' ).at( 11, 1 );
-    else this.player = Crafty.e('PlayerCharacter').at(Game.LEFT_X, 3);
+    }
+    else { 
+        this.player = Crafty.e('PlayerCharacter').at(Game.LEFT_X, 3);
+    }
 
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
     this.interactable = this.bind('Interactable', Bindings.interaction);
-
     this.transitionable = this.bind('Transitionable', Bindings.transition);
 
 }, function() {
@@ -38,6 +40,7 @@ Crafty.scene( 'engine', function() {
 // -------------
 // Tells the player when they've won and lets them start a new game
 Crafty.scene( 'Victory', function () {
+    console.log('entering victory-scene')
 
     // Display some text in celebration of the victory
     Crafty.e( '2D, DOM, Text' )
@@ -72,6 +75,7 @@ Crafty.scene( 'Victory', function () {
 // -------------
 // Handles the loading of binary assets such as images and audio files
 Crafty.scene( 'Loading', function () {
+    console.log('entering loading-scene');
     // Draw some text for the player to see in case the file
     //  takes a noticeable amount of time to load
     Crafty.e( '2D, DOM, Image' ).css('background', '#000').image('assets/title_screen.png');
@@ -165,12 +169,12 @@ Crafty.scene( 'Loading', function () {
 			wtf: ['assets/wtf.mp3',
 				'assets/wtf.ogg',
 				'assets/wtf.aac']
-       } );
+        });
 
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         Train.create_templates();
         Train.set_passengers(25);
         setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
-    } );
-} );
+    });
+});

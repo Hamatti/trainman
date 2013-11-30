@@ -407,8 +407,8 @@ function _interact(player) {
 }
 
 function interact(player) {
-    var dialog = Crafty.e('Dialog').dialog;
-    document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
+  var dialog = Crafty.e('Dialog').dialog;
+  document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
 	var has_ticket;
 	var random = Math.random();
 	if (random < 0.5) {

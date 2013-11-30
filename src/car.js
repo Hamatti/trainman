@@ -185,7 +185,6 @@ function get_car(car_type) {
 	}
 }
 
-
 function fill_car(template) {
 	
 	for ( var x = 0; x < template.length; x++) {
