@@ -62,7 +62,7 @@ function get_car(car_type) {
 				car_part5, wall_right, empty_block];
 
 		var chair;
-		var is_empty = Train.chairs[Game.current_car].length == 0;
+		var is_empty = Train.chairs['bar'].length == 0;
 		
 		for ( var x = 0; x < car.length; x++) {
 			for (var y = 0; y < car[x].length; y++) {
@@ -71,7 +71,7 @@ function get_car(car_type) {
 						chair = {'sprite':car[x][y],
 									'coordX':x, 'coordY':y,
 									'occupied':false};
-						Train.chairs[Game.current_car].push(chair);
+						Train.chairs['bar'].push(chair);
 					}
 				}
 			}
@@ -119,7 +119,7 @@ function get_car(car_type) {
 						p_part7, wall_right, empty_block];
 
 		var chair;
-		var is_empty = Train.chairs[Game.current_car].length == 0;
+		var is_empty = Train.chairs['passenger'].length == 0;
 		
 		for ( var x = 0; x < passenger_car.length; x++) {
 			for (var y = 0; y < passenger_car[x].length; y++) {
@@ -128,7 +128,7 @@ function get_car(car_type) {
 						chair = {'sprite':passenger_car[x][y],
 									'coordX':x, 'coordY':y,
 									'occupied':false};
-						Train.chairs[Game.current_car].push(chair);
+						Train.chairs['passenger'].push(chair);
 					}
 				}
 			}
@@ -167,7 +167,7 @@ function get_car(car_type) {
 					e_empty1, e_empty2, e_wall_right, empty_block];
 
 		var chair;
-		var is_empty = Train.chairs[Game.current_car].length == 0;
+		var is_empty = Train.chairs['engine'].length == 0;
 		
 		for ( var x = 0; x < engine.length; x++) {
 			for (var y = 0; y < engine[x].length; y++) {
@@ -176,7 +176,7 @@ function get_car(car_type) {
 						chair = {'sprite':engine[x][y],
 									'coordX':x, 'coordY':y,
 									'occupied':false};
-						Train.chairs[Game.current_car].push(chair);
+						Train.chairs['engine'].push(chair);
 					}
 				}
 			}

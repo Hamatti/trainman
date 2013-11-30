@@ -9,8 +9,7 @@ Crafty.scene('passenger', function() {
         }
     }
 
-   this.template = get_car('passenger');
-   fill_car(this.template);
+   fill_car(Train.templates[Game.current_car]);
 
    //---- MANUALLY INSERTED PASSENGERS ----//
    Crafty.e( 'Woman1_right' ).at(2,5);
