@@ -11,13 +11,17 @@ Crafty.scene('bar', function() {
 
   fill_car(Train.templates[Game.current_car]);
 
-   //---- MANUALLY INSERTED PASSENGERS ----//
-   Crafty.e( 'Woman1_right' ).at(2,5);
-   this.passengers[2][5] = "unchecked";
-   Crafty.e( 'Teen_right' ).at(8,2);
-   this.passengers[8][2] = "unchecked";
-   Crafty.e( 'Child2_left' ).at(7,5);
-   this.passengers[7][5] = "unchecked";
+  var passengers = Train.passenger_in_cars[Game.current_car];
+
+   for (var i = 0; i < passengers.length; i++) {
+        var passenger = passengers[i];
+        var sprite = passenger.sprite();
+        var x = passenger.x;
+        var y = passenger.y;
+        console.log(sprite);
+
+        Crafty.e(sprite).at(x,y);       
+   };
    //---- ULTIMATE BARTENDER ----//
    Crafty.e( 'bartender' ).at(3,1);
 

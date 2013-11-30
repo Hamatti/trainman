@@ -28,8 +28,7 @@ Crafty.scene( 'engine', function () {
         var sprite = passenger.sprite();
         var x = passenger.x;
         var y = passenger.y;
-        console.log(sprite);
-
+        
         Crafty.e(sprite).at(x,y);       
    };
 

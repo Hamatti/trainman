@@ -26,14 +26,20 @@ var Bindings = {
     interaction: function(data) {
 
         var interaction_coord = Game.calculate_interaction_coordinate(data.x, data.y, Crafty.player.direction);
+        var passenger1 = Train.get_passenger(interaction_coord.x, interaction_coord.y);
+        var passenger2 = Train.get_passenger(interaction_coord.x2, interaction_coord.y2);
+        console.log(passenger1);
+        console.log(passenger2);
 
-        if (this.passengers[interaction_coord.x][interaction_coord.y] === "unchecked") {
+        if (passenger1 !== null && passenger2 === null || passenger1 === null && passenger2 !== null) {
+
+          var passenger = passenger1 || passenger2;
 
               Game.interaction_mode = true;
               
               
               var interactions = '<p> <strong>[1]</strong> Check ticket <br /> <strong>[2]</strong> Ticket okay <br /> <strong>[3]</strong> Ticket not okay <br /><br /> <strong>[4]</strong> Quit interaction';
-              var passenger_info = '<p> <strong> Name: </strong> Pertti Menttinen <br /> <strong> Hometown: </strong> Turku<br /> <strong> Occupation </strong> Autonkorjaaja';
+              var passenger_info = '<p> <strong> Name: </strong>' + passenger.name + '<br /> <strong> Hometown: </strong> '+ passenger.home +'<br /> <strong> Occupation </strong> '+ passenger.occupation;
               var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3>' + passenger_info + '</div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
 
               $('body').bind('keypress', function(e) {
@@ -64,11 +70,14 @@ var Bindings = {
       });
 
               $.colorbox({html:genHTML});
-              this.passengers[interaction_coord.x][interaction_coord.y] = "checked";
+              passenger.checked = true;
               
+
 
               interact(data.player);
         }
+
+        
         else if(this.passengers[interaction_coord.x][interaction_coord.y] === "checked") {
             document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
         }

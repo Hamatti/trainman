@@ -35,6 +35,8 @@ function Passenger(name, home, occupation, age, sex) {
 
     this.direction;
 
+    this.checked = false;
+
     /* Define age group based on age. This is used for right sprite */
     this.age_group;
 

@@ -29,7 +29,7 @@ var Train = {
 					var index = Math.floor(Math.random() * random_car.length);
 					var chair = random_car[index];
 					var sprite_name = chair.sprite;
-					if(sprite_name.contains('bar')) passenger.direction = (Math.random() < 0.5) ? 'left' : 'right';
+					if(sprite_name.contains('Bar')) passenger.direction = (Math.random() < 0.5) ? 'left' : 'right';
 					else passenger.direction = sprite_name.split('_')[2]
 					/* If the chair is free, put passenger into that chair */
 					if(!chair.occupied) {
@@ -44,6 +44,14 @@ var Train = {
 			}
 			
 		}
+	},
+
+	get_passenger: function(x, y) {
+		for (var i = 0; i < this.passenger_in_cars[Game.current_car].length; i++) {
+			var possible = this.passenger_in_cars[Game.current_car][i];
+			if(possible.x == x && possible.y == y) return possible;
+		}
+		return null;
 	},
 
 	create_templates: function() {
