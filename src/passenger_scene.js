@@ -24,10 +24,7 @@ Crafty.scene('passenger', function() {
 
     this.interactable = this.bind('Interactable', Bindings.interaction);
 
-
 }, function() {
     this.unbind('Interactable', this.interactable);
     this.unbind('Transitionable', this.transitionable);
 });
-
-
