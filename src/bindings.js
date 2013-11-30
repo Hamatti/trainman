@@ -30,12 +30,14 @@ var Bindings = {
 
     interaction: function(data) {
 
+      if(data.x == 3 && data.y == 3 && Game.current_car == 'bar' && Crafty.player.direction == 'up') { 
+        document.getElementById('dialog').innerHTML = '<p><strong>Bartender: </strong> Hello sir, how are you? <br /> <strong>You: </strong>Very well sir, how\'s the business? <br /> <strong>Bartender: </strong> As usual, as usual </p>';
+      }
+
         var interaction_coord = Game.calculate_interaction_coordinate(data.x, data.y, Crafty.player.direction);
         var passenger1 = Train.get_passenger(interaction_coord.x, interaction_coord.y);
         var passenger2 = Train.get_passenger(interaction_coord.x2, interaction_coord.y2);
-        console.log(passenger1);
-        console.log(passenger2);
-
+      
         var passenger = null;
 
         if(passenger1 && passenger2) {
