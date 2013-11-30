@@ -10,14 +10,6 @@ Crafty.scene( 'engine', function() {
     if(Game.last_scene === 'Start')
         document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
-   // A 2D array to keep track of all passeneger positions
-    this.passengers = new Array(Game.map_grid.width);
-    for ( var i = 0; i < Game.map_grid.width; i++ ) {
-        this.passengers[i] = new Array( Game.map_grid.height );
-        for ( var y = 0; y < Game.map_grid.height; y++ ) {
-            this.passengers[i][y] = "none";
-        }
-    }
 
    fill_car(Train.templates[Game.current_car]);
 

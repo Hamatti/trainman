@@ -40,6 +40,11 @@ Game = {
     
   },
 
+  add_points: function(n) {
+    this.points += n;
+    document.getElementById('points').innerHTML = this.points;
+  },
+
   LEFT_X: 1,
   RIGHT_X: 14,
   points: 0,

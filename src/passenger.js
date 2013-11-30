@@ -7,7 +7,8 @@ function Passenger(name, home, occupation, age, sex) {
     this.x;
     this.y;
     
-    this.does_have_ticket = function() { return (Math.random() < 0.95) ? true : false;};
+    
+    this.does_have_ticket = function() { return (Math.random() < 0.85) ? true : false;};
 
     /* Add passenger to a position and set visible on train */
     this.board = function(x, y) {
@@ -30,12 +31,18 @@ function Passenger(name, home, occupation, age, sex) {
     this.occupation = occupation;
 
     /* Ticket info */
-    this.checkedTicket = false;
-    this.hasTicket = this.does_have_ticket();
+    this.checked = false;
+    
+    this._group = (this.age <= 15) ? ((Math.random() < 0.95) ? 'children' : 'adult') : ((Math.random() < 0.95) ? 'adult' : 'children');
+    this._hasticket = this.does_have_ticket()
+    this._valid = (this._group == 'children' && age <= 15 && this._hasticket) || (this._hasticket);
+    this.ticket = {
+        group: this._group,
+        has: this._hasticket,
+        valid: this._valid
+    }
 
     this.direction;
-
-    this.checked = false;
 
     /* Define age group based on age. This is used for right sprite */
     this.age_group;
