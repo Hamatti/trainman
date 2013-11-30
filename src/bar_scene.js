@@ -19,6 +19,8 @@ Crafty.scene('bar', function() {
    this.passengers[8][2] = "unchecked";
    Crafty.e( 'Child2_left' ).at(7,5);
    this.passengers[7][5] = "unchecked";
+   //---- ULTIMATE BARTENDER ----//
+   Crafty.e( 'bartender' ).at(3,1);
 
     // Player character, placed at 5, 1 on our grid
     if(Game.direction_from === 'right') {
