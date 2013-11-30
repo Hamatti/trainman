@@ -24,7 +24,8 @@ Crafty.scene('engine', function() {
 
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
-    Crafty.audio.play('background', -1);
+    //Crafty.audio.play( 'background', -1 );
+    Crafty.audio.play('music', -1);
 
 }, function() {
     this.unbind('Interactable', this.interactable);
@@ -85,7 +86,7 @@ Crafty.scene('Loading', function() {
 
 
     // Load our sprite map image
-    Crafty.load(['assets/passengers.png', 'assets/spritet.png', 'assets/level_old.png', 'assets/board_room_applause.mp3', 'assets/board_room_applause.ogg', 'assets/board_room_applause.aac', 'assets/onboard_background2.mp3', 'assets/onboard_background2.ogg', 'assets/onboard_background2.aac', 'assets/wtf.mp3', 'assets/wtf.ogg', 'assets/wtf.aac', 'assets/door_closes.mp3', 'assets/door_closes.ogg', 'assets/door_closes.aac'], function() {
+    Crafty.load(['assets/passengers.png', 'assets/spritet.png', 'assets/level_old.png', 'assets/board_room_applause.mp3', 'assets/board_room_applause.ogg', 'assets/onboard_background2.mp3', 'assets/onboard_background2.ogg', 'assets/wtf.mp3', 'assets/wtf.ogg', 'assets/door_closes.mp3', 'assets/door_closes.ogg', 'assets/music.mp3', 'assets/music.ogg'], function() {
         // Once the images are loaded...
         // Define the individual sprites in the image
         // Each one (spr_tree, etc.) becomes a component
@@ -149,10 +150,11 @@ Crafty.scene('Loading', function() {
 
         // Define our sounds for later use
         Crafty.audio.add({
-            applause: ['assets/board_room_applause.mp3', 'assets/board_room_applause.ogg', 'assets/board_room_applause.aac'],
-            background: ['assets/onboard_background2.mp3', 'assets/onboard_background2.ogg', 'assets/onboard_background2.aac'],
-            wtf: ['assets/wtf.mp3', 'assets/wtf.ogg', 'assets/wtf.aac'],
-            door: ['assets/door_closes.mp3', 'assets/door_closes.ogg', 'assets/door_closes.aac']
+            applause: ['assets/board_room_applause.mp3', 'assets/board_room_applause.ogg'],
+            background: ['assets/onboard_background2.mp3', 'assets/onboard_background2.ogg'],
+            wtf: ['assets/wtf.mp3', 'assets/wtf.ogg'],
+            door: ['assets/door_closes.mp3', 'assets/door_closes.ogg'],
+            music: ['assets/music.mp3', 'assets/music.oog']
         });
 
         // Now that our sprites are ready to draw, start the game after showing
