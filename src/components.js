@@ -198,70 +198,70 @@ Crafty.c('Wall_martini', {
 
 // -----------------PASSENGERS--------------------//
 //Adult woman in red coat, facing right
-Crafty.c('Woman1_right', {
+Crafty.c('senior_f_right', {
     init: function() {
         this.requires('Passenger, spr_woman1_right');
     }
 });
 
 //Adult woman in red coat, facing left
-Crafty.c('Woman1_left', {
+Crafty.c('senior_f_left', {
     init: function() {
         this.requires('Passenger, spr_woman1_left');
     }
 });
 
 //Adult woman in green coat, facing right
-Crafty.c('Woman2_right', {
+Crafty.c('adult_f_right', {
     init: function() {
         this.requires('Passenger, spr_woman2_right');
     }
 });
 
 //Adult woman in green coat, facing left
-Crafty.c('Woman2_left', {
+Crafty.c('adult_f_left', {
     init: function() {
         this.requires('Passenger, spr_woman2_left');
     }
 });
 
 //Teen in green coat facing right
-Crafty.c('Teen_right', {
+Crafty.c('teenager_f_right', {
     init: function() {
         this.requires('Passenger, spr_teen_right');
     }
 });
 
 //Teen in green coat, facing left
-Crafty.c('Teen_left', {
+Crafty.c('teenager_f_left', {
     init: function() {
         this.requires('Passenger, spr_teen_left');
     }
 });
 
 //Child in red coat, facing right
-Crafty.c('Child1_right', {
+Crafty.c('child_m_right', {
     init: function() {
         this.requires('Passenger, spr_kid1_right');
     }
 });
 
 //Child in red coat, facing left
-Crafty.c('Child1_left', {
+Crafty.c('child_m_left', {
     init: function() {
         this.requires('Passenger, spr_kid1_left');
     }
 });
 
 //Child in blue coat, facing right
-Crafty.c('Child2_right', {
+Crafty.c('child_f_right', {
     init: function() {
         this.requires('Passenger, spr_kid2_right');
     }
 });
 
 //Child in blue coat, facing left
-Crafty.c('Child2_left', {
+Crafty.c('child_f_left', {
     init: function() {
         this.requires('Passenger, spr_kid2_left');
     }
