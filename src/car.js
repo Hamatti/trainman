@@ -210,15 +210,19 @@ function fill_car(template) {
 	}
 }
 
-function insert_passengers() {
+function insert_passengers(station) {
 	var passengers = Train.passenger_in_cars[Game.current_car];
 
    for (var i = 0; i < passengers.length; i++) {
-        var passenger = passengers[i];
+	var passenger = passengers[i];
+	
+	if(Train.route.indexOf(station) >= Train.route.indexOf(passenger.from) && Train.route.indexOf(station) < Train.route.indexOf(passenger.to)) {
         var sprite = passenger.sprite();
         var x = passenger.x;
         var y = passenger.y;
         
-        Crafty.e(sprite).at(x,y);       
+        Crafty.e(sprite).at(x,y);
+   	}
+        
    };
 }

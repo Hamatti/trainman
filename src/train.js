@@ -4,6 +4,9 @@ var Train = {
 	passenger_in_cars: {'bar': [], 'engine': [], 'passenger': []},
 	templates: {},
 	order_of_cars: {'engine': { "left": "passenger", "right": undefined }, "passenger": { "left": "bar", "right": "engine" }, "bar": { "left": undefined, "right": "passenger" }},
+	
+	route: ['Turku', 'Salo', 'Espoo', 'Helsinki'],
+
 	which_car: function(dir) {
 		console.log('###DEBUG### which_car; current car: ' + Game.current_car + ', direction: ' + dir);
 		return this.order_of_cars[Game.current_car][dir];
@@ -23,6 +26,17 @@ var Train = {
 				/* Get random car */
 				random_car_index = cars[Math.floor(Math.random() * cars.length)];
 				random_car = this.chairs[random_car_index];
+
+				var from, to;
+				from_index = Math.floor(Math.random() * (this.route.length - 1));
+				to_index = -1;
+				while(to_index <= from_index) {
+					to_index = Math.floor(Math.random() * this.route.length);	
+				}
+
+				passenger.from = this.route[from_index];
+				passenger.to = this.route[to_index];
+				
 				
 				/* If there are empty chairs, pick up a chair */
 				if(this.passenger_in_cars[random_car_index].length < random_car.length) {

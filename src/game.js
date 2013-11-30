@@ -27,9 +27,15 @@ Game = {
     Crafty.init(Game.width(), Game.height());
     Crafty.background('rgb(255,255,255)');
 
+    Crafty.interactable = Crafty.bind('Interactable', Bindings.interaction);
+    Crafty.transitionable = Crafty.bind('Transitionable', Bindings.transition);
+
     // Simply start the "Loading" scene to get things going
     Crafty.scene('Loading');
   },
+
+  
+
 
   calculate_interaction_coordinate: function(x, y, direction) {
     
@@ -42,7 +48,7 @@ Game = {
 
   add_points: function(n) {
     this.points += n;
-    document.getElementById('points').innerHTML = this.points;
+    document.getElementById('ipoints').innerHTML = this.points;
   },
 
   LEFT_X: 1,
@@ -51,7 +57,8 @@ Game = {
   last_scene: 'Start',
   current_car: 'engine',
   direction_from: undefined,
-  interaction_mode: false
+  interaction_mode: false,
+  current_station: 'Turku'
 
 }
 
