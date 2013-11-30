@@ -20,7 +20,7 @@ Crafty.scene('bar', function() {
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
-    this.interactable = this.bind('Interactable', Bindings.interaction);
+    
 
 }, function() {
     this.unbind('Interactable', this.interactable);

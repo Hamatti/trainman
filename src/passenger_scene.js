@@ -1,8 +1,8 @@
 Crafty.scene('passenger', function() {
 
    fill_car(Train.templates[Game.current_car]);
-
    insert_passengers();
+
     // Player character, placed at 5, 1 on our grid
     if(Game.direction_from === 'right')
         this.player = Crafty.e( 'PlayerCharacter' ).at(Game.RIGHT_X, 3);
@@ -13,7 +13,7 @@ Crafty.scene('passenger', function() {
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
-    this.interactable = this.bind('Interactable', Bindings.interaction);
+   
 
 }, function() {
     this.unbind('Interactable', this.interactable);
