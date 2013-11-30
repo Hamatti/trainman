@@ -31,7 +31,7 @@ Crafty.c('Actor', {
 Crafty.c('TransitionArea', {
     init: function() {
         this.requires('Actor, spr_wall_grate');
-        
+
     }
 });
 
@@ -197,71 +197,113 @@ Crafty.c('Wall_martini', {
 });
 
 // -----------------PASSENGERS--------------------//
+//Adult man in grey coat, facin right
+Crafty.c('senior_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_senior_right');
+    }
+});
+
+//Adult man in grey coat, facing left
+Crafty.c('senior_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_senior_left');
+    }
+});
+
+//Adult man in red coat, facing right
+Crafty.c('adult_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_man_right');
+    }
+});
+
+//Adult man in red coat, facing left
+Crafty.c('adult_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_man_left');
+    }
+});
+
+//Teen boy in blue coat, facing right
+Crafty.c('teenager_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_teenboy_right');
+    }
+});
+
+//Teen boy in blue coat, facing left
+Crafty.c('teenager_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_teenboy_left');
+    }
+});
+
 //Adult woman in red coat, facing right
-Crafty.c('Woman1_right', {
+Crafty.c('senior_f_right', {
     init: function() {
         this.requires('Passenger, spr_woman1_right');
     }
 });
 
 //Adult woman in red coat, facing left
-Crafty.c('Woman1_left', {
+Crafty.c('senior_f_left', {
     init: function() {
         this.requires('Passenger, spr_woman1_left');
     }
 });
 
 //Adult woman in green coat, facing right
-Crafty.c('Woman2_right', {
+Crafty.c('adult_f_right', {
     init: function() {
         this.requires('Passenger, spr_woman2_right');
     }
 });
 
 //Adult woman in green coat, facing left
-Crafty.c('Woman2_left', {
+Crafty.c('adult_f_left', {
     init: function() {
         this.requires('Passenger, spr_woman2_left');
     }
 });
 
 //Teen in green coat facing right
-Crafty.c('Teen_right', {
+Crafty.c('teenager_f_right', {
     init: function() {
         this.requires('Passenger, spr_teen_right');
     }
 });
 
 //Teen in green coat, facing left
-Crafty.c('Teen_left', {
+Crafty.c('teenager_f_left', {
     init: function() {
         this.requires('Passenger, spr_teen_left');
     }
 });
 
 //Child in red coat, facing right
-Crafty.c('Child1_right', {
+Crafty.c('child_m_right', {
     init: function() {
         this.requires('Passenger, spr_kid1_right');
     }
 });
 
 //Child in red coat, facing left
-Crafty.c('Child1_left', {
+Crafty.c('child_m_left', {
     init: function() {
         this.requires('Passenger, spr_kid1_left');
     }
 });
 
 //Child in blue coat, facing right
-Crafty.c('Child2_right', {
+Crafty.c('child_f_right', {
     init: function() {
         this.requires('Passenger, spr_kid2_right');
     }
 });
 
 //Child in blue coat, facing left
-Crafty.c('Child2_left', {
+Crafty.c('child_f_left', {
     init: function() {
         this.requires('Passenger, spr_kid2_left');
     }
@@ -277,9 +319,18 @@ Crafty.c('Dialog', {
       "check_prompt": "Tickets, please",
       "check_success": "Your ticket is valid, have a nice trip!",
       "check_failure": "WHAT?! You don't have a ticket? That's a fine for you!",
-      "tutorial": "You can move the Hero with arrows or WASD. <br />Interact with E"
+      "tutorial": "The train is leaving. Your job is to check ticket from every passenger."
   }
 
+});
+
+// Animated bartender.
+Crafty.c('bartender', {
+  init: function() {
+      this.requires('Actor, spr_bartender, SpriteAnimation')
+        .animate('bartender', 0,0,1);
+      this.animate('bartender', 10, -1);
+  }
 });
 
 
@@ -306,16 +357,20 @@ Crafty.c('PlayerCharacter', {
       .animate('PlayerMovingLeft',  0, 2, 2);
 
     // Watch for a change of direction and switch animations accordingly
-    var animation_speed = 3;
+    var animation_speed = 8;
     this.bind('NewDirection', function(data) {
       if (data.x > 0) {
         this.animate('PlayerMovingRight', animation_speed, -1);
+        this.direction = 'right';
       } else if (data.x < 0) {
         this.animate('PlayerMovingLeft', animation_speed, -1);
+        this.direction = 'left';
       } else if (data.y > 0) {
         this.animate('PlayerMovingDown', animation_speed, -1);
+        this.direction = 'down';
       } else if (data.y < 0) {
         this.animate('PlayerMovingUp', animation_speed, -1);
+        this.direction = 'up';
       } else {
         this.stop();
       }
@@ -329,6 +384,8 @@ Crafty.c('PlayerCharacter', {
 
     return this;
   },
+
+  direction: 'left',
 
   // Stops the movement
   stopMovement: function() {
@@ -353,12 +410,13 @@ function interact(player) {
     var dialog = Crafty.e('Dialog').dialog;
     document.getElementById('dialog').innerHTML = '<p>Tickets, please!</p>';
 	var has_ticket;
-	if (Math.random() < 0.5) {
+	var random = Math.random();
+	if (random < 0.5) {
 		has_ticket = dialog.check_success;
 	}
 	else {
 		has_ticket = dialog.check_failure;
-		Crafty.audio.play('wtf');
+		if (random > 0.8) {Crafty.audio.play('wtf');}
 	}
     setTimeout(function() { document.getElementById('dialog').innerHTML = '<p>' + has_ticket  + '</p>'; }, 1000);
     calculatePoints();

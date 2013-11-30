@@ -31,12 +31,22 @@ Game = {
     Crafty.scene('Loading');
   },
 
+  calculate_interaction_coordinate: function(x, y, direction) {
+    
+    if(direction === 'up') return {x: x, y: y-1, x2: x, y2: y-2};
+    else if(direction === 'left') return {x: x-1, y: y, x2: x-2, y2: y};
+    else if(direction === 'right') return {x: x+1, y: y, x2: x+2, y2: y};
+    else if(direction === 'down') return {x: x, y: y+1, x2: x, y2: y+2};
+    
+  },
+
   LEFT_X: 1,
   RIGHT_X: 14,
   points: 0,
   last_scene: 'Start',
   current_car: 'engine',
-  direction_from: undefined
+  direction_from: undefined,
+  interaction_mode: false
 
 }
 

@@ -8,7 +8,7 @@ Crafty.scene( 'engine', function () {
     document.getElementById('points').innerHTML = Game.points;
     this.dialog = Crafty.e('Dialog');
     if(Game.last_scene === 'Start')
-        document.getElementById('dialog').innerHTML = '<p><b> Controls: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
+        document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
 
    // A 2D array to keep track of all passeneger positions
     this.passengers = new Array(Game.map_grid.width);
@@ -19,16 +19,9 @@ Crafty.scene( 'engine', function () {
         }
     }
 
-   this.template = get_car('engine');
-   fill_car(this.template);
+   fill_car(Train.templates[Game.current_car]);
 
-   //---- MANUALLY INSERTED PASSENGERS ----//
-   Crafty.e( 'Woman1_right' ).at(2,5);
-   this.passengers[2][5] = "unchecked";
-   Crafty.e( 'Teen_right' ).at(8,2);
-   this.passengers[8][2] = "unchecked";
-   Crafty.e( 'Child2_left' ).at(7,5);
-   this.passengers[7][5] = "unchecked";
+   insert_passengers();
 
     // Player character, placed at 5, 1 on our grid
     if(Game.last_scene === 'Start')
@@ -39,24 +32,7 @@ Crafty.scene( 'engine', function () {
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
-    this.interactable = this.bind('Interactable', function(data) {
-        if (this.passengers[data.x+1][data.y] === "unchecked" || this.passengers[data.x][data.y+1] === "unchecked" || this.passengers[data.x-1][data.y] === "unchecked" || this.passengers[data.x][data.y-1] === "unchecked") {
-
-            this.passengers[data.x+1][data.y] = "checked";
-            this.passengers[data.x-1][data.y] = "checked";
-            this.passengers[data.x][data.y+1] = "checked";
-            this.passengers[data.x][data.y-1] = "checked";
-
-            interact(data.player);
-        }
-        else if(this.passengers[data.x+1][data.y] === "checked" || this.passengers[data.x][data.y+1] === "checked" || this.passengers[data.x-1][data.y] === "checked" || this.passengers[data.x][data.y-1] === "checked") {
-            document.getElementById('dialog').innerHTML = '<p> HEY! I already showed my ticket, get lost </p>';
-        }
-        setTimeout(function() {
-            if(Game.points == parseInt(3)) Crafty.scene('Victory');
-        }, 3000);
-
-    });
+    this.interactable = this.bind('Interactable', Bindings.interaction);
 
     this.transitionable = this.bind('Transitionable', Bindings.transition);
 
@@ -136,21 +112,32 @@ Crafty.scene( 'Loading', function () {
         /*
         Default facing downwards
          */
+        Crafty.sprite(54,70, 'assets/bartender.png', {
+            spr_bartender: [0 , 0]
+        });
+
 		Crafty.sprite(54, 70, 'assets/konna.png', {
 			spr_trainplayer: [1, 0]
 		});
 
         Crafty.sprite(54, 70, 'assets/passengers.png', {
-            spr_woman1_right: [0, 0],
-            spr_woman1_left: [1, 0],
-            spr_woman2_right: [0, 1],
-            spr_woman2_left: [1, 1],
-            spr_teen_right: [2, 1],
-            spr_teen_left: [3, 1],
-            spr_kid1_right: [2, 0],
-            spr_kid1_left: [3, 0],
-            spr_kid2_right: [0, 2],
-            spr_kid2_left: [1, 2]
+            spr_woman1_right: [0, 2],
+            spr_woman1_left: [1, 2],
+            spr_woman2_right: [0, 0],
+            spr_woman2_left: [1, 0],
+            spr_teen_right: [2, 2],
+            spr_teen_left: [3, 2],
+            spr_teenboy_right: [2, 1],
+            spr_teenboy_left: [3, 1],
+            spr_kid1_right: [4, 0],
+            spr_kid1_left: [4, 1],
+            spr_kid2_right: [2, 0],
+            spr_kid2_left: [3, 0],
+            spr_man_right: [0, 1],
+            spr_man_left: [1, 1],
+            spr_senior_right: [4, 2],
+            spr_senior_left: [0, 3]
+
         });
 
         Crafty.sprite( 64, 'assets/spritet.png', {
@@ -192,6 +179,8 @@ Crafty.scene( 'Loading', function () {
 
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
+        Train.create_templates();
+        Train.set_passengers(25);
         setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
     } );
 } );
