@@ -31,51 +31,82 @@ var Bindings = {
         console.log(passenger1);
         console.log(passenger2);
 
-        if (passenger1 !== null && passenger2 === null || passenger1 === null && passenger2 !== null) {
+        var passenger = null;
 
-          var passenger = passenger1 || passenger2;
+        if(passenger1 && passenger2) {
+          /* TODO: Implement selection mode here */
+          passenger = passenger1;          
 
-              Game.interaction_mode = true;
-              
-              
-              var interactions = '<p> <strong>[1]</strong> Check ticket <br /> <strong>[2]</strong> Ticket okay <br /> <strong>[3]</strong> Ticket not okay <br /><br /> <strong>[4]</strong> Quit interaction';
-              var passenger_info = '<p> <strong> Name: </strong>' + passenger.name + '<br /> <strong> Hometown: </strong> '+ passenger.home +'<br /> <strong> Occupation </strong> '+ passenger.occupation;
-              var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3>' + passenger_info + '</div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
-
-              $('body').bind('keypress', function(e) {
-                
-                if(Game.interaction_mode && e.which !== 101) {
-                  var code = e.keyCode || e.which;
-                  
-                  
-                  if(code === 49) {
-                    // Show ticket to user
-                    alert('Pressed 1');
-                  }  
-                  else if(code === 50) {
-                    // Mark that ticket is okay and count points accordingly
-                    alert('Pressed 2');
-                  }
-                  else if(code === 51) {
-                    // Ticket not valid, count points and mark that customer has been sold one
-                    alert('Pressed 3');
-                  }
-                  else if(code === 52) {
-                    // Closes the interaction
-                    $('body').unbind('keypress');
-                    $.colorbox.close();
-                  }
-
-                }
-      });
-
-              $.colorbox({html:genHTML});
-              passenger.checked = true;
-              
-
-
-              interact(data.player);
         }
+        
+        if (passenger || (passenger1 !== null && passenger2 === null || passenger1 === null && passenger2 !== null)) {
+
+          var passenger = passenger || (passenger1 || passenger2);
+
+          Game.interaction_mode = true;
+          
+          
+          var interactions = '<p> <strong>[1]</strong> Check ticket <br /> <strong>[2]</strong> Ticket okay <br /> <strong>[3]</strong> Ticket not okay <br /><br /> <strong>[4]</strong> Quit interaction';
+          var passenger_info = '<p> <strong> Name: </strong>' + passenger.name + '<br /> <strong> Hometown: </strong> '+ passenger.home +'<br /> <strong> Occupation </strong> '+ passenger.occupation + '<br /><strong>Age: </strong>' + passenger.age + '<p id="ticketinfo"></p>';
+          var genHTML = '<div id="wrapper" class="clear"> <div id="leftbar"><h3 class="lightbox">Passenger info</h3>' + passenger_info + '</div><div id="rightbar"><h3 class="lightbox"> Interact </h3>' + interactions + '</div></div>';
+          $.colorbox({html:genHTML});
+
+          $('body').bind('keypress', function(e) {
+            
+            if(Game.interaction_mode && e.which !== 101) {
+              var code = e.keyCode || e.which;
+              
+              
+              if(code === 49) {
+                // Show ticket to user
+                document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Valid?</strong> ' + passenger.ticket.valid;
+              }  
+              else if(code === 50) {
+                // Mark that ticket is okay and count points accordingly
+                $.colorbox.close();
+                document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> Your ticket seems valid. Have a nice trip<br /> <strong>" + passenger.name +": </strong>Thanks! </p>";
+                if(!passenger.ticket.valid) {
+                  setTimeout(function() {
+                    document.getElementById('dialog').innerHTML = "<p><strong>GAME: </strong> You lose points for your mistake.</p>";    
+                  }, 1000);
+                }    
+                  
+                
+                passenger.checked = true;
+              }
+              else if(code === 51) {
+                // Ticket not valid, count points and mark that customer has been sold one
+                $.colorbox.close();
+                if(!passenger.ticket.valid) {
+                  document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name +": </strong>Oh shit </p>";  
+                }
+                else {
+                 document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name +": </strong>What are you doing? I have a completely valid ticket. </p>";   
+                 setTimeout(function() { 
+                  document.getElementById('dialog').innerHTML = "<p><strong>" + passenger.name + ": </strong> I will report this to your supervisor. <br /> <strong>GAME: </strong> You lose points for your mistake.</p>";    
+                 }, 2000);
+                }                
+                
+                passenger.checked = true;
+              }
+              else if(code === 52) {
+                // Closes the interaction
+                $('body').unbind('keypress');
+                $.colorbox.close();
+              }
+
+            }
+          });
+
+              
+          passenger.checked = true;
+          
+
+
+          //interact(data.player);
+        }
+
+
 
         
         else if(this.passengers[interaction_coord.x][interaction_coord.y] === "checked") {
@@ -89,4 +120,8 @@ var Bindings = {
        // $('body').unbind('keypress');
 
     }
+
+
 }
+
+
