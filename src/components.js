@@ -38,7 +38,7 @@ Crafty.c('TransitionArea', {
 // Abstract passenger
 Crafty.c('Passenger', {
   init: function() {
-    this.requires('Actor, Solid');
+    this.requires('Actor');
   }
 });
 
