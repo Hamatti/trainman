@@ -315,7 +315,7 @@ Crafty.c('PlayerCharacter', {
       .animate('PlayerMovingLeft',  0, 2, 2);
 
     // Watch for a change of direction and switch animations accordingly
-    var animation_speed = 3;
+    var animation_speed = 8;
     this.bind('NewDirection', function(data) {
       if (data.x > 0) {
         this.animate('PlayerMovingRight', animation_speed, -1);
