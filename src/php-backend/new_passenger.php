@@ -1,4 +1,4 @@
-<?
+<?php
 
     // All data for passenger generation is in this folder
     $DATADIR = '../../assets/passengerdata/';
