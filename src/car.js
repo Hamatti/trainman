@@ -60,6 +60,22 @@ function get_car(car_type) {
 				car_part4, car_part5, car_part6,
 				car_part5, car_part5, car_part6,
 				car_part5, wall_right, empty_block];
+
+		var chair;
+		var is_empty = Train.chairs[Game.current_car].length == 0;
+		
+		for ( var x = 0; x < car.length; x++) {
+			for (var y = 0; y < car[x].length; y++) {
+				if (is_empty) {
+					if (car[x][y].indexOf('chair') !== -1) {
+						chair = {'sprite':car[x][y],
+									'coordX':x, 'coordY':y,
+									'occupied':false};
+						Train.chairs[Game.current_car].push(chair);
+					}
+				}
+			}
+		}
 		return car;
 	}
 	if (car_type=='passenger') {
@@ -101,6 +117,23 @@ function get_car(car_type) {
 						p_part5, p_part3, p_part4,
 						p_part5, p_part5, p_part6,
 						p_part7, wall_right, empty_block];
+
+		var chair;
+		var is_empty = Train.chairs[Game.current_car].length == 0;
+		
+		for ( var x = 0; x < passenger_car.length; x++) {
+			for (var y = 0; y < passenger_car[x].length; y++) {
+				if (is_empty) {
+					if (passenger_car[x][y].indexOf('chair') !== -1) {
+						chair = {'sprite':passenger_car[x][y],
+									'coordX':x, 'coordY':y,
+									'occupied':false};
+						Train.chairs[Game.current_car].push(chair);
+					}
+				}
+			}
+		}
+
 		return passenger_car;
 	}
 	if (car_type == 'engine') {
@@ -132,24 +165,32 @@ function get_car(car_type) {
 					e_part2, e_part1, e_part2, e_part1,
 					wall_middle, e_empty1, e_empty2,
 					e_empty1, e_empty2, e_wall_right, empty_block];
+
+		var chair;
+		var is_empty = Train.chairs[Game.current_car].length == 0;
+		
+		for ( var x = 0; x < engine.length; x++) {
+			for (var y = 0; y < engine[x].length; y++) {
+				if (is_empty) {
+					if (engine[x][y].indexOf('chair') !== -1) {
+						chair = {'sprite':engine[x][y],
+									'coordX':x, 'coordY':y,
+									'occupied':false};
+						Train.chairs[Game.current_car].push(chair);
+					}
+				}
+			}
+		}
 		return engine;
 	}
 }
 
 
 function fill_car(template) {
-	var chair;
-	var is_empty = Train.chairs[Game.current_car].length == 0;
+	
 	for ( var x = 0; x < template.length; x++) {
 		for (var y = 0; y < template[x].length; y++) {
-			if (is_empty) {
-				if (template[x][y].indexOf('chair') !== -1) {
-					chair = {'sprite':template[x][y],
-								'coordX':x, 'coordY':y,
-								'occupied':false};
-					Train.chairs[Game.current_car].push(chair);
-				}
-			}
+			
 			if (y == 3 || y == 4) {
 				if(x>0 && x<template.length-1) {
 					Crafty.e('Floor_dark').at(x,y);
@@ -168,5 +209,4 @@ function fill_car(template) {
 			}
 		}
 	}
-	//console.log(Train.chairs[Game.current_car]);
 }
