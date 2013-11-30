@@ -282,6 +282,15 @@ Crafty.c('Dialog', {
 
 });
 
+// Animated bartender.
+Crafty.c('bartender', {
+  init: function() {
+      this.requires('Actor, spr_bartender, SpriteAnimation')
+        .animate('bartender', 0,0,1);
+      this.animate('bartender', 10, -1);
+  }
+});
+
 
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {

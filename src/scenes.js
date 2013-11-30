@@ -119,6 +119,10 @@ Crafty.scene( 'Loading', function () {
         /*
         Default facing downwards
          */
+        Crafty.sprite(54,70, 'assets/bartender.png', {
+            spr_bartender: [0 , 0]
+        });
+
 		Crafty.sprite(54, 70, 'assets/konna.png', {
 			spr_trainplayer: [1, 0]
 		});
