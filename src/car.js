@@ -139,10 +139,7 @@ function get_car(car_type) {
 
 function fill_car(template) {
 	var chair;
-	var is_empty;
-	if (Train.chairs[Game.current_car].length == 0) {
-		is_empty = true
-	}
+	var is_empty = Train.chairs[Game.current_car].length == 0;
 	for ( var x = 0; x < template.length; x++) {
 		for (var y = 0; y < template[x].length; y++) {
 			if (is_empty) {
