@@ -210,3 +210,16 @@ function fill_car(template) {
 		}
 	}
 }
+
+function insert_passengers() {
+	var passengers = Train.passenger_in_cars[Game.current_car];
+
+   for (var i = 0; i < passengers.length; i++) {
+        var passenger = passengers[i];
+        var sprite = passenger.sprite();
+        var x = passenger.x;
+        var y = passenger.y;
+        
+        Crafty.e(sprite).at(x,y);       
+   };
+}

@@ -11,17 +11,7 @@ Crafty.scene('passenger', function() {
 
    fill_car(Train.templates[Game.current_car]);
 
-   var passengers = Train.passenger_in_cars[Game.current_car];
-
-   for (var i = 0; i < passengers.length; i++) {
-        var passenger = passengers[i];
-        var sprite = passenger.sprite();
-        var x = passenger.x;
-        var y = passenger.y;
-        console.log(sprite);
-
-        Crafty.e(sprite).at(x,y);       
-   };
+   insert_passengers();
     // Player character, placed at 5, 1 on our grid
     if(Game.direction_from === 'right')
         this.player = Crafty.e( 'PlayerCharacter' ).at(Game.RIGHT_X, 3);

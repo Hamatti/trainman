@@ -11,17 +11,7 @@ Crafty.scene('bar', function() {
 
   fill_car(Train.templates[Game.current_car]);
 
-  var passengers = Train.passenger_in_cars[Game.current_car];
-
-   for (var i = 0; i < passengers.length; i++) {
-        var passenger = passengers[i];
-        var sprite = passenger.sprite();
-        var x = passenger.x;
-        var y = passenger.y;
-        console.log(sprite);
-
-        Crafty.e(sprite).at(x,y);       
-   };
+  insert_passengers();
    //---- ULTIMATE BARTENDER ----//
    Crafty.e( 'bartender' ).at(3,1);
 
