@@ -2,26 +2,25 @@ var Bindings = {
 
     transition: function(data) {
         if (Train.templates[Game.current_car][data.x][data.y] === "Wall_grate") {
+          this.unbind('Interactable', this.interactable);
+          this.unbind('Transitionable', this.transitionable);
             if(data.x == Game.LEFT_X) {
-              Game.last_scene = Game.current_scene;
+              Game.last_scene = Game.current_car;
               var next_scene = Train.which_car("left");
               if(next_scene !== undefined) {
                   Game.current_car = next_scene;
                   Game.direction_from = 'right';
-                  this.unbind('Interactable', this.interactable);
-                  this.unbind('Transitionable', this.transitionable);
+                  
                   Crafty.scene(next_scene);
                   
               }
             }
             else if(data.x == Game.RIGHT_X) {
-                Game.last_scene = Game.current_scene;
+                Game.last_scene = Game.current_car;
                 var next_scene = Train.which_car("right");
                 if(next_scene !== undefined) {
                     Game.current_car = next_scene;
                     Game.direction_from = 'left';
-                    this.unbind('Interactable', this.interactable);
-                    this.unbind('Transitionable', this.transitionable);
                     Crafty.scene(next_scene);
                 }
             }

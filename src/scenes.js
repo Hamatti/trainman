@@ -23,15 +23,25 @@ Crafty.scene( 'engine', function() {
     // Play onboard audio in the background, loop forever
     Crafty.audio.play( 'background', -1 );
 
-    this.interactable = this.bind('Interactable', Bindings.interaction);
-
-    this.transitionable = this.bind('Transitionable', Bindings.transition);
+    
 
 }, function() {
     this.unbind('Interactable', this.interactable);
     this.unbind('Transitionable', this.transitionable);
 });
 
+
+// Station change scene
+Crafty.scene('StationChange', function() {
+
+    Crafty.e( '2D, DOM, Image' ).css('background', '#000').image('assets/station_screen.png');
+
+    setTimeout(function() {
+        Crafty.scene(Game.current_car)
+    }, 2000);
+    
+
+});
 
 // Victory scene
 // -------------
@@ -40,7 +50,7 @@ Crafty.scene( 'Victory', function () {
 
     // Display some text in celebration of the victory
     Crafty.e( '2D, DOM, Text' )
-        .text( 'All passengers checked<br /> This alpha version only contains one car. Press F5 to replay.' )
+        .text( 'Train has reached the final station<br />  Press F5 to replay.' )
         .attr( { x: 0, y: Game.height() / 2 - 24, w: Game.width() } )
         .css( $text_css );
 
@@ -54,17 +64,12 @@ Crafty.scene( 'Victory', function () {
         delay = false;
     }, 5000 );
     this.restart_game = function () {
-        document.getElementById('points').innerHTML = 0;
+        Game.points = 0;
+        Game.current_station = Train.route[0];
         Crafty.scene( 'engine' );
     };
-//    this.bind( 'KeyDown', this.restart_game );
+
 }
-/*function () {
-    // Remove our event binding from above so that we don't
-    //  end up having multiple redundant event watchers after
-    //  multiple restarts of the game
-    this.unbind( 'KeyDown', this.restart_game );
-}*/
 );
 
 // Loading scene
@@ -74,6 +79,8 @@ Crafty.scene( 'Loading', function () {
     // Draw some text for the player to see in case the file
     //  takes a noticeable amount of time to load
     Crafty.e( '2D, DOM, Image' ).css('background', '#000').image('assets/title_screen.png');
+
+
 
     // Load our sprite map image
     Crafty.load( [
@@ -170,6 +177,7 @@ Crafty.scene( 'Loading', function () {
         // title screen for a while
         Train.create_templates();
         Train.set_passengers(50);
-        setTimeout(function() { Crafty.scene( 'engine' ); }, 2000);
+
+        setTimeout(function() {  Crafty.scene( 'engine' ); }, 2000);
     } );
 } );

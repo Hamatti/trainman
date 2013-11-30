@@ -27,9 +27,15 @@ Game = {
     Crafty.init(Game.width(), Game.height());
     Crafty.background('rgb(255,255,255)');
 
+    Crafty.interactable = Crafty.bind('Interactable', Bindings.interaction);
+    Crafty.transitionable = Crafty.bind('Transitionable', Bindings.transition);
+
     // Simply start the "Loading" scene to get things going
     Crafty.scene('Loading');
   },
+
+  
+
 
   calculate_interaction_coordinate: function(x, y, direction) {
     

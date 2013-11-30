@@ -333,6 +333,12 @@ Crafty.c('bartender', {
   }
 });
 
+Crafty.c('timer', {
+  init: function() {
+    this.requires('Delay');
+  }
+});
+
 
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
