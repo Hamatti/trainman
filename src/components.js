@@ -197,6 +197,48 @@ Crafty.c('Wall_martini', {
 });
 
 // -----------------PASSENGERS--------------------//
+//Adult man in grey coat, facin right
+Crafty.c('senior_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_senior_right');
+    }
+});
+
+//Adult man in grey coat, facing left
+Crafty.c('senior_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_senior_left');
+    }
+});
+
+//Adult man in red coat, facing right
+Crafty.c('adult_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_man_right');
+    }
+});
+
+//Adult man in red coat, facing left
+Crafty.c('adult_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_man_left');
+    }
+});
+
+//Teen boy in blue coat, facing right
+Crafty.c('teenager_m_right', {
+    init: function() {
+        this.requires('Passenger, spr_teenboy_right');
+    }
+});
+
+//Teen boy in blue coat, facing left
+Crafty.c('teenager_m_left', {
+    init: function() {
+        this.requires('Passenger, spr_teenboy_left');
+    }
+});
+
 //Adult woman in red coat, facing right
 Crafty.c('senior_f_right', {
     init: function() {
