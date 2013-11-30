@@ -8,7 +8,10 @@ var Bindings = {
               if(next_scene !== undefined) {
                   Game.current_car = next_scene;
                   Game.direction_from = 'right';
+                  this.unbind('Interactable', this.interactable);
+                  this.unbind('Transitionable', this.transitionable);
                   Crafty.scene(next_scene);
+                  
               }
             }
             else if(data.x == Game.RIGHT_X) {
@@ -17,6 +20,8 @@ var Bindings = {
                 if(next_scene !== undefined) {
                     Game.current_car = next_scene;
                     Game.direction_from = 'left';
+                    this.unbind('Interactable', this.interactable);
+                  this.unbind('Transitionable', this.transitionable);
                     Crafty.scene(next_scene);
                 }
             }
