@@ -31,12 +31,12 @@ Game = {
     Crafty.scene('Loading');
   },
 
-  calculate_interaction_coordinate: function(x, y, z) {
+  calculate_interaction_coordinate: function(x, y, direction) {
     
-    if(z === 'up') return {x: x, y: y-1, x2: x, y2: y-2};
-    else if(z === 'left') return {x: x-1, y: y, x2: x-2, y2: y};
-    else if(z === 'right') return {x: x+1, y: y, x2: x+2, y2: y};
-    else if(z === 'down') return {x: x, y: y+1, x2: x, y2: y+2};
+    if(direction === 'up') return {x: x, y: y-1, x2: x, y2: y-2};
+    else if(direction === 'left') return {x: x-1, y: y, x2: x-2, y2: y};
+    else if(direction === 'right') return {x: x+1, y: y, x2: x+2, y2: y};
+    else if(direction === 'down') return {x: x, y: y+1, x2: x, y2: y+2};
     
   },
 

@@ -168,5 +168,5 @@ function fill_car(template) {
 			}
 		}
 	}
-	console.log(Train.chairs[Game.current_car]);
+	//console.log(Train.chairs[Game.current_car]);
 }
