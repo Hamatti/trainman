@@ -24,6 +24,7 @@ var Bindings = {
                     Crafty.scene(next_scene);
                 }
             }
+			Crafty.audio.play('door');
         }
     },
 
