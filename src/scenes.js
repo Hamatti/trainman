@@ -21,7 +21,8 @@ Crafty.scene( 'engine', function() {
 
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
-    Crafty.audio.play( 'background', -1 );
+    //Crafty.audio.play( 'background', -1 );
+	Crafty.audio.play('music', -1);
 
     
 
@@ -89,16 +90,14 @@ Crafty.scene( 'Loading', function () {
 		'assets/level_old.png',
         'assets/board_room_applause.mp3',
         'assets/board_room_applause.ogg',
-        'assets/board_room_applause.aac',
 		'assets/onboard_background2.mp3',
 		'assets/onboard_background2.ogg',
-		'assets/onboard_background2.aac',
 		'assets/wtf.mp3',
 		'assets/wtf.ogg',
-		'assets/wtf.aac',
 		'assets/door_closes.mp3',
 		'assets/door_closes.ogg',
-		'assets/door_closes.aac'
+		'assets/music.mp3',
+		'assets/music.ogg'
    ], function () {
         // Once the images are loaded...
 
@@ -166,17 +165,15 @@ Crafty.scene( 'Loading', function () {
         // Define our sounds for later use
         Crafty.audio.add( {
 			applause: ['assets/board_room_applause.mp3',
-                'assets/board_room_applause.ogg',
-                'assets/board_room_applause.aac'],
+                'assets/board_room_applause.ogg'],
 			background: ['assets/onboard_background2.mp3',
-				'assets/onboard_background2.ogg',
-				'assets/onboard_background2.aac'],
+				'assets/onboard_background2.ogg'],
 			wtf: ['assets/wtf.mp3',
-				'assets/wtf.ogg',
-				'assets/wtf.aac'],
+				'assets/wtf.ogg'],
 			door: ['assets/door_closes.mp3',
-				'assets/door_closes.ogg',
-				'assets/door_closes.aac']
+				'assets/door_closes.ogg'],
+			music: ['assets/music.mp3',
+				'assets/music.oog']
        } );
 
         // Now that our sprites are ready to draw, start the game after showing
