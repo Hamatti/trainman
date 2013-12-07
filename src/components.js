@@ -349,6 +349,7 @@ Crafty.c('PlayerCharacter', {
             if (this.isDown('E')) _interact(this);
             if (this.isDown('R')) clearDialog();
             if (this.isDown('G')) transition(this);
+			if (this.isDown('M')) Crafty.audio.togglePause('music');
         })
         // These next lines define our four animations
         //  each call to .animate specifies:

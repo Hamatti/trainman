@@ -25,8 +25,8 @@ Crafty.scene('engine', function() {
     // -------------------- START THE GAME -------------------/
     // Play onboard audio in the background, loop forever
 	if (!Game.bg_audio_playing) {
-    	Crafty.audio.play('background', -1);
-    	Crafty.audio.play('music', -1, 0.5);
+    	Crafty.audio.play('background', -1, 0.7);
+    	Crafty.audio.play('music', -1, 0.4);
 		Game.bg_audio_playing = true;
 	}
 
