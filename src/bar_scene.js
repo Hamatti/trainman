@@ -14,10 +14,6 @@ Crafty.scene('bar', function() {
     this.player = Crafty.e('PlayerCharacter').at(Game.LEFT_X, 3);
   }
 
-  // -------------------- START THE GAME -------------------/
-  // Play onboard audio in the background, loop forever
-  Crafty.audio.play('background', -1);
-
 }, function() {
   this.unbind('Interactable', this.interactable);
   this.unbind('Transitionable', this.transitionable);

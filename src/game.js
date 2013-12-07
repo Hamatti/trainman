@@ -76,7 +76,8 @@ Game = {
     current_car: 'engine',
     direction_from: undefined,
     interaction_mode: false,
-    current_station: 'Turku'
+    current_station: 'Turku',
+	bg_audio_playing: false
 
 }
 

@@ -10,9 +10,8 @@ var Bindings = {
                 if (next_scene !== undefined) {
                     Game.current_car = next_scene;
                     Game.direction_from = 'right';
-
                     Crafty.scene(next_scene);
-
+					Crafty.audio.play('door');
                 }
             } else if (data.x == Game.RIGHT_X) {
                 Game.last_scene = Game.current_car;
@@ -21,9 +20,9 @@ var Bindings = {
                     Game.current_car = next_scene;
                     Game.direction_from = 'left';
                     Crafty.scene(next_scene);
+            		Crafty.audio.play('door');
                 }
             }
-            Crafty.audio.play('door');
         }
     },
 
