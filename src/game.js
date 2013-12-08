@@ -21,6 +21,23 @@ Game = {
         return this.map_grid.height * this.map_grid.tile.height;
     },
 
+   start_timer: function() {
+      var timer = Crafty.e('timer');
+
+      timer.delay(function() {
+        
+        if(Train.route.indexOf(Game.current_station) > 1) {
+          Crafty.scene('Victory');
+          return;
+        }
+
+        else {
+          Game.current_station = Train.route[Train.route.indexOf(Game.current_station) + 1 ];
+          Crafty.scene('StationChange');
+        } 
+      }, 35000, 2);
+    },
+
     // Initialize and start our game
     start: function() {
         // Start crafty and set a background color so that we can see it's working
@@ -33,6 +50,9 @@ Game = {
         // Simply start the "Loading" scene to get things going
         Crafty.scene('Loading');
     },
+
+    
+ 
 
 
     calculate_interaction_coordinate: function(x, y, direction) {
@@ -66,7 +86,7 @@ Game = {
 
     add_points: function(n) {
         this.points += n;
-        document.getElementById('ipoints').innerHTML = this.points;
+        document.getElementById('points').innerHTML = this.points;
     },
 
     LEFT_X: 1,
@@ -77,7 +97,7 @@ Game = {
     direction_from: undefined,
     interaction_mode: false,
     current_station: 'Turku',
-	bg_audio_playing: false
+	  bg_audio_playing: false
 
 }
 

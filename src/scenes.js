@@ -9,6 +9,7 @@ Crafty.scene('engine', function() {
     document.getElementById('points').innerHTML = Game.points;
     this.dialog = Crafty.e('Dialog');
     if (Game.last_scene === 'Start') {
+        Game.start_timer();
         document.getElementById('dialog').innerHTML = '<p><b> Welcome to Trainman: </b><br /> ' + this.dialog.dialog.tutorial + '</p>';
     }
 
@@ -40,6 +41,7 @@ Crafty.scene('engine', function() {
 Crafty.scene('StationChange', function() {
 
     Crafty.e('2D, DOM, Image').css('background', '#000').image('assets/station_screen.png');
+    document.getElementById('dialog').innerHTML = "<h2>>The train stops at " + Game.current_station + "</h2>";
 
     setTimeout(function() {
         Crafty.scene(Game.current_car)
@@ -52,7 +54,9 @@ Crafty.scene('StationChange', function() {
 // -------------
 // Tells the player when they've won and lets them start a new game
 Crafty.scene('Victory', function() {
-    console.log('entering victory-scene')
+    console.log('entering victory-scene');
+
+    document.getElementById('dialog').innerHTML = "<p><strong> We arrive at Helsinki, the final destination. <br /> Your final score was " + Game.points + " points.</strong></p>";
 
     // Display some text in celebration of the victory
     Crafty.e('2D, DOM, Text').text('Train has reached the final station<br />  Press F5 to replay.').attr({
@@ -64,17 +68,7 @@ Crafty.scene('Victory', function() {
     // Give'em a round of applause!
     Crafty.audio.play('applause');
 
-    // After a short delay, watch for the player to press a key, then restart
-    // the game when a key is pressed
-    var delay = true;
-    setTimeout(function() {
-        delay = false;
-    }, 5000);
-    this.restart_game = function() {
-        Game.points = 0;
-        Game.current_station = Train.route[0];
-        Crafty.scene('engine');
-    };
+    
 
 });
 
