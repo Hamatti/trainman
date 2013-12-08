@@ -66,18 +66,30 @@ Crafty.scene('Victory', function() {
     };
 
 
+    var victory = 'Train has reached the final station<br />There were ' + Game.PASSENGER_COUNT + ' passengers and you checked ' + how_many_checked + ' passengers. <br /> Your total points are ' + Game.points + '<br /> Well done!<br /> Press F5 to replay.';
+    var failure = 'Train has reached the final station<br />There were ' + Game.PASSENGER_COUNT + ' passengers and you checked ' + how_many_checked + ' passengers. <br /> Your total points are ' + Game.points + '<br /> Unfortunately, it was not good enough and you are fired.<br /> Press F5 to replay.';
+
+    var scoreLimit = 15;
+
     // Display some text in celebration of the victory
-    Crafty.e('2D, DOM, Text').text('Train has reached the final station<br />There were ' + Game.PASSENGER_COUNT + ' passengers and you checked ' + how_many_checked + ' passengers. <br /> Your total points are ' + Game.points + '<br /> Press F5 to replay.').attr({
-        x: 0,
-        y: Game.height() / 2 - 24,
-        w: Game.width()
-    }).css($text_css);
+    if(Game.points >= scoreLimit) {
+        Crafty.e('2D, DOM, Text').text(victory).attr({
+            x: 0,
+            y: Game.height() / 2 - 24,
+            w: Game.width()
+        }).css($text_css);
 
-    // Give'em a round of applause!
-    Crafty.audio.play('applause');
-
-    
-
+        // Give'em a round of applause!
+        Crafty.audio.play('applause');
+    } 
+    // Display some text to mock the player for her failure
+    else {
+        Crafty.e('2D, DOM, Text').text(failure).attr({
+            x: 0,
+            y: Game.height() / 2 - 24,
+            w: Game.width()
+        }).css($text_css);
+    }
 });
 
 // Loading scene
