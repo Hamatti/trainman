@@ -6,6 +6,7 @@ function Passenger(name, home, occupation, age, sex) {
     this.car;
     this.x;
     this.y;
+    this.in_train = false;
 
 
     this.does_have_ticket = function() {

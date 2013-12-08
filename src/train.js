@@ -53,8 +53,7 @@ var Train = {
 
 				passenger.from = this.route[from_index];
 				passenger.to = this.route[to_index];
-
-
+				
 				/* If there are empty chairs, pick up a chair */
 				if (this.passenger_in_cars[random_car_index].length < random_car.length) {
 
@@ -78,7 +77,7 @@ var Train = {
 	get_passenger: function(x, y) {
 		for (var i = 0; i < this.passenger_in_cars[Game.current_car].length; i++) {
 			var possible = this.passenger_in_cars[Game.current_car][i];
-			if (possible.x == x && possible.y == y) return possible;
+			if (possible.in_train && possible.x == x && possible.y == y) return possible;
 		}
 		return null;
 	},

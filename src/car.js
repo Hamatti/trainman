@@ -134,12 +134,12 @@ function insert_passengers(station) {
 
 	for (var i = 0; i < passengers.length; i++) {
 		var passenger = passengers[i];
-
+		passenger.in_train = false;
 		if (Train.route.indexOf(station) >= Train.route.indexOf(passenger.from) && Train.route.indexOf(station) < Train.route.indexOf(passenger.to)) {
 			var sprite = passenger.sprite();
 			var x = passenger.x;
 			var y = passenger.y;
-
+			passenger.in_train = true;
 			Crafty.e(sprite).at(x, y);
 		}
 
