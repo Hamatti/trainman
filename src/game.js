@@ -22,10 +22,12 @@ Game = {
     },
 
    start_timer: function() {
-      var timer = Crafty.e('timer');
+        /* This function takes care of moving the train through stations */
+        var timer = Crafty.e('timer');
 
-      timer.delay(function() {
+        timer.delay(function() {
         
+        // If the next station will be the final station, end the game
         if(Train.route.indexOf(Game.current_station) > 1) {
           Crafty.scene('Victory');
           return;

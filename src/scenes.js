@@ -19,6 +19,7 @@ Crafty.scene('engine', function() {
     // Player character, placed at 5, 1 on our grid
     if (Game.last_scene === 'Start') {
         this.player = Crafty.e('PlayerCharacter').at(11, 1);
+        Game.last_scene = Game.current_car;
     } else {
         this.player = Crafty.e('PlayerCharacter').at(Game.LEFT_X, 3);
     }
