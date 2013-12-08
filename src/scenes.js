@@ -59,8 +59,15 @@ Crafty.scene('Victory', function() {
 
     document.getElementById('dialog').innerHTML = "<p><strong> We arrive at Helsinki, the final destination. <br /> Your final score was " + Game.points + " points.</strong></p>";
 
+    var how_many_checked = 0;
+    for(var index in Train.passenger_in_cars) {
+        var car = Train.passenger_in_cars[index];
+        how_many_checked += _.filter(car, function(passenger) { return passenger.checked; }).length;
+    };
+
+
     // Display some text in celebration of the victory
-    Crafty.e('2D, DOM, Text').text('Train has reached the final station<br />  Press F5 to replay.').attr({
+    Crafty.e('2D, DOM, Text').text('Train has reached the final station<br />There were ' + Game.PASSENGER_COUNT + ' passengers and you checked ' + how_many_checked + ' passengers. <br /> Your total points are ' + Game.points + '<br /> Press F5 to replay.').attr({
         x: 0,
         y: Game.height() / 2 - 24,
         w: Game.width()
