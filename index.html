@@ -2,9 +2,9 @@
 <html>
   <head>
     <title> Trainman, game prototype by Nottingham Games</title>
-    <script> 
+    <script>
     if(!('contains' in String.prototype))
-      String.prototype.contains = function(str, startIndex) { return -1 !== String.prototype.indexOf.call(this, str, startIndex); }; 
+      String.prototype.contains = function(str, startIndex) { return -1 !== String.prototype.indexOf.call(this, str, startIndex); };
     </script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="lib/underscore-min.js"></script>
@@ -17,24 +17,25 @@
     <script src="src/bindings.js"></script>
     <script src="src/bar_scene.js"></script>
     <script src="src/passenger_scene.js"></script>
-     
+
     <script src="src/game.js"></script>
     <script src="src/components.js"></script>
     <script src="src/scenes.js"></script>
-    
+
     <script>
       window.addEventListener('load', Game.start);
     </script>
     <meta charset="utf8" />
     <link rel="stylesheet" href="assets/css/gui.css" />
     <link rel="stylesheet" href="assets/css/colorbox.css" />
-    
+
     <link href='http://fonts.googleapis.com/css?family=Joti+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
+      <p><a href="about.html">About the game </a></p>
     <div id="game" class="game">
       <h1> TRAINMAN </h1>
 
@@ -53,5 +54,5 @@
       </div>
     </div>
   </body>
-  
+
 </html>
