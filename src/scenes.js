@@ -158,7 +158,7 @@ Crafty.scene('Loading', function() {
         // Now that our sprites are ready to draw, start the game after showing
         // title screen for a while
         Train.create_templates();
-        Train.set_passengers(50);
+        Train.set_passengers(Game.PASSENGER_COUNT);
 
         setTimeout(function() {
             Crafty.scene('engine');
