@@ -24,6 +24,16 @@ h1 {
     border: 1px solid black;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0px;
+}
+
+#minimap {
+    width: 896px;
+    height: 150px;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
 }
 
 .points {
@@ -39,8 +49,9 @@ h1 {
 
 .dialog {
     width: 70%;
-    height: 100%;
+    
     float:left;
+    margin-top: 0px;
 }
 
 .dialog p {
@@ -61,8 +72,4 @@ h1 {
     margin-top: 5px;
 }
 
-#minimap {
-    width: 896px;
-    height: 150px;
-}
 
