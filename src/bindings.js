@@ -39,7 +39,8 @@ var Bindings = {
 
         if (passenger1 && passenger2) { 
             /* TODO: Implement selection mode here */
-            passenger = passenger1;
+            var choice = prompt("Which passenger? [1] for closer, [2] for further");
+            passenger = (choice == '1') ? passenger1 : passenger2;
         }
         if (passenger || (passenger1 !== null && passenger2 === null || passenger1 === null && passenger2 !== null)) {
 

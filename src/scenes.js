@@ -42,7 +42,7 @@ Crafty.scene('engine', function() {
 Crafty.scene('StationChange', function() {
 
     Crafty.e('2D, DOM, Image').css('background', '#000').image('assets/station_screen.png');
-    document.getElementById('dialog').innerHTML = "<h2>>The train stops at " + Game.current_station + "</h2>";
+    document.getElementById('dialog').innerHTML = "<p><strong>The train stops at " + Game.current_station + "</strong></p>";
 
     setTimeout(function() {
         Crafty.scene(Game.current_car)
