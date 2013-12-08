@@ -37,7 +37,7 @@ var Bindings = {
         var passenger2 = Train.get_passenger(interaction_coord.x2, interaction_coord.y2);
         var passenger = null;
 
-        if (passenger1 && passenger2) { 
+        if (!Game.interaction_mode && passenger1 && passenger2) { 
             /* TODO: Implement selection mode here */
             var choice = prompt("Which passenger? [1] for closer, [2] for further");
             passenger = (choice == '1') ? passenger1 : passenger2;
