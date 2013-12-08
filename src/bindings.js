@@ -60,9 +60,24 @@ var Bindings = {
                     var code = e.keyCode || e.which;
 
                     if (code === 49) {
-                        // Show ticket to user
-                        document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has;
+                        if(passenger.checked) {
+                          $.colorbox.close();
+                          document.getElementById('dialog').innerHTML = "<p><strong> GAME: </strong> You have already checked that passenger. <br /> The passenger is now angry. -1 point for you. </p>";
+                          Game.add_points(-1);
+                          $('body').unbind('keypress');
+                          return;
+                        }
+                        else {
+                          // Show ticket to user
+                          document.getElementById('ticketinfo').innerHTML = '<strong>Ticket group:</strong> ' + passenger.ticket.group + '<br /> <strong>Has ticket?</strong> ' + passenger.ticket.has;  
+                        }
+                        
                     } else if (code === 50) {
+                        if(passenger.checked) {
+                          $.colorbox.close();
+                          $('body').unbind('keypress');
+                          return;
+                        }
                         // Mark that ticket is okay and count points accordingly
                         document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> Your ticket seems valid. Have a nice trip<br /> <strong>" + passenger.name + ": </strong>Thanks! </p>";
                         Game.add_points(1);
@@ -75,7 +90,12 @@ var Bindings = {
 
                         passenger.checked = true;
                     } else if (code === 51) {
-						Crafty.audio.play('wtf');
+                      if(passenger.checked) {
+                          $.colorbox.close();
+                          $('body').unbind('keypress');
+                          return;
+                        }
+						          Crafty.audio.play('wtf');
                         // Ticket not valid, count points and mark that customer has been sold one
                         if (passenger.ticket.valid === false) {
                             document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name + ": </strong>Oh shit </p>";
@@ -97,7 +117,7 @@ var Bindings = {
 
                 }
             });
-            passenger.checked = true;
+            
             //interact(data.player);
         }
     }
