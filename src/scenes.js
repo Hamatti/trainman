@@ -91,7 +91,7 @@ Crafty.scene('Loading', function() {
 
 
     // Load our sprite map image
-    Crafty.load(['assets/passengers.png', 'assets/spritet.png', 'assets/level_old.png', 'assets/board_room_applause.mp3', 'assets/board_room_applause.ogg', 'assets/onboard_background2.mp3', 'assets/onboard_background2.ogg', 'assets/wtf.mp3', 'assets/wtf.ogg', 'assets/door_closes.mp3', 'assets/door_closes.ogg', 'assets/music.mp3', 'assets/music.ogg'], function() {
+    Crafty.load(['assets/passengers.png', 'assets/spritet.png', 'assets/level_old.png', 'assets/board_room_applause.mp3', 'assets/board_room_applause.ogg', 'assets/onboard_background2.mp3', 'assets/onboard_background2.ogg', 'assets/wtf.mp3', 'assets/wtf.ogg', 'assets/door_closes.mp3', 'assets/door_closes.ogg', 'assets/music.mp3', 'assets/music.ogg', 'assets/blimblom.mp3', 'blimblom.ogg'], function() {
         // Once the images are loaded...
         // Define the individual sprites in the image
         // Each one (spr_tree, etc.) becomes a component
@@ -159,7 +159,8 @@ Crafty.scene('Loading', function() {
             background: ['assets/onboard_background2.mp3', 'assets/onboard_background2.ogg'],
             wtf: ['assets/wtf.mp3', 'assets/wtf.ogg'],
             door: ['assets/door_closes.mp3', 'assets/door_closes.ogg'],
-            music: ['assets/music.mp3', 'assets/music.oog']
+            music: ['assets/music.mp3', 'assets/music.ogg'],
+			blimblom: ['assets/blimblom.mp3', 'assets/blimblom.ogg']
         });
 
         // Now that our sprites are ready to draw, start the game after showing

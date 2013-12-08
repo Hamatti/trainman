@@ -26,20 +26,34 @@ Game = {
    start_timer: function() {
         /* This function takes care of moving the train through stations */
         var timer = Crafty.e('timer');
+		var interval = 18000;
+		var next_event = 'announcement';
 
         timer.delay(function() {
         
-        // If the next station will be the final station, end the game
-        if(Train.route.indexOf(Game.current_station) > 1) {
-          Crafty.scene('Victory');
-          return;
-        }
+			if(next_event == 'announcement') {
+				var pa_timer = Crafty.e('timer');
+				pa_timer.delay(function() {
+					Crafty.audio.play('blimblom');
+					document.getElementById('dialog').innerHTML = "<p><strong>The next stop: " + Train.route[Train.route.indexOf(Game.current_station) + 1] + "</strong></p>";
+				}, interval * 0.25, 0);
+				next_event = 'station';
+			}
 
-        else {
-          Game.current_station = Train.route[Train.route.indexOf(Game.current_station) + 1 ];
-          Crafty.scene('StationChange');
-        } 
-      }, 35000, 2);
+			else {
+				// If the next station will be the final station, end the game
+				if(Train.route.indexOf(Game.current_station) > 1) {
+				  Crafty.scene('Victory');
+				  return;
+				}
+
+				else {
+				  Game.current_station = Train.route[Train.route.indexOf(Game.current_station) + 1 ];
+				  Crafty.scene('StationChange');
+				  next_event = 'announcement';
+				} 
+			}
+      }, interval, 5);
     },
 
     // Initialize and start our game
