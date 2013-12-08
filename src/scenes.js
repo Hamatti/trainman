@@ -46,7 +46,7 @@ Crafty.scene('StationChange', function() {
 
     setTimeout(function() {
         Crafty.scene(Game.current_car)
-    }, 2000);
+    }, 8000);
 
 
 });
