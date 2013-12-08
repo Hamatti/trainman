@@ -75,6 +75,7 @@ var Bindings = {
 
                         passenger.checked = true;
                     } else if (code === 51) {
+						Crafty.audio.play('wtf');
                         // Ticket not valid, count points and mark that customer has been sold one
                         if (passenger.ticket.valid === false) {
                             document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name + ": </strong>Oh shit </p>";
