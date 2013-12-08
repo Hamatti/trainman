@@ -2,7 +2,7 @@ Crafty.scene('passenger', function() {
     console.log('entering passenger-scene');
 
     fill_car(Train.templates[Game.current_car]);
-    insert_passengers();
+    insert_passengers(Game.current_station);
 
     // Player character, placed at 5, 1 on our grid
     if (Game.direction_from === 'right') {
