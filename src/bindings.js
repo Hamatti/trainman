@@ -102,6 +102,7 @@ var Bindings = {
                             document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name + ": </strong>Oh shit </p>";
                             Game.add_points(1);
                         } else {
+                            Game.add_points(-1);
                             document.getElementById('dialog').innerHTML = "<p><strong>You:</strong> You need to have a ticket to travel.<br /> I will have to fine you for this. <br /><strong>" + passenger.name + ": </strong>What are you doing? I have a completely valid ticket. </p>";
                             console.log("Ticket was valid");
                             setTimeout(function() {
